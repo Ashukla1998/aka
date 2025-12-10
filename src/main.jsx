@@ -1,5 +1,5 @@
 // src/components/CircularProjectShowcase.jsx
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
@@ -39,64 +39,70 @@ export default function CircularProjectShowcase({ categories = exampleCategories
   const categoryNames = Object.keys(categories);
   const [categoryIndex, setCategoryIndex] = useState(0);
   const [hoverIndex, setHoverIndex] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
 
   const selectedCategory = categories[categoryNames[categoryIndex]] || [];
 
-  // Geometry
+  // Responsive detection
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Geometry for circular layout
   const center = size / 2;
   const radius = size * 0.42;
   const thumbSize = 92;
   const thumbHalf = thumbSize / 2;
-
   const previewIndex = hoverIndex;
 
-  const thumbnails = useMemo(
-    () =>
-      selectedCategory.map((project, i) => {
-        const angle = (i / selectedCategory.length) * Math.PI * 2 - Math.PI / 2;
-        const x = center + Math.cos(angle) * radius - thumbHalf;
-        const y = center + Math.sin(angle) * radius - thumbHalf;
+  const thumbnails = useMemo(() => {
+    if (isMobile) return null; // don't render circular on mobile
 
-        const isHovered = hoverIndex === i;
-        const isAnyHovered = hoverIndex !== null;
+    return selectedCategory.map((project, i) => {
+      const angle = (i / selectedCategory.length) * Math.PI * 2 - Math.PI / 2;
+      const x = center + Math.cos(angle) * radius - thumbHalf;
+      const y = center + Math.sin(angle) * radius - thumbHalf;
 
-        return (
-          <motion.button
-            key={project.id}
-            className="absolute rounded-xl overflow-hidden border border-gray-200 shadow-md bg-white"
-            style={{ width: thumbSize, height: thumbSize, left: x, top: y }}
-            onMouseEnter={() => setHoverIndex(i)}
-            onMouseLeave={() => setHoverIndex(null)}
-            onFocus={() => setHoverIndex(i)}
-            onBlur={() => setHoverIndex(null)}
-            onClick={() =>
-              navigate(
-                `/project/${encodeURIComponent(categoryNames[categoryIndex])}/${encodeURIComponent(project.id)}`,
-                {
-                  state: { project, categoryName: categoryNames[categoryIndex] },
-                }
-              )
-            }
-            initial={false}
-            animate={{
-              scale: isHovered ? 1.15 : 1,
-              zIndex: isHovered ? 100 : 10,
-              opacity: isAnyHovered ? (isHovered ? 1 : 0.3) : 1,
-              boxShadow: isHovered
-                ? "0 12px 26px rgba(0,0,0,0.15)"
-                : "0 6px 16px rgba(0,0,0,0.08)",
-            }}
-            transition={{ type: "spring", stiffness: 260, damping: 26 }}
-          >
-            <img src={project.img} alt={project.title} className="w-full h-full object-cover" />
-            <div className="absolute inset-0 flex items-center justify-center bg-black/36 text-white font-semibold text-sm text-center px-1 rounded-xl">
-              {project.title}
-            </div>
-          </motion.button>
-        );
-      }),
-    [selectedCategory, hoverIndex, center, radius, categoryIndex, categoryNames, navigate]
-  );
+      const isHovered = hoverIndex === i;
+      const isAnyHovered = hoverIndex !== null;
+
+      return (
+        <motion.button
+          key={project.id}
+          className="absolute rounded-xl overflow-hidden border border-gray-200 shadow-md bg-white"
+          style={{ width: thumbSize, height: thumbSize, left: x, top: y }}
+          onMouseEnter={() => setHoverIndex(i)}
+          onMouseLeave={() => setHoverIndex(null)}
+          onFocus={() => setHoverIndex(i)}
+          onBlur={() => setHoverIndex(null)}
+          onClick={() =>
+            navigate(
+              `/project/${encodeURIComponent(categoryNames[categoryIndex])}/${encodeURIComponent(project.id)}`,
+              { state: { project, categoryName: categoryNames[categoryIndex] } }
+            )
+          }
+          initial={false}
+          animate={{
+            scale: isHovered ? 1.15 : 1,
+            zIndex: isHovered ? 100 : 10,
+            opacity: isAnyHovered ? (isHovered ? 1 : 0.3) : 1,
+            boxShadow: isHovered
+              ? "0 12px 26px rgba(0,0,0,0.15)"
+              : "0 6px 16px rgba(0,0,0,0.08)",
+          }}
+          transition={{ type: "spring", stiffness: 260, damping: 26 }}
+        >
+          <img src={project.img} alt={project.title} className="w-full h-full object-cover" />
+          <div className="absolute inset-0 flex items-center justify-center bg-black/36 text-white font-semibold text-sm text-center px-1 rounded-xl">
+            {project.title}
+          </div>
+        </motion.button>
+      );
+    });
+  }, [selectedCategory, hoverIndex, center, radius, categoryIndex, categoryNames, navigate, isMobile]);
 
   return (
     <div className="w-full flex flex-col items-center gap-6 px-4 py-2">
@@ -118,32 +124,63 @@ export default function CircularProjectShowcase({ categories = exampleCategories
         ))}
       </div>
 
-      {/* Circular thumbnails */}
-      <div className="relative rounded-full" style={{ width: size, height: size }}>
-        {thumbnails}
-
-        <AnimatePresence>
-          {previewIndex !== null && selectedCategory[previewIndex] && (
-            <motion.div
-              key={`preview-${selectedCategory[previewIndex].id}`}
-              initial={{ opacity: 0, scale: 0.7 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.85 }}
-              transition={{ type: "spring", stiffness: 160, damping: 22 }}
-              className="absolute rounded-full overflow-hidden shadow-2xl"
-              style={{ width: size - 40, height: size - 40, left: 20, top: 20 }}
+      {/* Circular or List layout */}
+      {isMobile ? (
+        <div className="w-full flex flex-col gap-3">
+          {selectedCategory.map((project) => (
+            <motion.button
+              key={project.id}
+              className="w-full flex gap-3 items-center rounded-xl overflow-hidden border border-gray-200 shadow-md bg-white"
+              onClick={() =>
+                navigate(
+                  `/project/${encodeURIComponent(categoryNames[categoryIndex])}/${encodeURIComponent(project.id)}`,
+                  { state: { project, categoryName: categoryNames[categoryIndex] } }
+                )
+              }
+              whileHover={{ scale: 1.02, boxShadow: "0 12px 26px rgba(0,0,0,0.15)" }}
+              transition={{ type: "spring", stiffness: 260, damping: 26 }}
             >
-              <img src={selectedCategory[previewIndex].img} alt={selectedCategory[previewIndex].title} className="w-full h-full object-cover" />
-              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent text-white text-center">
-                <div className="font-semibold text-lg">{selectedCategory[previewIndex].title}</div>
-                <div className="text-sm text-white/80">Preview</div>
+              <img src={project.img} alt={project.title} className="w-24 h-24 object-cover" />
+              <div className="flex flex-col justify-center pr-2">
+                <div className="font-semibold text-sm">{project.title}</div>
+                <div className="text-xs text-gray-500">{project.excerpt}</div>
               </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
+            </motion.button>
+          ))}
+        </div>
+      ) : (
+        <div className="relative rounded-full" style={{ width: size, height: size }}>
+          {thumbnails}
 
-      <div className="text-sm text-gray-600">Hover to preview · Click to open details page</div>
+          <AnimatePresence>
+            {previewIndex !== null && selectedCategory[previewIndex] && (
+              <motion.div
+                key={`preview-${selectedCategory[previewIndex].id}`}
+                initial={{ opacity: 0, scale: 0.7 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.85 }}
+                transition={{ type: "spring", stiffness: 160, damping: 22 }}
+                className="absolute rounded-full overflow-hidden shadow-2xl"
+                style={{ width: size - 40, height: size - 40, left: 20, top: 20 }}
+              >
+                <img
+                  src={selectedCategory[previewIndex].img}
+                  alt={selectedCategory[previewIndex].title}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent text-white text-center">
+                  <div className="font-semibold text-lg">{selectedCategory[previewIndex].title}</div>
+                  <div className="text-sm text-white/80">Preview</div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      )}
+
+      <div className="text-sm text-gray-600">
+        {isMobile ? "Tap to open details page" : "Hover to preview · Click to open details page"}
+      </div>
     </div>
   );
 }

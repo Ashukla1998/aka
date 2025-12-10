@@ -4,7 +4,7 @@ import logo from "../images/akalogo.jpg";
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const links = ["Home", "About", "Services", "Project", "Blog", "Contact"];
+  const links = ["Home", "About", "Services","Contact"];
 
   return (
     <header className="sticky top-0 bg-white shadow-md z-50">
@@ -12,11 +12,11 @@ export default function Navbar() {
         
         {/* Logo */}
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-700 font-serif font-semibold">
+          <div className="w-10 h-10  border border-gray-200 flex items-center justify-center text-gray-700 font-serif font-semibold">
              <img
             src={logo} 
             alt="AKA Logo"
-            className="w-10 h-10 rounded-full object-cover"
+            className="w-10 h-10 object-cover"
           />
           </div>
           {/* <span className="text-gray-800 font-semibold text-lg md:text-xl">AKA</span> */}
@@ -27,7 +27,7 @@ export default function Navbar() {
           {links.map((link) => (
             <a
               key={link}
-              href={`#${link.toLowerCase()}`}
+              href={`/${link.toLowerCase()}`}
               className="relative hover:text-[#c5a879] transition-colors duration-300"
             >
               {link}
