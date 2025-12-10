@@ -7,7 +7,7 @@ export default function Footer() {
         
         {/* Copyright */}
         <div>
-          © {new Date().getFullYear()} Archies. All rights reserved.
+          © {new Date().getFullYear()} Archana kapil Assosiate(AKA). All rights reserved.
         </div>
 
         {/* Footer Links */}
