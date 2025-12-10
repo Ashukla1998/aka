@@ -22,14 +22,14 @@ const exampleCategories = {
     id: `c-${i + 1}`,
     title: `Commercial ${i + 1}`,
     img: `https://images.unsplash.com/photo-1600585154340-be6161a56a0c`,
-    excerpt: `Short summary for Commercial ${i + 1}`,
+    excerpt: `Short summary for Commercial ${i + 1}.`,
     details: `Detailed description for Commercial ${i + 1}.`,
   })),
   Housing: new Array(5).fill(0).map((_, i) => ({
     id: `hs-${i + 1}`,
     title: `Housing ${i + 1}`,
     img: `https://images.unsplash.com/photo-1600585154340-be6161a56a0c`,
-    excerpt: `Short summary for Housing ${i + 1}`,
+    excerpt: `Short summary for Housing ${i + 1}.`,
     details: `Detailed description for Housing ${i + 1}.`,
   })),
 };
@@ -39,7 +39,7 @@ export default function CircularProjectShowcase({ categories = exampleCategories
   const categoryNames = Object.keys(categories);
   const [categoryIndex, setCategoryIndex] = useState(0);
   const [hoverIndex, setHoverIndex] = useState(null);
-  // removed activeIndex because click navigates to detail page
+
   const selectedCategory = categories[categoryNames[categoryIndex]] || [];
 
   // Geometry
@@ -58,6 +58,7 @@ export default function CircularProjectShowcase({ categories = exampleCategories
         const y = center + Math.sin(angle) * radius - thumbHalf;
 
         const isHovered = hoverIndex === i;
+        const isAnyHovered = hoverIndex !== null;
 
         return (
           <motion.button
@@ -69,23 +70,25 @@ export default function CircularProjectShowcase({ categories = exampleCategories
             onFocus={() => setHoverIndex(i)}
             onBlur={() => setHoverIndex(null)}
             onClick={() =>
-              // navigate to the detail page for this project
-              navigate(`/project/${encodeURIComponent(categoryNames[categoryIndex])}/${encodeURIComponent(project.id)}`, {
-                state: { project, categoryName: categoryNames[categoryIndex] },
-              })
+              navigate(
+                `/project/${encodeURIComponent(categoryNames[categoryIndex])}/${encodeURIComponent(project.id)}`,
+                {
+                  state: { project, categoryName: categoryNames[categoryIndex] },
+                }
+              )
             }
             initial={false}
             animate={{
               scale: isHovered ? 1.15 : 1,
               zIndex: isHovered ? 100 : 10,
-              opacity: 1,
-              boxShadow: isHovered ? "0 12px 26px rgba(0,0,0,0.15)" : "0 6px 16px rgba(0,0,0,0.08)",
+              opacity: isAnyHovered ? (isHovered ? 1 : 0.3) : 1,
+              boxShadow: isHovered
+                ? "0 12px 26px rgba(0,0,0,0.15)"
+                : "0 6px 16px rgba(0,0,0,0.08)",
             }}
             transition={{ type: "spring", stiffness: 260, damping: 26 }}
           >
             <img src={project.img} alt={project.title} className="w-full h-full object-cover" />
-
-            {/* Centered title overlay */}
             <div className="absolute inset-0 flex items-center justify-center bg-black/36 text-white font-semibold text-sm text-center px-1 rounded-xl">
               {project.title}
             </div>
@@ -97,6 +100,7 @@ export default function CircularProjectShowcase({ categories = exampleCategories
 
   return (
     <div className="w-full flex flex-col items-center gap-6 px-4 py-2">
+      {/* Category buttons */}
       <div className="flex gap-3 flex-wrap justify-center mb-2">
         {categoryNames.map((name, idx) => (
           <button
@@ -114,6 +118,7 @@ export default function CircularProjectShowcase({ categories = exampleCategories
         ))}
       </div>
 
+      {/* Circular thumbnails */}
       <div className="relative rounded-full" style={{ width: size, height: size }}>
         {thumbnails}
 
@@ -129,7 +134,6 @@ export default function CircularProjectShowcase({ categories = exampleCategories
               style={{ width: size - 40, height: size - 40, left: 20, top: 20 }}
             >
               <img src={selectedCategory[previewIndex].img} alt={selectedCategory[previewIndex].title} className="w-full h-full object-cover" />
-
               <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent text-white text-center">
                 <div className="font-semibold text-lg">{selectedCategory[previewIndex].title}</div>
                 <div className="text-sm text-white/80">Preview</div>
