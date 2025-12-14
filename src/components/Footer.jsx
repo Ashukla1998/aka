@@ -1,21 +1,40 @@
+// src/components/Footer.jsx
 import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="px-10 py-8 border-t border-gray-100 text-sm text-gray-600">
-      <div className="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-        
-        {/* Copyright */}
+    <footer className="border-t border-gray-100 bg-white">
+      <div className="max-w-7xl mx-auto px-10 py-12 grid grid-cols-1 md:grid-cols-3 gap-8 text-sm text-gray-600">
+
+        {/* Brand */}
         <div>
-          © {new Date().getFullYear()} Archana kapil Assosiate(AKA). All rights reserved.
+          <p className="font-serif text-lg text-gray-900 mb-3">
+            Archana Kapil Associates
+          </p>
+          <p className="max-w-xs leading-relaxed">
+            Designing thoughtful, sustainable environments that shape
+            better futures.
+          </p>
         </div>
 
-        {/* Footer Links */}
-        <nav className="flex gap-4">
-          <a className="hover:text-gray-900" href="#">Privacy</a>
-          <a className="hover:text-gray-900" href="#">Terms</a>
-          <a className="hover:text-gray-900" href="#">Careers</a>
-        </nav>
+        {/* Links */}
+        <div className="md:text-center">
+          <nav className="flex flex-col gap-3">
+            <a href="#" className="hover:text-gray-900">Privacy Policy</a>
+            <a href="#" className="hover:text-gray-900">Terms of Use</a>
+            <a href="#" className="hover:text-gray-900">Careers</a>
+          </nav>
+        </div>
+
+        {/* Copyright */}
+        <div className="md:text-right text-gray-500">
+          <p>
+            © {new Date().getFullYear()} Archana Kapil Associates
+          </p>
+          <p className="mt-2 text-xs">
+            All rights reserved.
+          </p>
+        </div>
 
       </div>
     </footer>
