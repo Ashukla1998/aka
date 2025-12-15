@@ -287,6 +287,7 @@ export default function Home() {
             <motion.button
               whileHover={{ x: 6 }}
               className="px-8 py-3 border border-gray-900 text-sm tracking-wide hover:bg-black hover:text-white transition"
+              onClick={() => window.location.href = "/projects"}
             >
               Explore Our Work
             </motion.button>
