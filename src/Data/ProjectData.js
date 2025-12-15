@@ -1,11 +1,35 @@
 import pavitra from "../images/support/pavitra.png";
 import hospital from "../images/projects/Healthcare/GEIMSHospital/01.jpg";
+import hospital01 from "../images/projects/Healthcare/GEIMSHospital/01.jpg";
+import hospital02 from "../images/projects/Healthcare/GEIMSHospital/02.jpg";
+import hospital03 from "../images/projects/Healthcare/GEIMSHospital/03.jpg";
+import hospital04 from "../images/projects/Healthcare/GEIMSHospital/04.jpg";
+import hospital05 from "../images/projects/Healthcare/GEIMSHospital/05.jpg";
+import hospital06 from "../images/projects/Healthcare/GEIMSHospital/06.jpg";
+import hospital07 from "../images/projects/Healthcare/GEIMSHospital/07.jpg";
+import hospital08 from "../images/projects/Healthcare/GEIMSHospital/08.jpg";
+import hospital09 from "../images/projects/Healthcare/GEIMSHospital/09.jpg";
+import hospital10 from "../images/projects/Healthcare/GEIMSHospital/10.jpg";
+import hospital11 from "../images/projects/Healthcare/GEIMSHospital/11.jpg";
+import hospital12 from "../images/projects/Healthcare/GEIMSHospital/12.jpg";
+import hospital13 from "../images/projects/Healthcare/GEIMSHospital/13.jpg";
+import hospital14 from "../images/projects/Healthcare/GEIMSHospital/14.jpg";
 import jd from "../images/projects/Hospitality/jd/01.jpg";
 import regal from "../images/support/regal.JPG";
 import service from "../images/projects/Healthcare/GEIMSServiceBlock/01.jpg"; 
 import patanjali from "../images/projects/Healthcare/patanjali/01.jpg";
+
 import indresh from "../images/projects/Healthcare/smihsb/01.jpg";
+import indresh01 from "../images/projects/Healthcare/smihsb/01.jpg";
+import indresh02 from "../images/projects/Healthcare/smihsb/02.jpg";
+import indresh03 from "../images/projects/Healthcare/smihsb/03.jpg";
+import indresh04 from "../images/projects/Healthcare/smihsb/04.jpg";
 import meghalaya from "../images/projects/Healthcare/meghalaya/01.jpg";
+import meghalaya01 from "../images/projects/Healthcare/meghalaya/01.jpg";
+import meghalaya02 from "../images/projects/Healthcare/meghalaya/02.jpg";
+import meghalaya03 from "../images/projects/Healthcare/meghalaya/03.jpg";
+
+
 
 import geims from "../images/projects/Educational/GEIMSMedicalCollege/01.jpg";
 import geu from "../images/projects/Educational/geuschool/01.jpg";
@@ -130,25 +154,66 @@ export const FullProjects = [
     buildup: "12,00,000 sq.ft.",
     img: hospital,
     description: "A state-of-the-art medical facility designed to provide comprehensive healthcare services with advanced technology and patient-centric care.",
-    slug: "geims-hospital"
+    slug: "geims-hospital",
+    status: "completed",
+    images: [
+      hospital01,
+      hospital02,
+      hospital03,
+      hospital04,
+      hospital05,
+      hospital06,
+      hospital07,
+      hospital08,
+      hospital09,
+      hospital10,
+      hospital11,
+      hospital12,
+      hospital13,
+      hospital14,
+    ]
   },
   {
     title: "GEIMS SERVICE BLOCK",
     category: "Healthcare",
     location: "Dhulkot, Dehradun",
     img: service,
+    slug: "geims-service-block",
+    size: "20 acres",
+    buildup: "3,85,000 sq.ft.",
+    description: "GEIMS Service Block will complement the main Hospital building with non medical services.",
+    status: "completed",
+
   },
   {
     title: "PA SANGMA HOSPITAL",
     category: "Healthcare",
     location: "Meghalaya",
     img: meghalaya,
+    description:"PA Sangma International Medical College and Hospital is a state of the art multi specialty international hospital.",
+    size: "10 acres",
+    buildup: "10,00,000 sq.ft.",
+    status: "completed",
+    slug: "pa-sangma-hospital",
+    images: [
+      meghalaya01,
+      meghalaya02,
+      meghalaya03,
+    ],
   },
   {
     title: "SHRI MAHANT INDIRESH HOSPITAL",
     category: "Healthcare",
     location: "Dehradun",
     img: indresh,
+    images:[
+      indresh01,
+      indresh02,
+      indresh03,
+      indresh04,
+    ],
+    slug: "shri-mahant-indresh-hospital",
+
   },
   {
     title: "PATANJALI HOSPITAL",

@@ -3,13 +3,10 @@ import { useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FullProjects } from "../Data/ProjectData";
 
-
 export default function ProjectDetail() {
   const { slug } = useParams();
-  console.log("Slug:", slug);
-  const project = FullProjects.find(
-    (p) => p.slug === slug
-  );
+
+  const project = FullProjects.find((p) => p.slug === slug);
 
   if (!project) {
     return (
@@ -18,6 +15,8 @@ export default function ProjectDetail() {
       </main>
     );
   }
+
+  const images = project.images || [project.img];
 
   return (
     <main className="bg-white">
@@ -48,51 +47,83 @@ export default function ProjectDetail() {
       {/* ================= META ================= */}
       <section className="px-10 md:px-20 pb-20">
         <div className="grid grid-cols-2 md:grid-cols-3 gap-10 text-sm text-gray-600">
-          <div>
-            <p className="uppercase tracking-wider text-xs mb-1">Location</p>
-            <p className="text-gray-900">{project.location}</p>
-          </div>
 
-          <div>
-            <p className="uppercase tracking-wider text-xs mb-1">Category</p>
-            <p className="text-gray-900">{project.category}</p>
-          </div>
+          {project.location && (
+            <div>
+              <p className="uppercase tracking-wider text-xs mb-1">Location</p>
+              <p className="text-gray-900">{project.location}</p>
+            </div>
+          )}
 
-          <div>
-            <p className="uppercase tracking-wider text-xs mb-1">Size</p>
-            <p className="text-gray-900">{project.size}</p>
-          </div>
+          {project.category && (
+            <div>
+              <p className="uppercase tracking-wider text-xs mb-1">Category</p>
+              <p className="text-gray-900">{project.category}</p>
+            </div>
+          )}
 
-          <div>
-            <p className="uppercase tracking-wider text-xs mb-1">Build Up</p>
-            <p className="text-gray-900">{project.buildup}</p>
-          </div>
+          {project.size && (
+            <div>
+              <p className="uppercase tracking-wider text-xs mb-1">Site Area</p>
+              <p className="text-gray-900">{project.size}</p>
+            </div>
+          )}
 
-          <div>
-            <p className="uppercase tracking-wider text-xs mb-1">Status</p>
-            <p className="text-gray-900">Completed</p>
-          </div>
+          {project.buildup && (
+            <div>
+              <p className="uppercase tracking-wider text-xs mb-1">Built-up Area</p>
+              <p className="text-gray-900">{project.buildup}</p>
+            </div>
+          )}
+
+          {project.status && (
+            <div>
+              <p className="uppercase tracking-wider text-xs mb-1">Status</p>
+              <p className="text-gray-900 capitalize">{project.status}</p>
+            </div>
+          )}
         </div>
       </section>
 
-      {/* ================= IMAGES ================= */}
+      {/* ================= IMAGES (EDITORIAL LAYOUT) ================= */}
       <section className="px-10 md:px-20 pb-32">
-        <div className="space-y-16">
-          {(project.images || [project.img]).map((img, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
-              <img
-                src={img}
-                alt={`${project.title} ${i + 1}`}
-                className="w-full max-h-[80vh] object-cover"
-              />
-            </motion.div>
-          ))}
+        <div className="space-y-24">
+
+          {/* HERO IMAGE */}
+          <motion.div
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.9 }}
+          >
+            <img
+              src={images[0]}
+              alt={`${project.title} hero`}
+              className="w-full h-auto object-cover"
+            />
+          </motion.div>
+
+          {/* IMAGE GRID */}
+          {images.length > 1 && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+              {images.slice(1).map((img, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8 }}
+                >
+                  <img
+                    src={img}
+                    alt={`${project.title} ${i + 2}`}
+                    className="w-full h-[420px] object-cover"
+                  />
+                </motion.div>
+              ))}
+            </div>
+          )}
+
         </div>
       </section>
 
@@ -104,15 +135,15 @@ export default function ProjectDetail() {
           </h2>
 
           <p className="text-gray-600 leading-relaxed mb-6">
-            The design responds to site context, user requirements,
-            and functional efficiency while maintaining a clear architectural
-            identity. Material choices and spatial planning were guided by
-            durability, comfort, and long-term adaptability.
+            The design responds to site context, functional requirements,
+            and long-term operational efficiency while maintaining a clear
+            architectural identity.
           </p>
 
           <p className="text-gray-600 leading-relaxed">
-            Sustainability and operational clarity were key drivers in shaping
-            the project outcome.
+            Material selection, spatial planning, and sustainability
+            considerations were carefully integrated to ensure durability,
+            comfort, and adaptability over time.
           </p>
         </div>
       </section>
