@@ -198,12 +198,12 @@ export default function Home() {
         whileInView="visible"
         viewport={{ once: true }}
         variants={sectionAnim}
-        className="px-10 md:px-20 py-28 bg-white"
+        className="px-10 md:px-20 py-32 bg-white"
       >
         <div className="max-w-6xl">
 
-          {/* SECTION HEADER */}
-          <div className="max-w-2xl mb-20">
+          {/* ================= WHAT WE DO ================= */}
+          <div className="max-w-2xl mb-24">
             <p className="text-xs tracking-[0.25em] uppercase text-gray-500 mb-4">
               Our Expertise
             </p>
@@ -220,7 +220,7 @@ export default function Home() {
           </div>
 
           {/* SERVICES GRID */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-16 mb-36">
             {[
               {
                 title: "Architecture",
@@ -242,13 +242,12 @@ export default function Home() {
                 key={service.title}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.15, duration: 0.8 }}
                 viewport={{ once: true }}
+                transition={{ delay: i * 0.15, duration: 0.8 }}
                 whileHover={{ y: -8 }}
                 className="group cursor-default"
               >
-                {/* Accent Line */}
-                <div className="w-10 h-[2px] bg-[#c5a879] mb-6 transition-all group-hover:w-16"></div>
+                <div className="w-10 h-[2px] bg-[#c5a879] mb-6 transition-all group-hover:w-16" />
 
                 <h4 className="text-lg font-medium mb-4">
                   {service.title}
@@ -260,8 +259,72 @@ export default function Home() {
               </motion.div>
             ))}
           </div>
+
+          {/* ================= HOW WE THINK ================= */}
+          <div className="max-w-2xl mb-20">
+            <p className="text-xs tracking-[0.3em] uppercase text-gray-500 mb-4">
+              Design Philosophy
+            </p>
+
+            <h2 className="font-serif text-4xl md:text-5xl mb-6">
+              How We Think
+            </h2>
+
+            <p className="text-gray-600 leading-relaxed">
+              Our design philosophy is rooted in integration, context,
+              experience, and long-term sustainability.
+            </p>
+          </div>
+
+          {/* PHILOSOPHY GRID */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-16">
+            {[
+              {
+                title: "Integrated",
+                desc:
+                  "With strength in architecture, interior, and landscape design, we provide a unified, one-stop solution. Even when engaged for architecture alone, we actively integrate interior planning into the design process.",
+              },
+              {
+                title: "Contextual",
+                desc:
+                  "Every design is site-specific. If a proposal can be placed elsewhere, we return to the drawing board. Context is not a reference — it is the foundation.",
+              },
+              {
+                title: "Impressionist",
+                desc:
+                  "We believe a successful design leaves a lasting mental image. Our projects balance cohesive themes with memorable elements that remain with visitors long after they leave.",
+              },
+              {
+                title: "Sustainable",
+                desc:
+                  "Sustainability is integral to all our work — extending beyond environmental responsibility to include economic, cultural, and social dimensions.",
+              },
+            ].map((item, i) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.15, duration: 0.8 }}
+                className="group max-w-xl"
+              >
+                <div className="w-10 h-[2px] bg-[#c5a879] mb-6 transition-all group-hover:w-16" />
+
+                <h3 className="text-xl font-medium mb-4">
+                  {item.title}
+                </h3>
+
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  {item.desc}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+
         </div>
       </motion.section>
+
+
 
 
       {/* ================= CTA ================= */}

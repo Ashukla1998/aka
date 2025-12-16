@@ -9,6 +9,12 @@ export default function Contact() {
   });
   const [sent, setSent] = useState(false);
 
+  const mapLocation = {
+    lat: 30.3837,
+    lng: 78.0907,
+  };
+
+
   function handleChange(e) {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   }
@@ -122,23 +128,23 @@ export default function Contact() {
             <div className="bg-white rounded-2xl p-6 shadow-sm">
               <h4 className="font-semibold">Our office</h4>
               <p className="text-sm text-slate-600 mt-2">
-                123, Your Street, City — Open Mon–Fri
+                48,Pleasant Valley, Rajpur Rd, IAS Officers Colony, Rajpur, Dehradun, Uttarakhand 248009-Open Mon–Sat
               </p>
 
               <div className="mt-4">
                 <div className="text-sm text-slate-500">Email</div>
                 <a
-                  href="mailto:hello@yourdomain.com"
+                  href="mailto:kapil@lifepage.in"
                   className="text-slate-800 font-medium"
                 >
-                  hello@yourdomain.com
+                  kapil@lifepage.in
                 </a>
               </div>
 
               <div className="mt-3">
                 <div className="text-sm text-slate-500">Phone</div>
                 <a href="tel:+911234567890" className="text-slate-800 font-medium">
-                  +91 12345 67890
+                  +91 9719799992
                 </a>
               </div>
             </div>
@@ -154,9 +160,18 @@ export default function Contact() {
 
             <div className="bg-white rounded-2xl p-6 shadow-sm">
               <h4 className="font-semibold">Map</h4>
-              <div className="mt-3 h-40 rounded overflow-hidden bg-slate-100 flex items-center justify-center text-slate-400">
+              {/* <div className="mt-3 h-40 rounded overflow-hidden bg-slate-100 flex items-center justify-center text-slate-400">
                 Map Placeholder
+              </div> */}
+              <div className="mt-3 h-48 rounded overflow-hidden">
+                <iframe
+                  title="Office Location"
+                  src={`https://www.google.com/maps?q=${mapLocation.lat},${mapLocation.lng}&output=embed`}
+                  className="w-full h-full border-0"
+                  loading="lazy"
+                />
               </div>
+
             </div>
           </div>
         </div>
