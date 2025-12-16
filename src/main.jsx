@@ -1,7 +1,8 @@
 import React, { useRef } from "react";
 import { motion } from "framer-motion";
 import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
-import {projects} from "./Data/ProjectData"
+import { projects } from "./Data/ProjectData"
+import { Link } from "react-router-dom";
 
 const sectionAnim = {
   hidden: { opacity: 0, y: 80 },
@@ -52,13 +53,15 @@ export default function Home() {
               cities for the future.
             </p>
 
-            <motion.button
-              whileHover={{ x: 6 }}
-              className="px-8 py-3 border border-gray-900 text-sm tracking-wide hover:bg-black hover:text-white transition"
-              onClick={() => window.location.href = "/projects"}
-            >
-              Explore Our Work
-            </motion.button>
+            <Link to="/projects">
+              <motion.button
+                whileHover={{ x: 6 }}
+                className="px-8 py-3 border border-gray-900 text-sm tracking-wide hover:bg-black hover:text-white transition"
+              >
+                Explore Our Work
+              </motion.button>
+            </Link>
+
           </motion.div>
 
           {/* RIGHT : IMAGE COLLAGE */}
@@ -152,36 +155,39 @@ export default function Home() {
           ))}
 
           {/* EXPLORE MORE CARD */}
-          <motion.a
-            href="/projects"
-            whileHover={{ scale: 1.05 }}
-            className="snap-start shrink-0 w-[420px] group cursor-pointer"
-          >
-            <div
-              className="h-[280px] flex items-center justify-center
-                         border border-dashed border-gray-300
-                         bg-white hover:bg-black
-                         transition-colors duration-300"
+          <Link to="/projects" className="snap-start shrink-0 w-[420px]">
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="group cursor-pointer"
             >
-              <div className="text-center">
-                <p className="text-xs tracking-[0.3em] uppercase
-                              text-gray-500 group-hover:text-gray-400 mb-4">
-                  View All
-                </p>
+              <div
+                className="h-[280px] flex items-center justify-center
+                 border border-dashed border-gray-300
+                 bg-white hover:bg-black
+                 transition-colors duration-300"
+              >
+                <div className="text-center">
+                  <p className="text-xs tracking-[0.3em] uppercase
+                      text-gray-500 group-hover:text-gray-400 mb-4">
+                    View All
+                  </p>
 
-                <h3 className="font-serif text-2xl
-                               text-gray-900 group-hover:text-white transition">
-                  Explore More Projects
-                </h3>
+                  <h3 className="font-serif text-2xl
+                       text-gray-900 group-hover:text-white transition">
+                    Explore More Projects
+                  </h3>
 
-                <div
-                  className="mt-6 inline-flex items-center gap-2 text-sm text-gray-600 group-hover:text-gray-300"
-                >
-                  See Portfolio <span className="text-lg">→</span>
+                  <div
+                    className="mt-6 inline-flex items-center gap-2 text-sm
+                     text-gray-600 group-hover:text-gray-300"
+                  >
+                    See Portfolio <span className="text-lg">→</span>
+                  </div>
                 </div>
               </div>
-            </div>
-          </motion.a>
+            </motion.div>
+          </Link>
+
         </div>
       </motion.section>
 
@@ -286,18 +292,20 @@ export default function Home() {
           </p>
 
           {/* CTA Button */}
-          <motion.a
-            whileHover={{ y: -3 }}
-            whileTap={{ scale: 0.98 }}
-            href="/contact"
-            className="inline-flex items-center gap-3 px-10 py-4 text-sm tracking-wide
-                 border border-[#c5a879] text-[#c5a879]
-                 hover:bg-[#c5a879] hover:text-white
-                 transition-colors duration-300"
-          >
-            Get in Touch
-            <span className="text-lg">→</span>
-          </motion.a>
+          <Link to="/contact">
+            <motion.div
+              whileHover={{ y: -3 }}
+              whileTap={{ scale: 0.98 }}
+              className="inline-flex items-center gap-3 px-10 py-4 text-sm tracking-wide
+         border border-[#c5a879] text-[#c5a879]
+         hover:bg-[#c5a879] hover:text-white
+         transition-colors duration-300 cursor-pointer"
+            >
+              Get in Touch
+              <span className="text-lg">→</span>
+            </motion.div>
+          </Link>
+
 
         </div>
       </motion.section>
