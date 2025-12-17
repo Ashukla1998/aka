@@ -37,7 +37,7 @@ export default function Home() {
             animate="visible"
             variants={sectionAnim}
           >
-            <p className="text-xs tracking-[0.3em] text-gray-500 uppercase mb-6">
+            <p className="text-xs tracking-[0.3em] text-arcadisGray uppercase mb-6">
               Architecture · Urban Design · Sustainability
             </p>
 
@@ -56,7 +56,7 @@ export default function Home() {
             <Link to="/projects">
               <motion.button
                 whileHover={{ x: 6 }}
-                className="px-8 py-3 border border-gray-900 text-sm tracking-wide hover:bg-black hover:text-white transition"
+                className="px-8 py-3 border border-arcadisOrange bg-arcadisOrange text-white text-sm tracking-wide  hover:text-white transition"
               >
                 Explore Our Work
               </motion.button>
@@ -72,22 +72,23 @@ export default function Home() {
             className="relative hidden md:block"
           >
             {/* Main Image */}
-            <div className="w-[420px] h-[520px] overflow-hidden">
+            <div className="w-[420px] h-[520px] overflow-hidden rounded-sm shadow-2xl">
               <img
                 src="https://images.unsplash.com/photo-1505843513577-22bb7d21e455"
                 alt="Architecture"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
               />
             </div>
 
             {/* Floating Image */}
-            <div className="absolute -bottom-16 -left-20 w-[260px] h-[180px] shadow-xl">
+            <div className="absolute -bottom-16 -left-20 w-[260px] h-[180px] shadow-2xl rounded-sm">
               <img
                 src="https://images.unsplash.com/photo-1493809842364-78817add7ffb"
                 alt="Interior"
                 className="w-full h-full object-cover"
               />
             </div>
+
           </motion.div>
 
         </div>
@@ -113,7 +114,7 @@ export default function Home() {
           onClick={() => scroll("left")}
           className="absolute left-6 top-1/2 -translate-y-1/2 z-10
                      bg-white/80 backdrop-blur p-3 shadow rounded-full
-                     hover:bg-black hover:text-white transition"
+                     hover:bg-arcadisOrange hover:text-white transition"
         >
           <ArrowLeftIcon className="w-5 h-5" />
         </button>
@@ -122,7 +123,7 @@ export default function Home() {
           onClick={() => scroll("right")}
           className="absolute right-6 top-1/2 -translate-y-1/2 z-10
                      bg-white/80 backdrop-blur p-3 shadow rounded-full
-                     hover:bg-black hover:text-white transition"
+                     hover:bg-arcadisOrange hover:text-white transition"
         >
           <ArrowRightIcon className="w-5 h-5" />
         </button>
@@ -163,12 +164,12 @@ export default function Home() {
               <div
                 className="h-[280px] flex items-center justify-center
                  border border-dashed border-gray-300
-                 bg-white hover:bg-black
+                 bg-white hover:bg-arcadisOrange
                  transition-colors duration-300"
               >
                 <div className="text-center">
                   <p className="text-xs tracking-[0.3em] uppercase
-                      text-gray-500 group-hover:text-gray-400 mb-4">
+                      text-gray-500 group-hover:text-white mb-4">
                     View All
                   </p>
 
@@ -181,7 +182,7 @@ export default function Home() {
                     className="mt-6 inline-flex items-center gap-2 text-sm
                      text-gray-600 group-hover:text-gray-300"
                   >
-                    See Portfolio <span className="text-lg">→</span>
+                    See Portfolio <span className="text-lg"><ArrowRightIcon className="w-5 h-5" /></span>
                   </div>
                 </div>
               </div>
@@ -360,21 +361,18 @@ export default function Home() {
               whileHover={{ y: -3 }}
               whileTap={{ scale: 0.98 }}
               className="inline-flex items-center gap-3 px-10 py-4 text-sm tracking-wide
-         border border-[#c5a879] text-[#c5a879]
-         hover:bg-[#c5a879] hover:text-white
+         border border-arcadisOrange bg-arcadisOrange text-white
+         hover:bg-arcadisOrange hover:text-white
          transition-colors duration-300 cursor-pointer"
             >
               Get in Touch
-              <span className="text-lg">→</span>
+              <span className="text-lg"><ArrowRightIcon className="w-5 h-5" /></span>
             </motion.div>
           </Link>
 
 
         </div>
       </motion.section>
-
-
-
     </main>
   );
 }

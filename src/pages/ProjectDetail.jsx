@@ -6,6 +6,7 @@ import { FullProjects } from "../Data/ProjectData";
 export default function ProjectDetail() {
   const { slug } = useParams();
 
+
   const project = FullProjects.find((p) => p.slug === slug);
 
   if (!project) {
@@ -16,7 +17,11 @@ export default function ProjectDetail() {
     );
   }
 
-  const images = project.images || [project.img];
+  const images = Array.from(
+    { length: project.imageCount || 1 },
+    (_, i) =>
+      `${project.galleryPath}${String(i + 1).padStart(2, "0")}.jpg`
+  );
 
   return (
     <main className="bg-white">

@@ -31,7 +31,7 @@ export default function Contact() {
 
         {/* Header */}
         <div className="text-center mb-10">
-          <div className="text-indigo-600 font-semibold mb-2">Get in touch</div>
+          <div className="text-arcadisOrange font-semibold mb-2">Get in touch</div>
           <h2 className="text-3xl md:text-4xl font-bold text-slate-800">
             Contact us
           </h2>
@@ -100,7 +100,7 @@ export default function Contact() {
                 <div className="flex gap-3">
                   <button
                     type="submit"
-                    className="px-4 py-2 bg-indigo-600 text-white rounded-md"
+                    className="px-4 py-2 bg-arcadisOrange text-white rounded-md"
                   >
                     Send message
                   </button>
@@ -114,7 +114,7 @@ export default function Contact() {
                         message: "",
                       })
                     }
-                    className="px-4 py-2 border rounded-md"
+                    className="px-4 py-2 border rounded-md bg-arcadisOrange text-white"
                   >
                     Clear
                   </button>

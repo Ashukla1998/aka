@@ -67,7 +67,7 @@ export default function Services() {
 
         {/* Page Header */}
         <div className="text-center mb-10">
-          <div className="text-indigo-600 font-semibold mb-2">
+          <div className="text-arcadisOrange font-semibold mb-2">
             What we offer
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-slate-800">
