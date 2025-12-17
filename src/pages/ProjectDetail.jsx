@@ -87,6 +87,12 @@ export default function ProjectDetail() {
               <p className="text-gray-900 capitalize">{project.status}</p>
             </div>
           )}
+          {project.work && (
+            <div>
+              <p className="uppercase tracking-wider text-xs mb-1">Scope of Work</p>
+              <p className="text-gray-900 capitalize">{project.work}</p>
+            </div>
+          )}
         </div>
       </section>
 

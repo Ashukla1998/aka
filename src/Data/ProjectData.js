@@ -4,30 +4,6 @@ import jd from "../images/projects/Hospitality/jd/01.jpg";
 import regal from "../images/support/regal.JPG";
 
 
-import food from "../images/projects/Commercial/fpn/01.jpg";
-import mahindra from "../images/projects/Commercial/mahindra/01.jpg";
-import newregal from "../images/projects/Commercial/malsiwedding/01.jpg";
-import starbucks from "../images/projects/Commercial/sb/01.jpg";
-import mjcorner from "../images/projects/Commercial/mj/01.jpg";
-import bend from "../images/projects/Commercial/bend/01.jpg";
-import eltham from "../images/projects/Commercial/eltham/1.jpg";
-import picollo from "../images/projects/Commercial/picollo/new whahit.jpg";
-import Arcadia from "../images/projects/Commercial/arcadia/01.jpg";
-import balajee from "../images/projects/Commercial/balajeeoffice/1.jpg";
-import flow from "../images/projects/Commercial/flow/01.jpg";
-import barthwal from "../images/projects/Commercial/barthwalgym/01.jpg";
-import once from "../images/projects/Commercial/ouat/01.jpg";
-
-
-import imacsd from "../images/projects/Public/imacsd/01.jpg";
-import imaom from "../images/projects/Public/imaom/01.jpg";
-import madhyamarg from "../images/projects/Public/mm/Slide-01.jpg";
-import redcube from "../images/projects/Public/theredcube/2.jpg";
-import darbarsahib from "../images/projects/Public/darbar/01.jpg";
-import darbarjharokha from "../images/projects/Public/jharokha/01.jpg";
-// import pavitrasarovar from "../images/projects/Public/sarovar/01.jpg";
-
-
 import home from "../images/projects/Residential/homeoffice/01.jpg";
 import mansion from "../images/projects/Residential/purk/01.jpg";
 import urban from "../images/projects/Residential/sje/01.jpg";
@@ -452,57 +428,61 @@ export const FullProjects = [
      COMMERCIAL PROJECTS
   ========================== */
 
-  { title: "Food Park", category: "Commercial", location: "Noida", img: food },
-  { title: "Mahindra", category: "Commercial", location: "Mohebbewala, Dehradun", img: mahindra },
-  { title: "Regal Manor", category: "Commercial", location: "Malsi, Dehradun", img: newregal },
-  { title: "Starbucks", category: "Commercial", location: "Rajpur Road, Dehradun", img: starbucks},
-  { title: "MJ Corner", category: "Commercial", location: "Mussoorie Road, Dehradun", img: mjcorner },
-  { title: "The Bend", category: "Commercial", location: "Mussoorie Road, Dehradun", img: bend },
-  { title: "Eltham Bakery", category: "Commercial", location: "Dehradun", img: eltham },
-  { title: "Cafe de Picollo", category: "Commercial", location: "Dehradun", img: picollo },
-  { title: "Arcadia Greens", category: "Commercial", location: "Dehradun", img: Arcadia},
-  { title: "Balajee Office", category: "Commercial", location: "Dehradun", img: balajee },
-  { title: "Flow Office", category: "Commercial", location: "Yamunanagar", img: flow },
-  { title: "Barthwal Gym", category: "Commercial", location: "Dehradun", img: barthwal },
-  { title: "Once Upon a Time", category: "Commercial", location: "Dehradun", img: once},
+  { title: "Food Park", category: "Commercial", location: "Noida", slug: "food-park",status:"Concept Stage",description:"FOOD PARK Is a processing unit cum exhibition center for Agro products.",cover:"/images/projects/Commercial/fpn/01.jpg",galleryPath: "/images/projects/Commercial/fpn/",imageCount:3,buildup:"20,00,000 sq.ft.",size: "320 acres"  },
+  { title: "Mahindra", category: "Commercial", location: "Mohebbewala, Dehradun", slug: "mahindra",status:"40% Completed",description:"MAHINDRA Is a vehicle showroom combined with a boutique hotel.",cover:"/images/projects/Commercial/mahindra/01.jpg",galleryPath: "/images/projects/Commercial/mahindra/",imageCount:1,buildup:"30,000 sq.ft.",size: "1 acres" },
+
+  { title: "Regal Manor", category: "Commercial", location: "Malsi, Dehradun", slug: "regal-manor",status:"Completed",description:"REGAL MANOR Is an exclusive Banquet Hall designed to host luxurious weddings.",cover:"/images/projects/Commercial/malsiwedding/01.jpg",galleryPath: "/images/projects/Commercial/malsiwedding/",imageCount:4,buildup:"16,000 sq.ft.",size: "1.5 acres" },
+  { title: "Starbucks", category: "Commercial", location: "Rajpur Road, Dehradun", slug: "starbucks",status:"Completed",description:"STARBUCKS An old building was remodelled to house Dehradun's first Starbucks.",cover:"/images/projects/Commercial/sb/01.jpg",galleryPath: "/images/projects/Commercial/sb/",imageCount:1,buildup:"2,400 sq.ft.", },
+
+  { title: "MJ Corner", category: "Commercial", location: "Mussoorie Road, Dehradun", slug: "mj-corner",status:"Concept Stage",description:"MJ CORNER It is a multi level food complex.",cover:"/images/projects/Commercial/mj/01.jpg",galleryPath: "/images/projects/Commercial/mj/",imageCount:1,buildup:"6,500 sq.ft.",size: "22,000 sq ft"},
+
+  { title: "The Bend", category: "Commercial", location: "Mussoorie Road, Dehradun", slug: "the-bend",status:"100% complete",description:"THE BEND The Bend is a multi storey food complex with a cafe, bar and fine dining facilities.",cover:"/images/projects/Commercial/bend/01.jpg",galleryPath: "/images/projects/Commercial/bend/",imageCount:4,buildup:"8,500 sq.ft.",size: "22,000 sq ft" },
+  { title: "Eltham Bakery", category: "Commercial", location: "Dehradun", slug: "eltham-bakery",status:"100% complete",description:"ELTHAM BAKERY Is designed like an old German bakery.",cover:"/images/projects/Commercial/eltham/01.jpg",galleryPath: "/images/projects/Commercial/eltham/",imageCount:3,buildup:"1,200 sq.ft.", },
+  { title: "Cafe de Picollo", category: "Commercial", location: "Dehradun", slug: "cafe-de-picollo",status:"100% complete",description:"CAFE DE PICOLLO Is an European style eatery.",cover:"/images/projects/Commercial/picollo/01.jpg",galleryPath: "/images/projects/Commercial/picollo/",imageCount:1,buildup:"800 sq.ft.",  },
+  { title: "Arcadia Greens", category: "Commercial", location: "Dehradun", slug: "arcadia-greens",status:"90% complete",description:"ARCADIA GREENS Office designed with a wholistic living theme.",cover:"/images/projects/Commercial/arcadia/01.jpg",galleryPath: "/images/projects/Commercial/arcadia/",imageCount:7,buildup:"1,500 sq.ft."},
+  { title: "Balajee Office", category: "Commercial", location: "Dehradun",  slug: "balajee-office",status:"100% complete",description:"BALAJEE OFFICE Is a builder office whose interiors have been integerated with the company tag line.",cover:"/images/projects/Commercial/balajeeoffice/01.jpg",galleryPath: "/images/projects/Commercial/balajeeoffice/",imageCount:9,buildup:"2,000 sq.ft." },
+  { title: "Flow Office", category: "Commercial", location: "Yamunanagar", slug: "flow-office",status:"Concept Stage",description:"FLOW OFFICE Is a start-up office designed to promote the natural flow of thoughts and ideas.",cover:"/images/projects/Commercial/flow/01.jpg",galleryPath: "/images/projects/Commercial/flow/",imageCount:2,buildup:"3,000 sq.ft." ,size:"5,000 sq ft"},
+  { title: "Barthwal Gym", category: "Commercial", location: "Dehradun", slug: "barthwal-gym",status:"100% Complete",description:"BARTHWAL GYM Was designed in a compact basement of a famous sweet shop.",cover:"/images/projects/Commercial/barthwalgym/01.jpg",galleryPath: "/images/projects/Commercial/barthwalgym/",imageCount:5,buildup:"2,500 sq.ft." },
+
+  { title: "Once Upon a Time", category: "Commercial", location: "Dehradun", slug: "once-upon-a-time",status:"100% Complete",description:"ONCE UPON A TIME Is a Restaurant designed on a fairy tale theme.",cover:"/images/projects/Commercial/ouat/01.jpg",galleryPath: "/images/projects/Commercial/ouat/",imageCount:6,buildup:"2,400 sq.ft.",size:"10,000 sq ft" },
 
   /* =========================
      PUBLIC PROJECTS
   ========================== */
 
-  { title: "IMA CSD", category: "Public", location: "Chakrata Road, Dehradun", img: imacsd },
-  { title: "IMA Officers Mess", category: "Public", location: "Dehradun", img: imaom },
-  { title: "Madhya Marg", category: "Public", location: "Chandigarh", img: madhyamarg },
-  { title: "The Red Cube", category: "Public", location: "Panchkula", img: redcube },
-  { title: "Darbar Sahib", category: "Public", location: "Dehradun", img: darbarsahib },
-  { title: "Darbar Jharokha", category: "Public", location: "Dehradun", img: darbarjharokha },
-  { title: "Pavitra Sarovar", category: "Public", location: "Dehradun", img: pavitra },
+  { title: "IMA CSD", category: "Public", location: "Chakrata Road, Dehradun", slug: "ima-csd",status:"100% Complete",description:"IMA CSD A heritage building within the prestigious Indian Military Academy campus was retrofitted to accommodate the main CSD Canteen.",cover:"/images/projects/Public/imacsd/01.jpg",galleryPath: "/images/projects/Public/imacsd/",imageCount:8,buildup:"24,000 sq.ft.",size:"1 acres",work: "Planning | Interior | Landscape" },
+  { title: "IMA Officers Mess", category: "Public", location: "Dehradun", slug: "ima-officer-mess",status:"100% Complete",description:"IMA OFFICERS MESS Was redesigned in line with the grandeur of the Indian Military Academy.",cover:"/images/projects/Public/imaom/01.jpg",galleryPath: "/images/projects/Public/imaom/",imageCount:1,buildup:"2.500 sq.ft.",work: "Planning | Interior | Landscape" },
+  { title: "Madhya Marg", category: "Public", location: "Chandigarh", slug: "madhya-marg",status:"Concept Stage",description:"MADHYA MARG Revitalization project in consortium with Mathur and Kapre Associates (AIIMS flyover), Arun Rewal and JPS.",cover:"/images/projects/Public/mm/01.jpg",galleryPath: "/images/projects/Public/mm/",imageCount:20,size:"250 acres",work: "Planning | Landscape" },
+  { title: "The Red Cube", category: "Public", location: "Panchkula", slug: "the-red-cube",status:"Concept Stage",description:"THE RED CUBE Was a competition entry for Community Center design organized by Haryana Urban Development.",cover:"/images/projects/Public/theredcube/01.jpg",galleryPath: "/images/projects/Public/theredcube/",imageCount:3,size:"2 acres",work: "Planning | Architecture | Landscape" ,buildup:"60,000 sq ft"},
+  { title: "Darbar Sahib", category: "Public", location: "Dehradun", slug: "darbar-sahib",status:"100% Complete",description:"DARBAR SAHIB The iconic patio and surrounding services were revamped and modernized in a record time of 40 days.",cover:"/images/projects/Public/darbar/01.jpg",galleryPath: "/images/projects/Public/darbar/",imageCount:10,size:"7,200 sq ft",work: "Interior | Landscape" ,buildup:"3,000 sq ft" },
+  { title: "Darbar Jharokha", category: "Public", location: "Dehradun", slug: "darbar-jharokha",status:"100% Complete",description:"DARBAR JHAROKHA Jharokha building was created in 90 days to streamline management of Jhanda hoisting.",cover:"/images/projects/Public/jharokha/01.jpg",galleryPath: "/images/projects/Public/jharokha/",imageCount:1,size:"2,000 sq ft",work: "Architecture | Interior" ,buildup:"4,500 sq ft" },
+  { title: "Pavitra Sarovar", category: "Public", location: "Dehradun", slug: "pavitra-sarovar",status:"100% Complete",description:"PAVITRA SAROVAR The iconic Sarovar in front of Darbar Sahib was rejuvenated with a water treatment plant, lighting and a central platform.",cover:pavitra,galleryPath: "/images/projects/Public/sarovar/",imageCount:2,size:"43,000 sq ft",work: "Architecture | Landscape" ,buildup:"50,000   sq ft"  },
 
 
   /* =========================
      RESIDENTIAL PROJECTS
   ========================== */
 
-  { title: "Home Office", category: "Residential", location: "Pleasant Valley, Dehradun", img: home},
-  { title: "The Mansion", category: "Residential", location: "Purkul, Dehradun", img: mansion},
-  { title: "Urban Villa", category: "Residential", location: "New Delhi", img: urban},
-  { title: "Jayal Residence", category: "Residential", location: "Purkul, Dehradun", img: jayal },
-  { title: "Dream Cottage", category: "Residential", location: "Rudraprayag", img: dreamcottage},
-  { title: "The Cottage – Bhimtal", category: "Residential", location: "Bhimtal, Nainital", img: bhimatal},
-  { title: "Jerath’s Residence", category: "Residential", location: "Dehradun", img: jerath },
-  { title: "The Residence – Selaqui", category: "Residential", location: "Selaqui, Dehradun", img: selaqui},
-  { title: "Redesigned House", category: "Residential", location: "Dehradun", img: redesigned},
-  { title: "Sood’s Residence", category: "Residential", location: "Dehradun", img: sood },
-  { title: "Pahuja’s Residence", category: "Residential", location: "Yamunanagar", img: pahuja },
-  { title: "Glowing Butterflies", category: "Residential", location: "Dehradun", img: butterflies },
-  { title: "Chamba Cottage", category: "Residential", location: "Chamba", img: chamba },
-  { title: "House of Memories", category: "Residential", location: "Dehradun", img: memories },
-  { title: "Flower House", category: "Residential", location: "Dehradun", img: flower },
-  { title: "Urban Haveli", category: "Residential", location: "Dehradun", img:  urbanhaveli},
-  { title: "French Villa", category: "Residential", location: "Dehradun", img: frenchvilla },
-  { title: "Noida Flat", category: "Residential", location: "Noida", img: noidaflat},
-  { title: "La Casa", category: "Residential", location: "Dehradun", img: lacasa },
-  { title: "Dehradun Flat", category: "Residential", location: "Dehradun", img: dehradunflat },
-  { title: "Panache Valley", category: "Residential", location: "Dehradun", img: panache },
-  { title: "Swing Design", category: "Residential", location: "Dehradun", img: swing },
+  { title: "Home Office", category: "Residential", location: "Pleasant Valley, Dehradun", cover: home},
+  { title: "The Mansion", category: "Residential", location: "Purkul, Dehradun", cover: mansion},
+  { title: "Urban Villa", category: "Residential", location: "New Delhi", cover: urban},
+  { title: "Jayal Residence", category: "Residential", location: "Purkul, Dehradun", cover: jayal },
+  { title: "Dream Cottage", category: "Residential", location: "Rudraprayag", cover: dreamcottage},
+  { title: "The Cottage – Bhimtal", category: "Residential", location: "Bhimtal, Nainital", cover: bhimatal},
+  { title: "Jerath’s Residence", category: "Residential", location: "Dehradun", cover: jerath },
+  { title: "The Residence – Selaqui", category: "Residential", location: "Selaqui, Dehradun", cover: selaqui},
+  { title: "Redesigned House", category: "Residential", location: "Dehradun", cover: redesigned},
+  { title: "Sood’s Residence", category: "Residential", location: "Dehradun", cover: sood },
+  { title: "Pahuja’s Residence", category: "Residential", location: "Yamunanagar", cover: pahuja },
+  { title: "Glowing Butterflies", category: "Residential", location: "Dehradun", cover: butterflies },
+  { title: "Chamba Cottage", category: "Residential", location: "Chamba", cover: chamba },
+  { title: "House of Memories", category: "Residential", location: "Dehradun", cover: memories },
+  { title: "Flower House", category: "Residential", location: "Dehradun", cover: flower },
+  { title: "Urban Haveli", category: "Residential", location: "Dehradun", cover:  urbanhaveli},
+  { title: "French Villa", category: "Residential", location: "Dehradun", cover: frenchvilla },
+  { title: "Noida Flat", category: "Residential", location: "Noida", cover: noidaflat},
+  { title: "La Casa", category: "Residential", location: "Dehradun", cover: lacasa },
+  { title: "Dehradun Flat", category: "Residential", location: "Dehradun", cover: dehradunflat },
+  { title: "Panache Valley", category: "Residential", location: "Dehradun", cover: panache },
+  { title: "Swing Design", category: "Residential", location: "Dehradun", cover: swing },
 ];
