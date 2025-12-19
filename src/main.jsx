@@ -248,7 +248,7 @@ export default function Home() {
                 whileHover={{ y: -8 }}
                 className="group cursor-default"
               >
-                <div className="w-10 h-[2px] bg-[#c5a879] mb-6 transition-all group-hover:w-16" />
+                <div className="w-10 h-[2px] bg-arcadisOrange mb-6 transition-all group-hover:w-16" />
 
                 <h4 className="text-lg font-medium mb-4">
                   {service.title}
@@ -309,7 +309,7 @@ export default function Home() {
                 transition={{ delay: i * 0.15, duration: 0.8 }}
                 className="group max-w-xl"
               >
-                <div className="w-10 h-[2px] bg-[#c5a879] mb-6 transition-all group-hover:w-16" />
+                <div className="w-10 h-[2px] bg-arcadisOrange mb-6 transition-all group-hover:w-16" />
 
                 <h3 className="text-xl font-medium mb-4">
                   {item.title}

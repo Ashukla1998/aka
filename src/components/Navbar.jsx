@@ -16,7 +16,7 @@ export default function Navbar() {
 
   const navClass = ({ isActive }) =>
     `group relative pb-1 text-sm font-medium transition-colors duration-300
-     ${isActive ? "text-[#c5a879]" : "text-gray-600 hover:text-gray-900"}`;
+     ${isActive ? "text-arcadisOrange" : "text-gray-600 hover:text-gray-900"}`;
 
   const handleWhatsAppClick = () => {
     const url =
@@ -60,7 +60,7 @@ export default function Navbar() {
           {links.map((link) => (
             <NavLink key={link.to} to={link.to} className={navClass}>
               {link.label}
-              <span className="absolute left-0 -bottom-1 h-[2px] w-full bg-[#c5a879] scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100" />
+              <span className="absolute left-0 -bottom-1 h-[2px] w-full bg-arcadisOrange scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100" />
             </NavLink>
           ))}
         </nav>
