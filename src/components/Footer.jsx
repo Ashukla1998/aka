@@ -113,6 +113,12 @@ export default function Footer() {
               >
                 Contact
               </Link>
+              <Link
+                to="/career"
+                className="text-white/90 hover:text-white transition transform hover:-translate-y-0.5"
+              >
+                Career
+              </Link>
             </nav>
           </div>
 

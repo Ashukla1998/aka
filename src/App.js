@@ -9,6 +9,7 @@ import { HashRouter, Routes, Route } from "react-router-dom";
 import Projects from "./pages/Project";
 import ProjectDetail from "./pages/ProjectDetail";
 import Admin from "./pages/Admin";
+import Careers from "./pages/Career";
 function App() {
   return (
     <HashRouter>
@@ -22,6 +23,7 @@ function App() {
         <Route path='/projects' element={ <Projects /> } />
         <Route path="/projects/:slug" element={<ProjectDetail />} />
         <Route path="/admin" element={<Admin/>}/>
+        <Route path="/career" element={<Careers/>}/>
       </Routes>
 
       <Footer />
