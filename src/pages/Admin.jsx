@@ -119,10 +119,11 @@ export default function AdminContacts() {
                         border-b bg-gray-50">
           <div>Status</div>
           <div>Name</div>
+          <div>Company</div>
           <div>Email</div>
           <div>Message</div>
           <div>Date</div>
-          <div className="text-right">Actions</div>
+          {/* <div className="text-right">Actions</div> */}
         </div>
 
         {/* EMPTY STATE */}
@@ -158,11 +159,10 @@ export default function AdminContacts() {
             {/* NAME */}
             <div className="font-medium text-gray-900">
               {m.name}
-              {m.company && (
-                <div className="text-xs text-gray-500">
-                  {m.company}
-                </div>
-              )}
+            </div>
+
+            <div className="text-gray-700">
+              {m.company}
             </div>
 
             {/* EMAIL */}
