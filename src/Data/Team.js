@@ -26,7 +26,7 @@ export const Leaders = [
         name: "Archana Rawat",
         role: "Leader & Co-Founder",
         photo: archana,
-        degree: "MLA | B Arch",
+        degree: "MLA | B.Arch",
         experience: "25+ years",
     },
     {
@@ -43,14 +43,14 @@ export const teamMembers = [
         name: "Ar Preeti Saini",
         role: "Design Team",
         photo: preeti,
-        degree: "B Arch",
+        degree: "Bachelor of Architecture",
         experience: "15 years",
     },
     {
         name: "Ar Ajay Thapa",
         role: "Design Team",
         photo: ajay,
-        degree: "B Arch",
+        degree: "Bachelor of Architecture",
         experience: "15 years",
     },
     
@@ -58,14 +58,14 @@ export const teamMembers = [
         name: "Ar Shahrukh Khan",
         role: "Design Team",
         photo: shahrukh,
-        degree: "B Arch",
+        degree: "Bachelor of Architecture",
         experience: "11 years",
     },
     {
         name: "Ar Lopsang Ringchen",
         role: "Design Team",
         photo: lopsang,
-        degree: "B Arch",
+        degree: "Bachelor of Architecture",
         experience: "4 years",
     },
     {
@@ -122,7 +122,7 @@ export const teamMembers = [
         name: "Ar Amreen Ali",
         role: "Interiors Team",
         photo: amreen,
-        degree: "B Arch",
+        degree: "Bachelor of Architecture",
         experience: "1 years",
     },
     {

@@ -171,9 +171,10 @@ export default function About() {
                     <p className="text-sm text-slate-600">
                       {member.degree}
                     </p>
-                    <p className="text-sm text-slate-600">
-                      {member.experience}
+                    <p className="text-xs uppercase tracking-wide text-slate-500">
+                      Experience · {member.experience}
                     </p>
+
                   </motion.div>
                 ))}
               </div>
