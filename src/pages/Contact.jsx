@@ -7,6 +7,7 @@ export default function Contact() {
     company: "",
     message: "",
   });
+
   const [sent, setSent] = useState(false);
 
   const mapLocation = {
@@ -14,15 +15,38 @@ export default function Contact() {
     lng: 78.0907,
   };
 
-
   function handleChange(e) {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   }
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log("Form submitted:", form);
+
+    const newMessage = {
+      id: Date.now(),
+      name: form.name,
+      email: form.email,
+      company: form.company,
+      message: form.message,
+      date: new Date().toLocaleString(),
+      read: false,
+    };
+
+    const existingMessages =
+      JSON.parse(localStorage.getItem("contactMessages")) || [];
+
+    localStorage.setItem(
+      "contactMessages",
+      JSON.stringify([newMessage, ...existingMessages])
+    );
+
     setSent(true);
+    setForm({
+      name: "",
+      email: "",
+      company: "",
+      message: "",
+    });
   }
 
   return (
@@ -31,7 +55,9 @@ export default function Contact() {
 
         {/* Header */}
         <div className="text-center mb-10">
-          <div className="text-arcadisOrange font-semibold mb-2">Get in touch</div>
+          <div className="text-arcadisOrange font-semibold mb-2">
+            Get in touch
+          </div>
           <h2 className="text-3xl md:text-4xl font-bold text-slate-800">
             Contact us
           </h2>
@@ -45,14 +71,17 @@ export default function Contact() {
 
           {/* Contact Form */}
           <div className="bg-white rounded-2xl p-6 shadow-sm">
-            <h3 className="text-xl font-semibold mb-3">Send us a message</h3>
+            <h3 className="text-xl font-semibold mb-3">
+              Send us a message
+            </h3>
 
             {sent ? (
-              <div className="p-6 bg-green-50 rounded">
+              <div className="p-6 bg-green-50 rounded text-green-700">
                 Thanks! We’ll respond shortly.
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
+
                 <div>
                   <label className="text-sm mb-1 block">Name</label>
                   <input
@@ -104,6 +133,7 @@ export default function Contact() {
                   >
                     Send message
                   </button>
+
                   <button
                     type="button"
                     onClick={() =>
@@ -114,21 +144,24 @@ export default function Contact() {
                         message: "",
                       })
                     }
-                    className="px-4 py-2 border rounded-md bg-arcadisOrange text-white"
+                    className="px-4 py-2 border rounded-md"
                   >
                     Clear
                   </button>
                 </div>
+
               </form>
             )}
           </div>
 
           {/* Contact Info */}
           <div className="space-y-6">
+
             <div className="bg-white rounded-2xl p-6 shadow-sm">
               <h4 className="font-semibold">Our office</h4>
               <p className="text-sm text-slate-600 mt-2">
-                48,Pleasant Valley, Rajpur Rd, IAS Officers Colony, Rajpur, Dehradun, Uttarakhand 248009-Open Mon–Sat
+                48, Pleasant Valley, Rajpur Rd, IAS Officers Colony,
+                Rajpur, Dehradun, Uttarakhand 248009
               </p>
 
               <div className="mt-4">
@@ -143,7 +176,10 @@ export default function Contact() {
 
               <div className="mt-3">
                 <div className="text-sm text-slate-500">Phone</div>
-                <a href="tel:+911234567890" className="text-slate-800 font-medium">
+                <a
+                  href="tel:+919719799992"
+                  className="text-slate-800 font-medium"
+                >
                   +91 9719799992
                 </a>
               </div>
@@ -160,9 +196,6 @@ export default function Contact() {
 
             <div className="bg-white rounded-2xl p-6 shadow-sm">
               <h4 className="font-semibold">Map</h4>
-              {/* <div className="mt-3 h-40 rounded overflow-hidden bg-slate-100 flex items-center justify-center text-slate-400">
-                Map Placeholder
-              </div> */}
               <div className="mt-3 h-48 rounded overflow-hidden">
                 <iframe
                   title="Office Location"
@@ -171,8 +204,8 @@ export default function Contact() {
                   loading="lazy"
                 />
               </div>
-
             </div>
+
           </div>
         </div>
       </div>
