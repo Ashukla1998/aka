@@ -18,6 +18,17 @@ export default function Navbar() {
     `group relative pb-1 text-sm font-medium transition-colors duration-300
      ${isActive ? "text-[#c5a879]" : "text-gray-600 hover:text-gray-900"}`;
 
+  const handleWhatsAppClick = () => {
+    const url =
+      "https://api.whatsapp.com/send?phone=+919719799992&text=Hello! I have this design query:";
+    if (window.gtag_report_conversion) {
+      window.gtag_report_conversion(url);
+    } else {
+      window.open(url, "_blank");
+    }
+  };
+
+
   return (
     <header className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -55,7 +66,7 @@ export default function Navbar() {
         </nav>
 
         {/* Right Icons */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4" onClick={handleWhatsAppClick}>
           <img
             src={whatsapp}
             alt="WhatsApp Contact"
@@ -78,9 +89,8 @@ export default function Navbar() {
 
       {/* Mobile Navigation */}
       <div
-        className={`md:hidden overflow-hidden transition-all duration-300 ${
-          menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-        }`}
+        className={`md:hidden overflow-hidden transition-all duration-300 ${menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+          }`}
       >
         <nav className="flex flex-col gap-6 px-6 py-6 bg-white border-t border-gray-100">
           {links.map((link) => (
