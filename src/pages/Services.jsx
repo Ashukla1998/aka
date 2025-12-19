@@ -103,7 +103,7 @@ export default function Services() {
 
               <ul className="mt-4 grid gap-3">
                 <li className="flex gap-3 items-start">
-                  <div className="text-indigo-600 mt-1">●</div>
+                  <div className="text-arcadisOrange mt-1">●</div>
                   <div>
                     <div className="font-semibold">Concept & Planning</div>
                     <div className="text-sm text-slate-600">
@@ -114,7 +114,7 @@ export default function Services() {
                 </li>
 
                 <li className="flex gap-3 items-start">
-                  <div className="text-indigo-600 mt-1">●</div>
+                  <div className="text-arcadisOrange mt-1">●</div>
                   <div>
                     <div className="font-semibold">Design Development</div>
                     <div className="text-sm text-slate-600">
@@ -124,7 +124,7 @@ export default function Services() {
                 </li>
 
                 <li className="flex gap-3 items-start">
-                  <div className="text-indigo-600 mt-1">●</div>
+                  <div className="text-arcadisOrange mt-1">●</div>
                   <div>
                     <div className="font-semibold">Execution & Handover</div>
                     <div className="text-sm text-slate-600">
