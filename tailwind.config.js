@@ -15,6 +15,17 @@ module.exports = {
       letterSpacing: {
         arcadis: "0.3em",
       },
+      keyframes: {
+        logoIn: {
+          "0%": { opacity: 0, transform: "scale(0.9)" },
+          "40%": { opacity: 1, transform: "scale(1)" },
+          "100%": { opacity: 1, transform: "scale(1)" },
+        },
+      },
+      lineGrow: {
+          "0%": { width: "0" },
+          "100%": { width: "90px" },
+        },
     },
   },
   plugins: [],
