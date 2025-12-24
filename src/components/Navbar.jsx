@@ -1,4 +1,3 @@
-// src/components/Navbar.jsx
 import React, { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import logo from "../images/akalogo.jpg";
@@ -11,45 +10,75 @@ export default function Navbar() {
     { label: "Home", to: "/home" },
     { label: "About", to: "/about" },
     { label: "Services", to: "/services" },
+    { label: "Projects", to: "/projects" },
     { label: "Contact", to: "/contact" },
   ];
 
   const navClass = ({ isActive }) =>
-    `group relative pb-1 text-sm font-medium transition-colors duration-300
-     ${isActive ? "text-arcadisOrange" : "text-gray-600 hover:text-gray-900"}`;
+    `relative pb-1 text-sm font-medium transition-colors duration-300
+     ${isActive ? "text-arcadisOrange" : "text-gray-700 hover:text-gray-900"}`;
 
   const handleWhatsAppClick = () => {
     const url =
       "https://api.whatsapp.com/send?phone=+919719799992&text=Hello! I have this design query:";
-    if (window.gtag_report_conversion) {
-      window.gtag_report_conversion(url);
-    } else {
-      window.open(url, "_blank");
-    }
+    window.open(url, "_blank");
   };
 
-
   return (
-    <header className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-100">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <header className="bg-white shadow-sm sticky top-0 z-50">
+      <div className="border-b border-gray-200">
+        <div className="flex items-center justify-between px-6 py-2 text-sm text-gray-700">
+          <div className="hidden sm:block">
+            {/* Can add language / region later */}
+          </div>
 
-        {/* Logo */}
-        <Link
-          to="/home"
-          onClick={() => setMenuOpen(false)}
-          className="flex items-center gap-3"
-        >
+          {/* RIGHT SIDE (Contact / Careers / WhatsApp) */}
+          <div className="flex items-center gap-6">
+            <Link to="/contact" className="hover:text-gray-900">
+              Contact
+            </Link>
+
+            <Link to="/careers" className="hover:text-gray-900">
+              Careers
+            </Link>
+
+            <button
+              onClick={handleWhatsAppClick}
+              className="flex items-center gap-1 hover:text-gray-900"
+            >
+              <img
+                src={whatsapp}
+                alt="WhatsApp"
+                className="w-25 h-8"
+              />
+              
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      {/* Black separator line */}
+      <div className="border-t border-b border-gray-200"></div>
+
+      {/* ===== MAIN NAV BAR ===== */}
+      <div className="flex items-center justify-between px-6 py-4">
+
+        {/* Logo + Tagline */}
+        <Link to="/home" className="flex items-center gap-3">
           <img
             src={logo}
             alt="AKA Architects Logo"
-            className="w-10 h-10 rounded object-cover"
+            className="w-10 h-10 rounded object-contain"
           />
-
           <div className="hidden sm:block leading-tight">
-            <p className="font-serif text-base tracking-wide">
+            <p className="font-serif text-base tracking-wide font-[16px]">
               Dehradun Based Architect
             </p>
-            <p className="text-xs text-gray-600">
+            <p className="text-xs text-gray-600 font-[10px]">
               Planning • Architecture • Interior • Landscape
             </p>
           </div>
@@ -65,20 +94,10 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* Right Icons */}
-        <div className="flex items-center gap-4" onClick={handleWhatsAppClick}>
-          <img
-            src={whatsapp}
-            alt="WhatsApp Contact"
-            className="w-30 h-6 cursor-pointer hover:scale-110 transition"
-          />
-        </div>
-
-        {/* Mobile Menu Button */}
+        {/* Mobile Hamburger */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle navigation menu"
-          aria-expanded={menuOpen}
           className="md:hidden flex flex-col gap-1.5"
         >
           <span className={`w-6 h-0.5 bg-gray-700 transition ${menuOpen && "rotate-45 translate-y-2"}`} />
@@ -87,12 +106,11 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* ===== MOBILE MENU ===== */}
       <div
-        className={`md:hidden overflow-hidden transition-all duration-300 ${menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-          }`}
+        className={`md:hidden overflow-hidden transition-all duration-300 ${menuOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0"}`}
       >
-        <nav className="flex flex-col gap-6 px-6 py-6 bg-white border-t border-gray-100">
+        <nav className="flex flex-col gap-4 px-6 py-4 bg-white border-t border-gray-100">
           {links.map((link) => (
             <NavLink
               key={link.to}
@@ -100,8 +118,8 @@ export default function Navbar() {
               onClick={() => setMenuOpen(false)}
               className={({ isActive }) =>
                 isActive
-                  ? "text-[#c5a879] font-medium"
-                  : "text-gray-700 hover:text-gray-900"
+                  ? "text-arcadisOrange font-medium"
+                  : "text-gray-700 hover:text-gray-900 font-[16px]"
               }
             >
               {link.label}
@@ -109,6 +127,7 @@ export default function Navbar() {
           ))}
         </nav>
       </div>
+
     </header>
   );
 }
