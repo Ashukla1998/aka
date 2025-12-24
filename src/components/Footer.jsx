@@ -18,7 +18,7 @@ export default function Footer() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="bg-arcadisOrange"
+      className="bg-black"
     >
       <div className="max-w-7xl mx-auto px-8 md:px-10 py-16 md:py-20">
 

@@ -14,6 +14,7 @@ import Admin from "./pages/Admin";
 import Careers from "./pages/Career";
 
 import { HashRouter, Routes, Route } from "react-router-dom";
+import HeroMarquee from "./components/Hero";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -42,6 +43,7 @@ function App() {
             <Route path="/projects/:slug" element={<ProjectDetail />} />
             <Route path="/admin" element={<Admin />} />
             <Route path="/career" element={<Careers />} />
+            <Route path="/hero" element={<HeroMarquee/>}/>
           </Routes>
           <Footer />
         </HashRouter>
