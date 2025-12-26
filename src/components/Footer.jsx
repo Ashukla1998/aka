@@ -31,7 +31,7 @@ export default function Footer() {
               Archana Kapil Associates
             </h3>
 
-            <p className="text-sm leading-relaxed max-w-sm text-white/90">
+            <p className="text-m leading-relaxed max-w-sm text-white/90">
               A Dehradun-based multidisciplinary design practice, established
               in 2013, delivering architecture, interiors, landscape, and
               site planning solutions grounded in context, craft, and
@@ -84,11 +84,11 @@ export default function Footer() {
 
           {/* INFORMATION */}
           <div className="md:text-center">
-            <p className="text-xs uppercase tracking-[0.25em] text-white/70 mb-6">
+            <p className="text-m uppercase tracking-[0.25em] text-white mb-6">
               Information
             </p>
 
-            <nav className="flex flex-col gap-4 text-sm">
+            <nav className="flex flex-col gap-4 text-m">
               <Link
                 to="/projects"
                 className="text-white/90 hover:text-white transition transform hover:-translate-y-0.5"
@@ -124,11 +124,11 @@ export default function Footer() {
 
           {/* ADDRESS */}
           <div className="md:text-right">
-            <p className="text-xs uppercase tracking-[0.25em] text-white/70 mb-6">
+            <p className="text-m uppercase tracking-[0.25em] text-white mb-6">
               Office
             </p>
 
-            <p className="text-sm text-white/90 leading-relaxed mb-4">
+            <p className="text-m text-white/90 leading-relaxed mb-4">
               48,Pleasant Valley, Rajpur Road <br />
               Dehradun, Uttarakhand 248009
             </p>
