@@ -171,7 +171,7 @@ export default function Navbar() {
               Contact
             </Link>
 
-            <Link to="/careers" className="hover:text-arcadisOrange">
+            <Link to="/career" className="hover:text-arcadisOrange">
               Careers
             </Link>
 
