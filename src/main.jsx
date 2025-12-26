@@ -303,7 +303,7 @@ export default function Home() {
 
           {/* ================= WHAT WE DO ================= */}
           <div className="max-w-2xl mb-24">
-            <p className="font-sans text-xs tracking-[0.25em] uppercase text-gray-500 mb-4">
+            <p className="font-sans text-xs tracking-[0.25em] uppercase text-arcadisOrange mb-4">
               Our Expertise
             </p>
 
