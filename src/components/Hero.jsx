@@ -275,7 +275,7 @@ export default function HeroArcadis() {
   };
 
   return (
-    <section className="relative h-[100svh] overflow-hidden bg-black">
+    <section className="relative h-[100svh] overflow-hidden bg-black rounded-[25px]">
       <Slider ref={sliderRef} {...settings}>
         {slides.map((slide, index) => (
           <div key={index}>

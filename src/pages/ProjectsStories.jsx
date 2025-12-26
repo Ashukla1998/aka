@@ -62,7 +62,7 @@ export default function ProjectsStories() {
               to={item.slug}
               className={i === 0 ? "md:col-span-6" : "md:col-span-3"}
             >
-              <article className="group relative overflow-hidden cursor-pointer">
+              <article className="group relative overflow-hidden cursor-pointer rounded-[25px]">
 
                 <div className="relative h-[260px] sm:h-[280px] md:h-[320px] overflow-hidden">
                   {/* Image */}
