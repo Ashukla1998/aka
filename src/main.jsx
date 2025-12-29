@@ -192,7 +192,7 @@ export default function Home() {
               whileHover={{ y: -3 }}
               whileTap={{ scale: 0.98 }}
               className="inline-flex items-center gap-3 px-10 py-4 text-sm tracking-wide
-              border border-arcadisOrange bg-arcadisOrange text-white rounded-[5px]"
+              border border-arcadisOrange bg-arcadisOrange text-white rounded-[5px] mt-5"
             >
               Get in Touch
               <ArrowRightIcon className="w-5 h-5" />
