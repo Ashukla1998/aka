@@ -4,9 +4,24 @@ module.exports = {
     extend: {
       /* ================= FONTS ================= */
       fontFamily: {
-        sans: ["Poppins", "sans-serif"],   // default UI + labels
-        serif: ["Poppins", "sans-serif"],  // headings (keeps your existing usage)
-        body: ["Roboto", "sans-serif"],    // paragraphs / long text
+        /* UI labels only */
+        sans: ["Poppins", "sans-serif"],
+
+        /* Arcadis-style editorial serif */
+        serif: [
+          "Georgia",
+          "Times New Roman",
+          "Times",
+          "serif",
+        ],
+
+        /* Paragraphs / long reading */
+        body: [
+          "Georgia",
+          "Times New Roman",
+          "Times",
+          "serif",
+        ],
       },
 
       /* ================= COLORS ================= */

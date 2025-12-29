@@ -22,7 +22,7 @@ const sectionAnim = {
 
 export default function Home() {
   return (
-    <main className="bg-white overflow-hidden">
+    <main className="overflow-hidden">
 
       {/* ================= HERO ================= */}
       <section className="mt-2">
@@ -38,7 +38,7 @@ export default function Home() {
         whileInView="visible"
         viewport={{ once: true }}
         variants={sectionAnim}
-        className="px-10 md:px-20 py-32 bg-white"
+        className="px-10 md:px-20 py-32"
       >
         <div className="max-w-6xl">
 
@@ -48,18 +48,18 @@ export default function Home() {
               Our Expertise
             </p>
 
-            <h2 className="font-serif font-medium text-4xl md:text-5xl mb-6">
+            <h2 className="font-medium text-4xl md:text-5xl mb-6">
               What We Do
             </h2>
 
-            <p className="font-body text-gray-600 leading-relaxed">
+            <h4 className="text-[24px] leading-[1.6] font-semibold max-w-3xl">
               Our work spans architecture, urbanism, and sustainability —
               combining strategic thinking with design excellence to create
               places that deliver long-term value.
-            </p>
+            </h4>
           </div>
 
-          {/* SERVICES GRID */}
+          {/* ================= SERVICES GRID ================= */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-16 mb-36">
             {[
               {
@@ -85,15 +85,15 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.15, duration: 0.8 }}
                 whileHover={{ y: -8 }}
-                className="group cursor-default"
+                className="group"
               >
                 <div className="w-10 h-[2px] bg-arcadisOrange mb-6 transition-all group-hover:w-16" />
 
-                <h4 className="font-serif font-medium text-[32px] mb-4">
+                <h4 className="font-medium text-[32px] mb-4">
                   {service.title}
                 </h4>
 
-                <p className="font-body text-gray-600 leading-relaxed">
+                <p className="leading-relaxed">
                   {service.desc}
                 </p>
               </motion.div>
@@ -106,17 +106,17 @@ export default function Home() {
               Design Philosophy
             </p>
 
-            <h2 className="font-serif font-medium text-4xl md:text-5xl mb-6">
+            <h2 className="font-medium text-4xl md:text-5xl mb-6">
               How We Think
             </h2>
 
-            <p className="font-body text-gray-600 leading-relaxed">
+            <p className="font-semibold leading-relaxed">
               Our design philosophy is rooted in integration, context,
               experience, and long-term sustainability.
             </p>
           </div>
 
-          {/* PHILOSOPHY GRID */}
+          {/* ================= PHILOSOPHY GRID ================= */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-16">
             {[
               {
@@ -150,11 +150,11 @@ export default function Home() {
               >
                 <div className="w-10 h-[2px] bg-arcadisOrange mb-6 transition-all group-hover:w-16" />
 
-                <h3 className="font-serif font-medium text-[32px] mb-4">
+                <h3 className="font-medium text-[32px] mb-4">
                   {item.title}
                 </h3>
 
-                <p className="font-body text-gray-600 leading-relaxed">
+                <p className="leading-relaxed">
                   {item.desc}
                 </p>
               </motion.div>
@@ -170,19 +170,19 @@ export default function Home() {
         whileInView="visible"
         viewport={{ once: true }}
         variants={sectionAnim}
-        className="px-10 md:px-20 py-32 bg-[#fafafa] text-gray-900 text-center"
+        className="px-10 md:px-20 py-32 bg-[#fafafa] text-center"
       >
         <div className="max-w-3xl mx-auto">
           <p className="font-sans text-xs tracking-[0.35em] uppercase text-arcadisOrange mb-6">
             Collaboration
           </p>
 
-          <h2 className="font-serif font-medium text-4xl md:text-5xl mb-8 leading-tight">
+          <h2 className="font-medium text-4xl md:text-5xl mb-8 leading-tight">
             Let’s Build Something <br />
             <span className="text-arcadisGold">Meaningful Together</span>
           </h2>
 
-          <p className="font-body text-gray-600 leading-relaxed">
+          <p className="leading-relaxed">
             Whether you’re planning a new project, rethinking an existing space,
             or exploring sustainable design strategies, we’d be happy to collaborate.
           </p>
@@ -192,8 +192,7 @@ export default function Home() {
               whileHover={{ y: -3 }}
               whileTap={{ scale: 0.98 }}
               className="inline-flex items-center gap-3 px-10 py-4 text-sm tracking-wide
-              border border-arcadisOrange bg-arcadisOrange text-white
-              transition-colors duration-300 cursor-pointer rounded-[5px]"
+              border border-arcadisOrange bg-arcadisOrange text-white rounded-[5px]"
             >
               Get in Touch
               <ArrowRightIcon className="w-5 h-5" />
@@ -210,23 +209,16 @@ export default function Home() {
         transition={{ duration: 0.6 }}
         className="px-6 sm:px-10 md:px-20 py-10"
       >
-        <div
-          className="
-      flex flex-col md:flex-row
-      md:items-center
-      gap-6 md:gap-8
-      text-base font-sans text-gray-700
-    "
-        >
-          {/* Label */}
-          <p className="font-semibold tracking-wide text-center md:text-left">
+        <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-8 text-arcadisDark">
+
+          {/* Label (UI = sans-serif) */}
+          <p className="font-sans text-xs tracking-[0.25em] uppercase text-center md:text-left">
             Share with your friends
           </p>
 
-          {/* Divider */}
           <div className="hidden md:block flex-1 h-[1px] bg-gray-200" />
 
-          {/* Social Icons */}
+          {/* Icons */}
           <div className="flex items-center justify-center md:justify-end gap-4">
             {[FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter].map(
               (Icon, i) => (
@@ -237,14 +229,13 @@ export default function Home() {
                   whileHover={{ y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   className="
-              w-9 h-9
-              flex items-center justify-center
-              border border-arcadisOrange
-              rounded-full
-              text-arcadisOrange
-              hover:bg-arcadisOrange hover:text-white
-              transition-all duration-300
-            "
+                    w-9 h-9 flex items-center justify-center
+                    border border-arcadisOrange rounded-full
+                    text-arcadisOrange
+                    hover:bg-arcadisOrange hover:text-white
+                    transition-all duration-300
+                    font-sans
+                  "
                 >
                   <Icon size={14} />
                 </motion.a>
@@ -253,7 +244,6 @@ export default function Home() {
           </div>
         </div>
       </motion.div>
-
 
     </main>
   );

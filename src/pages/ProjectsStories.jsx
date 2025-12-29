@@ -121,7 +121,7 @@ export default function ProjectsStories() {
         {/* ================= CTA ROW ================= */}
         <div className="mt-16 md:mt-20 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10">
           {/* Text under first + second cards */}
-          <p className="md:col-span-9 text-gray-600 max-w-xl">
+          <p className="md:col-span-9 font-serif font-bold max-w-xl">
             Find out how we work with our clients to achieve their goals and
             improve quality of life.
           </p>

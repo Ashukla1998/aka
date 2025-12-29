@@ -105,7 +105,7 @@ export default function About() {
                 transition={{ duration: 0.3 }}
               >
                 {/* Fixed container for alignment */}
-                <div className="w-full h-[460px] flex items-center justify-center bg-slate-100 mb-6">
+                <div className="w-full h-[460px] flex items-center justify-center bg-slate-100 mb-6 rounded-[25px]">
                   <img
                     src={member.photo}
                     alt={member.name}
@@ -157,7 +157,7 @@ export default function About() {
                     transition={{ duration: 0.25 }}
                     className="text-center"
                   >
-                    <div className="h-64 flex items-center justify-center bg-slate-100 mb-4">
+                    <div className="h-64 flex items-center justify-center bg-slate-100 mb-4 rounded-[25px]">
                       <img
                         src={member.photo}
                         alt={member.name}
