@@ -9,7 +9,7 @@ function ServiceCard({ title, desc, img }) {
     <motion.article
       whileHover={{ y: -6 }}
       transition={{ duration: 0.3 }}
-      className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100"
+      className="bg-gray-50 rounded-2xl p-6 shadow-sm border border-slate-100"
     >
       <img
         src={img}
@@ -69,7 +69,7 @@ export default function Services() {
   ];
 
   return (
-    <main className="min-h-screen bg-slate-50 py-12">
+    <main className="min-h-screen bg-white py-12">
       <div className="max-w-6xl mx-auto px-6">
 
         {/* ================= PAGE HEADER ================= */}

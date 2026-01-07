@@ -29,14 +29,13 @@ export default function ProjectDetail() {
   if (!project) {
     return (
       <main className="px-8 md:px-24 py-32">
-        <h2 className="text-2xl font-medium">
+        <h2 className="font-sans font-medium text-2xl">
           Project not found
         </h2>
       </main>
     );
   }
 
-  /* ================= IMAGE LIST ================= */
   const images = Array.from(
     { length: project.imageCount || 1 },
     (_, i) =>
@@ -44,7 +43,7 @@ export default function ProjectDetail() {
   );
 
   return (
-    <main className="bg-white text-gray-900">
+    <main className="bg-white text-arcadisDark font-sans">
 
       {/* ================= HERO IMAGE ================= */}
       <section className="px-6 md:px-16 pt-20">
@@ -68,7 +67,7 @@ export default function ProjectDetail() {
 
           {/* TEXT */}
           <motion.div initial="hidden" animate="visible" variants={fadeUp}>
-            <p className="text-xs tracking-[0.35em] uppercase text-gray-500 mb-4">
+            <p className="text-xs uppercase tracking-[0.35em] font-medium text-gray-500 mb-4">
               {project.category}
             </p>
 
@@ -76,17 +75,17 @@ export default function ProjectDetail() {
               {project.title}
             </h1>
 
-            <p className="text-gray-600 leading-relaxed mb-10 max-w-xl">
+            <p className="text-base font-normal text-gray-600 leading-relaxed mb-10 max-w-xl">
               {project.description ||
                 "A context-driven architectural project balancing functionality, spatial clarity, and long-term performance."}
             </p>
 
             {project.work && (
               <div className="mt-6">
-                <p className="text-xs uppercase tracking-widest text-gray-500 mb-2">
+                <p className="text-xs uppercase tracking-widest font-medium text-gray-500 mb-2">
                   Scope of Work
                 </p>
-                <p className="text-gray-800">
+                <p className="text-base font-normal text-gray-800">
                   {project.work}
                 </p>
               </div>
@@ -109,10 +108,10 @@ export default function ProjectDetail() {
               .filter(([, value]) => value)
               .map(([label, value]) => (
                 <div key={label}>
-                  <p className="text-xs uppercase tracking-widest text-gray-500 mb-1">
+                  <p className="text-xs uppercase tracking-widest font-medium text-gray-500 mb-1">
                     {label}
                   </p>
-                  <p className="font-medium text-gray-900">
+                  <p className="text-base font-normal text-gray-900">
                     {value}
                   </p>
                 </div>
@@ -128,7 +127,7 @@ export default function ProjectDetail() {
           <h2 className="text-3xl font-semibold mb-4">
             Project Gallery
           </h2>
-          <p className="text-gray-600 max-w-2xl">
+          <p className="text-base font-normal text-gray-600 max-w-2xl">
             A visual walkthrough highlighting key architectural moments,
             spatial relationships, and material detailing.
           </p>
@@ -143,13 +142,13 @@ export default function ProjectDetail() {
         whileInView="visible"
         viewport={{ once: true }}
         variants={sectionAnim}
-        className="px-8 md:px-24 py-36 bg-[#fafafa] text-gray-900"
+        className="px-8 md:px-24 py-36 bg-white"
       >
         <div className="max-w-5xl mx-auto">
 
-          {/* SECTION HEADER */}
+          {/* HEADER */}
           <div className="max-w-2xl mb-20">
-            <p className="text-xs uppercase tracking-[0.4em] text-arcadisOrange mb-6">
+            <p className="text-xs uppercase tracking-[0.4em] font-medium text-arcadisOrange mb-6">
               Project Narrative
             </p>
 
@@ -157,7 +156,7 @@ export default function ProjectDetail() {
               Design Thinking & Outcomes
             </h2>
 
-            <p className="text-gray-600 leading-relaxed">
+            <p className="text-base font-normal text-gray-600 leading-relaxed">
               An integrated design approach shaped by context, clarity, and
               long-term performance — translating intent into built form.
             </p>
@@ -168,43 +167,43 @@ export default function ProjectDetail() {
 
             {[
               {
-                num: "01",
+                no: "01",
                 title: "Design Intent",
                 text:
                   "The design intent was to respond sensitively to the site context, balancing functional requirements with adaptability for future needs while maintaining architectural clarity.",
               },
               {
-                num: "02",
+                no: "02",
                 title: "Key Considerations",
                 text:
                   "Spatial hierarchy, natural daylight, circulation efficiency, material longevity, and environmental performance informed every design decision.",
               },
               {
-                num: "03",
+                no: "03",
                 title: "Outcome",
                 text:
-                  "The final outcome is a cohesive architectural solution that balances aesthetics, performance, and long-term usability, delivering enduring value for users and stakeholders.",
+                  "The final outcome is a cohesive architectural solution that balances aesthetics, performance, and long-term usability.",
               },
-            ].map((item, i) => (
+            ].map((item) => (
               <motion.div
-                key={i}
+                key={item.no}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: i * 0.1 }}
+                transition={{ duration: 0.7 }}
                 className="relative"
               >
-                <span className="absolute -top-8 left-0 text-[72px] font-medium text-gray-200 leading-none">
-                  {item.num}
+                <span className="absolute -top-8 left-0 text-[72px] font-normal text-gray-200">
+                  {item.no}
                 </span>
 
-                <h3 className="text-2xl font-semibold mb-4 relative z-10">
+                <h3 className="text-2xl font-medium mb-4 relative z-10">
                   {item.title}
                 </h3>
 
                 <div className="w-12 h-[2px] bg-arcadisOrange mb-6" />
 
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-base font-normal text-gray-600 leading-relaxed">
                   {item.text}
                 </p>
               </motion.div>

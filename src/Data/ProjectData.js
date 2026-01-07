@@ -42,6 +42,7 @@ export const FullProjects = [
     status: "completed",
     description:"A state-of-the-art medical facility designed with patient-centric care.",
     work: "Elevation | Interior | Landscape"
+    
   },
   {
     title: "GEIMS SERVICE BLOCK",

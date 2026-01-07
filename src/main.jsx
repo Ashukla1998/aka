@@ -170,7 +170,7 @@ export default function Home() {
         whileInView="visible"
         viewport={{ once: true }}
         variants={sectionAnim}
-        className="px-10 md:px-20 py-32 bg-[#fafafa] text-center"
+        className="px-10 md:px-20 py-32 bg-white text-center"
       >
         <div className="max-w-3xl mx-auto">
           <p className="text-xs tracking-[0.35em] uppercase text-arcadisOrange mb-6">

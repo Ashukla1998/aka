@@ -37,7 +37,7 @@ export default function ProjectsStories() {
 
       {/* ================= HEADER ================= */}
       <section className="px-6 sm:px-10 md:px-20 pt-24 md:pt-32 pb-16 md:pb-20">
-        <p className="text-xs tracking-[0.3em] uppercase text-arcadisOrange mb-4">
+        <p className="text-xs tracking-[0.3em] uppercase text-arcadisOrange mb-4 ">
           Projects & Stories
         </p>
 

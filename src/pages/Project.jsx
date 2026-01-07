@@ -90,13 +90,13 @@ export default function Projects() {
                 className={`relative pb-1 transition-colors
                   ${
                     active === cat
-                      ? "text-arcadisGold"
+                      ? "text-arcadisOrange"
                       : "text-gray-600 hover:text-gray-900"
                   }`}
               >
                 {cat}
                 {active === cat && (
-                  <span className="absolute left-0 -bottom-1 w-full h-[2px] bg-arcadisGold" />
+                  <span className="absolute left-0 -bottom-1 w-full h-[2px] bg-arcadisOrange" />
                 )}
               </button>
             ))}
@@ -136,7 +136,6 @@ export default function Projects() {
                   className="
                     relative overflow-hidden
                     bg-gray-100
-                    rounded-[25px]
                     shadow-sm
                     transition-shadow duration-500
                     hover:shadow-lg
