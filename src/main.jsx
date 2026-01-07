@@ -42,24 +42,24 @@ export default function Home() {
       >
         <div className="max-w-6xl">
 
-          {/* ================= WHAT WE DO ================= */}
+          {/* ===== WHAT WE DO ===== */}
           <div className="max-w-2xl mb-24">
-            <p className="font-sans text-xs tracking-[0.3em] uppercase mb-4 text-arcadisOrange">
+            <p className="text-xs tracking-[0.3em] uppercase mb-4 text-arcadisOrange">
               Our Expertise
             </p>
 
-            <h2 className="font-medium text-4xl md:text-5xl mb-6">
+            <h2 className="text-4xl md:text-5xl font-semibold mb-6">
               What We Do
             </h2>
 
-            <h4 className="text-[24px] leading-[1.6] font-semibold max-w-3xl">
+            <p className="text-base leading-relaxed font-medium max-w-3xl">
               Our work spans architecture, urbanism, and sustainability —
               combining strategic thinking with design excellence to create
               places that deliver long-term value.
-            </h4>
+            </p>
           </div>
 
-          {/* ================= SERVICES GRID ================= */}
+          {/* ===== SERVICES GRID ===== */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-16 mb-36">
             {[
               {
@@ -89,34 +89,34 @@ export default function Home() {
               >
                 <div className="w-10 h-[2px] bg-arcadisOrange mb-6 transition-all group-hover:w-16" />
 
-                <h4 className="font-medium text-[32px] mb-4">
+                <h3 className="text-2xl font-medium mb-4 uppercase">
                   {service.title}
-                </h4>
+                </h3>
 
-                <p className="leading-relaxed">
+                <p className="leading-relaxed font-normal">
                   {service.desc}
                 </p>
               </motion.div>
             ))}
           </div>
 
-          {/* ================= HOW WE THINK ================= */}
+          {/* ===== HOW WE THINK ===== */}
           <div className="max-w-2xl mb-20">
-            <p className="font-sans text-xs tracking-[0.3em] uppercase mb-4 text-arcadisOrange">
+            <p className="text-xs tracking-[0.3em] uppercase mb-4 text-arcadisOrange">
               Design Philosophy
             </p>
 
-            <h2 className="font-medium text-4xl md:text-5xl mb-6">
+            <h2 className="text-4xl md:text-5xl font-semibold mb-6">
               How We Think
             </h2>
 
-            <p className="font-semibold leading-relaxed">
+            <p className="font-medium leading-relaxed">
               Our design philosophy is rooted in integration, context,
               experience, and long-term sustainability.
             </p>
           </div>
 
-          {/* ================= PHILOSOPHY GRID ================= */}
+          {/* ===== PHILOSOPHY GRID ===== */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-16">
             {[
               {
@@ -150,11 +150,11 @@ export default function Home() {
               >
                 <div className="w-10 h-[2px] bg-arcadisOrange mb-6 transition-all group-hover:w-16" />
 
-                <h3 className="font-medium text-[32px] mb-4">
+                <h3 className="text-2xl uppercase font-medium mb-4">
                   {item.title}
                 </h3>
 
-                <p className="leading-relaxed">
+                <p className="leading-relaxed font-normal">
                   {item.desc}
                 </p>
               </motion.div>
@@ -173,16 +173,16 @@ export default function Home() {
         className="px-10 md:px-20 py-32 bg-[#fafafa] text-center"
       >
         <div className="max-w-3xl mx-auto">
-          <p className="font-sans text-xs tracking-[0.35em] uppercase text-arcadisOrange mb-6">
+          <p className="text-xs tracking-[0.35em] uppercase text-arcadisOrange mb-6">
             Collaboration
           </p>
 
-          <h2 className="font-medium text-4xl md:text-5xl mb-8 leading-tight">
+          <h2 className="text-4xl md:text-5xl font-semibold mb-8 leading-tight">
             Let’s Build Something <br />
             <span className="text-arcadisGold">Meaningful Together</span>
           </h2>
 
-          <p className="leading-relaxed">
+          <p className="leading-relaxed font-normal">
             Whether you’re planning a new project, rethinking an existing space,
             or exploring sustainable design strategies, we’d be happy to collaborate.
           </p>
@@ -191,8 +191,8 @@ export default function Home() {
             <motion.div
               whileHover={{ y: -3 }}
               whileTap={{ scale: 0.98 }}
-              className="inline-flex items-center gap-3 px-10 py-4 text-sm tracking-wide
-              border border-arcadisOrange bg-arcadisOrange text-white rounded-[5px] mt-5"
+              className="inline-flex items-center gap-3 px-10 py-4 text-sm font-medium tracking-wide
+              border border-arcadisOrange bg-arcadisOrange text-white rounded-[5px] mt-8"
             >
               Get in Touch
               <ArrowRightIcon className="w-5 h-5" />
@@ -201,7 +201,7 @@ export default function Home() {
         </div>
       </motion.section>
 
-      {/* ================= SHARE SECTION ================= */}
+      {/* ================= SHARE ================= */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -211,14 +211,12 @@ export default function Home() {
       >
         <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-8 text-arcadisDark">
 
-          {/* Label (UI = sans-serif) */}
-          <p className="font-sans text-xs tracking-[0.25em] uppercase text-center md:text-left">
+          <p className="text-xs tracking-[0.25em] uppercase text-center md:text-left">
             Share with your friends
           </p>
 
           <div className="hidden md:block flex-1 h-[1px] bg-gray-200" />
 
-          {/* Icons */}
           <div className="flex items-center justify-center md:justify-end gap-4">
             {[FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter].map(
               (Icon, i) => (
@@ -228,14 +226,11 @@ export default function Home() {
                   aria-label="Share"
                   whileHover={{ y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  className="
-                    w-9 h-9 flex items-center justify-center
+                  className="w-9 h-9 flex items-center justify-center
                     border border-arcadisOrange rounded-full
                     text-arcadisOrange
                     hover:bg-arcadisOrange hover:text-white
-                    transition-all duration-300
-                    font-sans
-                  "
+                    transition-all duration-300"
                 >
                   <Icon size={14} />
                 </motion.a>

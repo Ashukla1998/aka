@@ -27,7 +27,7 @@ export default function Footer() {
 
           {/* BRAND */}
           <div>
-            <h3 className="font-serif text-xl text-white mb-5">
+            <h3 className="text-m uppercase tracking-[0.25em] text-white mb-6">
               Archana Kapil Associates
             </h3>
 

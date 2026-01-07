@@ -5,7 +5,7 @@
 /* ================= GLOBAL ================= */
 body {
   margin: 0;
-  @apply font-serif text-arcadisDark bg-white;
+  @apply font-primary  text-arcadisDark bg-white;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

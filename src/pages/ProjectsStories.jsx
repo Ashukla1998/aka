@@ -37,11 +37,11 @@ export default function ProjectsStories() {
 
       {/* ================= HEADER ================= */}
       <section className="px-6 sm:px-10 md:px-20 pt-24 md:pt-32 pb-16 md:pb-20">
-        <p className="text-m tracking-[0.3em] uppercase text-arcadisOrange mb-4">
+        <p className="text-xs tracking-[0.3em] uppercase text-arcadisOrange mb-4">
           Projects & Stories
         </p>
 
-        <h1 className="font-serif font-semibold text-[20px]">
+        <h1 className="text-xl md:text-2xl font-semibold">
           Discover how we are improving quality of life
         </h1>
       </section>
@@ -54,7 +54,6 @@ export default function ProjectsStories() {
         transition={{ duration: 0.5, ease: "easeOut" }}
         className="px-6 sm:px-10 md:px-20 pb-24 md:pb-32"
       >
-        {/* GRID MUST SUM TO 12 */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-8 md:gap-10">
           {projectsStories.map((item, i) => (
             <Link
@@ -69,11 +68,7 @@ export default function ProjectsStories() {
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="
-                      w-full h-full object-cover
-                      transition-transform duration-700
-                      group-hover:scale-110
-                    "
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
 
                   {/* Overlay */}
@@ -88,14 +83,14 @@ export default function ProjectsStories() {
                     <h3
                       className={
                         i === 0
-                          ? "font-bold text-[24px] md:text-[32px] leading-tight mt-2 mb-2"
-                          : "font-semibold text-[18px] md:text-[22px] leading-tight mt-2 mb-2"
+                          ? "text-2xl md:text-3xl font-semibold leading-tight mt-2 mb-2"
+                          : "text-lg md:text-xl font-medium leading-tight mt-2 mb-2"
                       }
                     >
                       {item.title}
                     </h3>
 
-                    <p className="text-sm leading-relaxed text-white/90">
+                    <p className="text-sm leading-relaxed text-white/90 font-normal">
                       {item.description}
                     </p>
                   </div>
@@ -103,12 +98,7 @@ export default function ProjectsStories() {
                   {/* Arrow */}
                   <div className="absolute bottom-4 right-4 md:bottom-6 md:right-6">
                     <ArrowRightIcon
-                      className="
-                        w-5 h-5 text-white
-                        transition-all duration-300
-                        group-hover:text-arcadisOrange
-                        group-hover:translate-x-1
-                      "
+                      className="w-5 h-5 text-white transition-all duration-300 group-hover:text-arcadisOrange group-hover:translate-x-1"
                     />
                   </div>
                 </div>
@@ -120,17 +110,15 @@ export default function ProjectsStories() {
 
         {/* ================= CTA ROW ================= */}
         <div className="mt-16 md:mt-20 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10">
-          {/* Text under first + second cards */}
-          <p className="md:col-span-9 font-serif font-bold max-w-xl">
+          <p className="md:col-span-9 max-w-xl font-medium leading-relaxed">
             Find out how we work with our clients to achieve their goals and
             improve quality of life.
           </p>
 
-          {/* Button under third card */}
           <div className="md:col-span-3 flex md:justify-end">
             <Link
               to="/projects"
-              className="inline-flex items-center px-8 py-3 bg-arcadisOrange text-white text-sm tracking-wide  rounded-[5px]"
+              className="inline-flex items-center px-8 py-3 bg-arcadisOrange text-white text-sm font-medium tracking-wide rounded-[5px]"
             >
               View all projects
             </Link>
