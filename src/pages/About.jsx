@@ -5,9 +5,7 @@ import { Leaders, teamMembers } from "../Data/Team";
 
 export default function About() {
   const groupedTeams = teamMembers.reduce((acc, member) => {
-    if (!acc[member.role]) {
-      acc[member.role] = [];
-    }
+    if (!acc[member.role]) acc[member.role] = [];
     acc[member.role].push(member);
     return acc;
   }, {});
@@ -21,10 +19,12 @@ export default function About() {
           <p className="text-xs tracking-[0.3em] uppercase text-arcadisOrange mb-4">
             About Us
           </p>
-          <h2 className="font-serif text-4xl md:text-5xl mb-6 text-slate-800">
+
+          <h2 className="text-4xl md:text-5xl font-semibold mb-6 text-slate-800">
             We design meaningful experiences
           </h2>
-          <p className="max-w-2xl mx-auto text-slate-600">
+
+          <p className="max-w-2xl mx-auto text-slate-600 leading-relaxed">
             We combine research, creativity and engineering to deliver products
             and services that move people.
           </p>
@@ -37,12 +37,11 @@ export default function About() {
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="overflow-hidden"
           >
             <img
               src={teamImage}
               alt="Our team"
-              className="w-full h-[420px] object-cover"
+              className="w-full h-[420px] object-cover rounded-[25px]"
             />
           </motion.div>
 
@@ -52,7 +51,10 @@ export default function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <h3 className="font-serif text-3xl mb-6">Our Mission</h3>
+            <h3 className="text-3xl font-semibold mb-6">
+              Our Mission
+            </h3>
+
             <p className="text-slate-600 mb-8 leading-relaxed">
               We help organisations unlock growth by designing thoughtful,
               sustainable and human-centered solutions that create measurable
@@ -75,8 +77,12 @@ export default function About() {
                 },
               ].map((item, i) => (
                 <li key={i}>
-                  <div className="font-medium">{item.title}</div>
-                  <div className="text-sm text-slate-600">{item.desc}</div>
+                  <div className="font-medium">
+                    {item.title}
+                  </div>
+                  <div className="text-sm text-slate-600">
+                    {item.desc}
+                  </div>
                 </li>
               ))}
             </ul>
@@ -89,9 +95,11 @@ export default function About() {
             <p className="text-xs tracking-[0.3em] uppercase text-slate-500 mb-4">
               Leadership
             </p>
-            <h3 className="font-serif text-4xl mb-4">
+
+            <h3 className="text-4xl font-semibold mb-4">
               Our Leaders
             </h3>
+
             <p className="text-slate-600">
               Experience and vision guiding the practice.
             </p>
@@ -103,8 +111,8 @@ export default function About() {
                 key={index}
                 whileHover={{ y: -4 }}
                 transition={{ duration: 0.3 }}
+                className="text-center"
               >
-                {/* Fixed container for alignment */}
                 <div className="w-full h-[460px] flex items-center justify-center bg-slate-100 mb-6 rounded-[25px]">
                   <img
                     src={member.photo}
@@ -112,13 +120,16 @@ export default function About() {
                     className="max-h-full w-auto"
                   />
                 </div>
-                <h4 className="font-serif text-2xl mb-1 flex items-center justify-center">
+
+                <h4 className="text-2xl font-medium mb-1">
                   {member.name}
                 </h4>
-                <p className="text-slate-700 mb-2 flex items-center justify-center">
+
+                <p className="text-slate-700 mb-2">
                   {member.role}
                 </p>
-                <p className="text-xs text-slate-500 flex items-center justify-center">
+
+                <p className="text-xs text-slate-500">
                   {member.degree} · {member.experience}
                 </p>
               </motion.div>
@@ -132,9 +143,11 @@ export default function About() {
             <p className="text-xs tracking-[0.3em] uppercase text-slate-500 mb-4">
               Our People
             </p>
-            <h3 className="font-serif text-3xl mb-4">
+
+            <h3 className="text-3xl font-semibold mb-4">
               The Team
             </h3>
+
             <p className="text-slate-600">
               A collaborative, cross-disciplinary group working as one.
             </p>
@@ -142,13 +155,10 @@ export default function About() {
 
           {Object.entries(groupedTeams).map(([teamName, members], i) => (
             <div key={i} className="mb-24">
-
-              {/* Team Heading */}
-              <h4 className="font-serif text-2xl mb-12 text-center text-arcadisOrange">
+              <h4 className="text-2xl font-medium mb-12 text-center text-arcadisOrange">
                 {teamName}
               </h4>
 
-              {/* Two members per row */}
               <div className="grid sm:grid-cols-2 gap-x-16 gap-y-20 max-w-4xl mx-auto">
                 {members.map((member, index) => (
                   <motion.div
@@ -165,16 +175,17 @@ export default function About() {
                       />
                     </div>
 
-                    <h5 className="font-medium text-lg">
+                    <h5 className="text-lg font-medium">
                       {member.name}
                     </h5>
+
                     <p className="text-sm text-slate-600">
                       {member.degree}
                     </p>
+
                     <p className="text-xs uppercase tracking-wide text-slate-500">
                       Experience · {member.experience}
                     </p>
-
                   </motion.div>
                 ))}
               </div>
@@ -182,11 +193,13 @@ export default function About() {
           ))}
         </section>
 
-
         {/* ================= VALUES ================= */}
         <section>
           <div className="text-center mb-12">
-            <h3 className="font-serif text-3xl mb-4">Our Values</h3>
+            <h3 className="text-3xl font-semibold mb-4">
+              Our Values
+            </h3>
+
             <p className="text-slate-600">
               Principles that guide our work.
             </p>
@@ -210,10 +223,15 @@ export default function About() {
               <motion.div
                 key={i}
                 whileHover={{ y: -4 }}
-                className="bg-white p-8"
+                className="bg-white p-8 rounded-[20px]"
               >
-                <h4 className="font-medium mb-3">{val.title}</h4>
-                <p className="text-sm text-slate-600">{val.desc}</p>
+                <h4 className="font-medium mb-3">
+                  {val.title}
+                </h4>
+
+                <p className="text-sm text-slate-600">
+                  {val.desc}
+                </p>
               </motion.div>
             ))}
           </div>

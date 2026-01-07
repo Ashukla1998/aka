@@ -2,6 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
+
 const sectionAnim = {
   hidden: { opacity: 0, y: 40 },
   visible: {
@@ -27,9 +28,9 @@ export default function Careers() {
             Careers at AKA
           </p>
 
-          <h1 className="font-serif text-5xl md:text-6xl leading-tight mb-8">
+          <h1 className="text-5xl md:text-6xl font-semibold leading-tight mb-8">
             Build Your Career <br />
-            <span className="text-[#c5a879]">With Purpose</span>
+            <span className="text-arcadisGold">With Purpose</span>
           </h1>
 
           <p className="text-gray-600 max-w-2xl leading-relaxed">
@@ -55,7 +56,7 @@ export default function Careers() {
             Our Culture
           </p>
 
-          <h2 className="font-serif text-4xl md:text-5xl mb-14">
+          <h2 className="text-4xl md:text-5xl font-semibold mb-14">
             Why Work With Us
           </h2>
 
@@ -76,10 +77,11 @@ export default function Careers() {
                 desc:
                   "We invest in learning, mentorship, and responsibility at every career stage.",
               },
-            ].map((item, i) => (
+            ].map((item) => (
               <motion.div
                 key={item.title}
                 whileHover={{ y: -6 }}
+                transition={{ duration: 0.3 }}
                 className="group"
               >
                 <div className="w-10 h-[2px] bg-arcadisOrange mb-6 transition-all group-hover:w-16" />
@@ -109,7 +111,7 @@ export default function Careers() {
             Opportunities
           </p>
 
-          <h2 className="font-serif text-4xl md:text-5xl mb-16">
+          <h2 className="text-4xl md:text-5xl font-semibold mb-16">
             Current Openings
           </h2>
 
@@ -157,8 +159,9 @@ export default function Careers() {
 
                   <a
                     href="mailto:careers@archanakapilassociates.com"
-                    className="inline-block px-6 py-3 text-sm border bg-arcadisOrange border-arcadisOrange text-white hover:bg-arcadisOrange hover:text-white
-                               transition"
+                    className="inline-block px-6 py-3 text-sm font-medium
+                               bg-arcadisOrange border border-arcadisOrange
+                               text-white transition"
                   >
                     Apply Now
                   </a>
@@ -178,7 +181,7 @@ export default function Careers() {
         className="px-10 md:px-20 py-32 bg-[#fafafa] text-center"
       >
         <div className="max-w-3xl mx-auto">
-          <h2 className="font-serif text-4xl md:text-5xl mb-8">
+          <h2 className="text-4xl md:text-5xl font-semibold mb-8">
             Don’t See Your Role?
           </h2>
 
@@ -190,11 +193,12 @@ export default function Careers() {
 
           <a
             href="mailto:careers@archanakapilassociates.com"
-            className="inline-flex items-center gap-3 px-10 py-4 text-sm tracking-wide
-                       border border-arcadisOrange text-white bg-arcadisOrange
-                       hover:bg-arcadisOrange hover:text-white transition"
+            className="inline-flex items-center gap-3 px-10 py-4 text-sm font-medium
+                       border border-arcadisOrange bg-arcadisOrange
+                       text-white transition"
           >
-            Send Your Profile <span className="text-lg"><ArrowRightIcon className="w-5 h-5" /></span>
+            Send Your Profile
+            <ArrowRightIcon className="w-5 h-5" />
           </a>
         </div>
       </motion.section>

@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import Slider from "react-slick";
-import {
-  ArrowLeftIcon,
-  ArrowRightIcon,
-} from "@heroicons/react/24/outline";
+// import {
+//   ArrowLeftIcon,
+//   ArrowRightIcon,
+// } from "@heroicons/react/24/outline";
 
 /**
  * ProjectImageSlider
@@ -79,7 +79,7 @@ export default function ProjectImageSlider({ images = [] , title = "Project" }) 
       </Slider>
 
       {/* ================= ARROWS ================= */}
-      {images.length > 1 && (
+      {/* {images.length > 1 && (
         <div className="absolute inset-y-0 left-0 right-0 flex items-center justify-between px-6 md:px-16 pointer-events-none">
           <button
             onClick={() => {
@@ -101,7 +101,7 @@ export default function ProjectImageSlider({ images = [] , title = "Project" }) 
             <ArrowRightIcon className="w-5 h-5 text-arcadisOrange" />
           </button>
         </div>
-      )}
+      )} */}
 
       {/* ================= PROGRESS + COUNTER ================= */}
       {images.length > 1 && (

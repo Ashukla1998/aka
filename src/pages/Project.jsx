@@ -58,7 +58,7 @@ export default function Projects() {
               Our Work
             </p>
 
-            <h1 className="font-serif text-5xl md:text-6xl leading-tight mb-6">
+            <h1 className="text-5xl md:text-6xl font-semibold leading-tight mb-6">
               Explore Projects
             </h1>
 
@@ -82,7 +82,7 @@ export default function Projects() {
       <section className="sticky top-[72px] z-30 bg-white border-b border-gray-100">
         <div className="px-10 md:px-20 py-6 flex flex-wrap items-center justify-between gap-6">
 
-          <div className="flex flex-wrap gap-8 text-sm">
+          <div className="flex flex-wrap gap-8 text-sm font-medium">
             {categories.map((cat) => (
               <button
                 key={cat}
@@ -104,11 +104,14 @@ export default function Projects() {
 
           <p className="text-sm text-gray-500">
             Showing{" "}
-            <span className="text-gray-900">
+            <span className="text-gray-900 font-medium">
               {startIndex + 1}–
               {Math.min(startIndex + ITEMS_PER_PAGE, filtered.length)}
             </span>{" "}
-            of <span className="text-gray-900">{filtered.length}</span>
+            of{" "}
+            <span className="text-gray-900 font-medium">
+              {filtered.length}
+            </span>
           </p>
 
         </div>
@@ -163,7 +166,7 @@ export default function Projects() {
                     </p>
 
                     <div className="flex items-center justify-between gap-4">
-                      <h3 className="font-serif text-lg text-white leading-snug">
+                      <h3 className="text-lg font-medium text-white leading-snug">
                         {p.title}
                       </h3>
 
@@ -193,7 +196,7 @@ export default function Projects() {
       {/* ================= PAGINATION ================= */}
       {totalPages > 1 && (
         <section className="pb-36">
-          <div className="flex items-center justify-center gap-2 text-sm">
+          <div className="flex items-center justify-center gap-2 text-sm font-medium">
 
             <button
               onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}

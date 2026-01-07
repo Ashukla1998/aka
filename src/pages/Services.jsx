@@ -3,10 +3,12 @@ import { motion } from "framer-motion";
 import architectureImage from "../images/archi.jpg";
 import landscapeImage from "../images/landscape.jpg";
 import constructionImage from "../images/construction.jpg";
+
 function ServiceCard({ title, desc, img }) {
   return (
     <motion.article
       whileHover={{ y: -6 }}
+      transition={{ duration: 0.3 }}
       className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100"
     >
       <img
@@ -15,8 +17,13 @@ function ServiceCard({ title, desc, img }) {
         className="w-full h-40 object-cover rounded-xl mb-4"
       />
 
-      <h3 className="font-semibold text-lg text-slate-800">{title}</h3>
-      <p className="mt-2 text-sm text-slate-600">{desc}</p>
+      <h3 className="text-lg font-medium text-slate-800">
+        {title}
+      </h3>
+
+      <p className="mt-2 text-sm font-normal text-slate-600 leading-relaxed">
+        {desc}
+      </p>
     </motion.article>
   );
 }
@@ -65,22 +72,24 @@ export default function Services() {
     <main className="min-h-screen bg-slate-50 py-12">
       <div className="max-w-6xl mx-auto px-6">
 
-        {/* Page Header */}
-        <div className="text-center mb-10">
-          <div className="text-arcadisOrange font-semibold mb-2">
+        {/* ================= PAGE HEADER ================= */}
+        <div className="text-center mb-14">
+          <p className="text-xs tracking-[0.3em] uppercase text-arcadisOrange mb-2">
             What we offer
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-800">
+          </p>
+
+          <h2 className="text-3xl md:text-4xl font-semibold text-slate-800">
             Our Architectural Services
           </h2>
-          <p className="mt-3 text-slate-600 max-w-2xl mx-auto">
+
+          <p className="mt-3 text-slate-600 max-w-2xl mx-auto leading-relaxed">
             We create innovative, functional and aesthetic architectural
             solutions—from concept to execution.
           </p>
         </div>
 
-        {/* Services Grid */}
-        <section className="grid md:grid-cols-3 gap-6 mb-12">
+        {/* ================= SERVICES GRID ================= */}
+        <section className="grid md:grid-cols-3 gap-6 mb-16">
           {services.map((s) => (
             <ServiceCard
               key={s.id}
@@ -91,48 +100,46 @@ export default function Services() {
           ))}
         </section>
 
-        {/* How we work */}
+        {/* ================= HOW WE WORK ================= */}
         <section className="bg-white rounded-2xl p-6 shadow-sm">
           <div className="md:flex gap-6 items-center">
             <div className="md:w-1/2">
-              <h3 className="text-2xl font-bold">How we work</h3>
-              <p className="text-slate-600 mt-3">
+              <h3 className="text-2xl font-semibold">
+                How we work
+              </h3>
+
+              <p className="text-slate-600 mt-3 leading-relaxed">
                 From initial ideation to final execution, our process remains
                 transparent, collaborative, and quality-driven.
               </p>
 
-              <ul className="mt-4 grid gap-3">
-                <li className="flex gap-3 items-start">
-                  <div className="text-arcadisOrange mt-1">●</div>
-                  <div>
-                    <div className="font-semibold">Concept & Planning</div>
-                    <div className="text-sm text-slate-600">
-                      Understanding site conditions, client preferences, and
-                      project requirements.
+              <ul className="mt-6 grid gap-4">
+                {[
+                  {
+                    title: "Concept & Planning",
+                    desc: "Understanding site conditions, client preferences, and project requirements.",
+                  },
+                  {
+                    title: "Design Development",
+                    desc: "Detailed drawings, 3D renders, and material selection.",
+                  },
+                  {
+                    title: "Execution & Handover",
+                    desc: "Monitoring construction, quality control, and final project delivery.",
+                  },
+                ].map((step, i) => (
+                  <li key={i} className="flex gap-3 items-start">
+                    <span className="text-arcadisOrange mt-1">●</span>
+                    <div>
+                      <div className="font-medium">
+                        {step.title}
+                      </div>
+                      <div className="text-sm text-slate-600 leading-relaxed">
+                        {step.desc}
+                      </div>
                     </div>
-                  </div>
-                </li>
-
-                <li className="flex gap-3 items-start">
-                  <div className="text-arcadisOrange mt-1">●</div>
-                  <div>
-                    <div className="font-semibold">Design Development</div>
-                    <div className="text-sm text-slate-600">
-                      Detailed drawings, 3D renders, and material selection.
-                    </div>
-                  </div>
-                </li>
-
-                <li className="flex gap-3 items-start">
-                  <div className="text-arcadisOrange mt-1">●</div>
-                  <div>
-                    <div className="font-semibold">Execution & Handover</div>
-                    <div className="text-sm text-slate-600">
-                      Monitoring construction, quality control, and final
-                      project delivery.
-                    </div>
-                  </div>
-                </li>
+                  </li>
+                ))}
               </ul>
             </div>
 
@@ -140,11 +147,12 @@ export default function Services() {
               <img
                 src={architectureImage}
                 alt="architecture workflow"
-                className="w-full rounded-lg object-cover"
+                className="w-full rounded-xl object-cover"
               />
             </div>
           </div>
         </section>
+
       </div>
     </main>
   );

@@ -29,7 +29,7 @@ export default function ProjectDetail() {
   if (!project) {
     return (
       <main className="px-8 md:px-24 py-32">
-        <h2 className="font-serif font-medium text-2xl">
+        <h2 className="text-2xl font-medium">
           Project not found
         </h2>
       </main>
@@ -68,25 +68,25 @@ export default function ProjectDetail() {
 
           {/* TEXT */}
           <motion.div initial="hidden" animate="visible" variants={fadeUp}>
-            <p className="font-sans text-xs tracking-[0.35em] uppercase text-gray-500 mb-4">
+            <p className="text-xs tracking-[0.35em] uppercase text-gray-500 mb-4">
               {project.category}
             </p>
 
-            <h1 className="font-serif font-medium text-5xl md:text-6xl leading-[1.1] tracking-tight mb-8">
+            <h1 className="text-5xl md:text-6xl font-semibold leading-[1.1] tracking-tight mb-8">
               {project.title}
             </h1>
 
-            <p className="font-body text-gray-600 leading-relaxed mb-10 max-w-xl">
+            <p className="text-gray-600 leading-relaxed mb-10 max-w-xl">
               {project.description ||
                 "A context-driven architectural project balancing functionality, spatial clarity, and long-term performance."}
             </p>
 
             {project.work && (
               <div className="mt-6">
-                <p className="font-sans text-xs uppercase tracking-widest text-gray-500 mb-2">
+                <p className="text-xs uppercase tracking-widest text-gray-500 mb-2">
                   Scope of Work
                 </p>
-                <p className="font-body text-gray-800">
+                <p className="text-gray-800">
                   {project.work}
                 </p>
               </div>
@@ -109,10 +109,10 @@ export default function ProjectDetail() {
               .filter(([, value]) => value)
               .map(([label, value]) => (
                 <div key={label}>
-                  <p className="font-sans text-xs uppercase tracking-widest text-gray-500 mb-1">
+                  <p className="text-xs uppercase tracking-widest text-gray-500 mb-1">
                     {label}
                   </p>
-                  <p className="font-body text-gray-900">
+                  <p className="font-medium text-gray-900">
                     {value}
                   </p>
                 </div>
@@ -125,19 +125,16 @@ export default function ProjectDetail() {
       {/* ================= IMAGE SLIDER ================= */}
       <section className="py-24 border-t border-gray-100">
         <div className="px-8 md:px-24 mb-10">
-          <h2 className="font-serif font-medium text-3xl mb-4">
+          <h2 className="text-3xl font-semibold mb-4">
             Project Gallery
           </h2>
-          <p className="font-body text-gray-600 max-w-2xl">
+          <p className="text-gray-600 max-w-2xl">
             A visual walkthrough highlighting key architectural moments,
             spatial relationships, and material detailing.
           </p>
         </div>
 
-        <ProjectImageSlider
-          images={images}
-          title={project.title}
-        />
+        <ProjectImageSlider images={images} title={project.title} />
       </section>
 
       {/* ================= DESIGN NARRATIVE ================= */}
@@ -150,99 +147,68 @@ export default function ProjectDetail() {
       >
         <div className="max-w-5xl mx-auto">
 
-          {/* ================= SECTION HEADER ================= */}
+          {/* SECTION HEADER */}
           <div className="max-w-2xl mb-20">
-            <p className="font-sans text-xs uppercase tracking-[0.4em] text-arcadisOrange mb-6">
+            <p className="text-xs uppercase tracking-[0.4em] text-arcadisOrange mb-6">
               Project Narrative
             </p>
 
-            <h2 className="font-serif font-medium text-4xl md:text-5xl leading-tight mb-6">
+            <h2 className="text-4xl md:text-5xl font-semibold leading-tight mb-6">
               Design Thinking & Outcomes
             </h2>
 
-            <p className="font-body text-gray-600 leading-relaxed">
+            <p className="text-gray-600 leading-relaxed">
               An integrated design approach shaped by context, clarity, and
               long-term performance — translating intent into built form.
             </p>
           </div>
 
-          {/* ================= CONTENT GRID ================= */}
+          {/* CONTENT GRID */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
 
-            {/* ================= DESIGN INTENT ================= */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              className="relative"
-            >
-              <span className="absolute -top-8 left-0 text-[72px] font-serif text-gray-200 leading-none">
-                01
-              </span>
+            {[
+              {
+                num: "01",
+                title: "Design Intent",
+                text:
+                  "The design intent was to respond sensitively to the site context, balancing functional requirements with adaptability for future needs while maintaining architectural clarity.",
+              },
+              {
+                num: "02",
+                title: "Key Considerations",
+                text:
+                  "Spatial hierarchy, natural daylight, circulation efficiency, material longevity, and environmental performance informed every design decision.",
+              },
+              {
+                num: "03",
+                title: "Outcome",
+                text:
+                  "The final outcome is a cohesive architectural solution that balances aesthetics, performance, and long-term usability, delivering enduring value for users and stakeholders.",
+              },
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: i * 0.1 }}
+                className="relative"
+              >
+                <span className="absolute -top-8 left-0 text-[72px] font-medium text-gray-200 leading-none">
+                  {item.num}
+                </span>
 
-              <h3 className="font-serif font-medium text-2xl mb-4 relative z-10">
-                Design Intent
-              </h3>
+                <h3 className="text-2xl font-semibold mb-4 relative z-10">
+                  {item.title}
+                </h3>
 
-              <div className="w-12 h-[2px] bg-arcadisOrange mb-6" />
+                <div className="w-12 h-[2px] bg-arcadisOrange mb-6" />
 
-              <p className="font-body text-gray-600 leading-relaxed">
-                The design intent was to respond sensitively to the site context,
-                balancing functional requirements with adaptability for future
-                needs while maintaining architectural clarity.
-              </p>
-            </motion.div>
-
-            {/* ================= KEY CONSIDERATIONS ================= */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.1 }}
-              className="relative"
-            >
-              <span className="absolute -top-8 left-0 text-[72px] font-serif text-gray-200 leading-none">
-                02
-              </span>
-
-              <h3 className="font-serif font-medium text-2xl mb-4 relative z-10">
-                Key Considerations
-              </h3>
-
-              <div className="w-12 h-[2px] bg-arcadisOrange mb-6" />
-
-              <p className="font-body text-gray-600 leading-relaxed">
-                Spatial hierarchy, natural daylight, circulation efficiency,
-                material longevity, and environmental performance informed
-                every design decision.
-              </p>
-            </motion.div>
-
-            {/* ================= OUTCOME ================= */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              className="relative"
-            >
-              <span className="absolute -top-8 left-0 text-[72px] font-serif text-gray-200 leading-none">
-                03
-              </span>
-
-              <h3 className="font-serif font-medium text-2xl mb-4 relative z-10">
-                Outcome
-              </h3>
-
-              <div className="w-12 h-[2px] bg-arcadisOrange mb-6" />
-
-              <p className="font-body text-gray-600 leading-relaxed">
-                The final outcome is a cohesive architectural solution that
-                balances aesthetics, performance, and long-term usability,
-                delivering enduring value for users and stakeholders.
-              </p>
-            </motion.div>
+                <p className="text-gray-600 leading-relaxed">
+                  {item.text}
+                </p>
+              </motion.div>
+            ))}
 
           </div>
         </div>

@@ -53,25 +53,27 @@ export default function Contact() {
     <main className="min-h-screen bg-slate-50 py-12">
       <div className="max-w-4xl mx-auto px-6">
 
-        {/* Header */}
-        <div className="text-center mb-10">
-          <div className="text-arcadisOrange font-semibold mb-2">
+        {/* ================= HEADER ================= */}
+        <div className="text-center mb-12">
+          <p className="text-xs tracking-[0.3em] uppercase text-arcadisOrange mb-2">
             Get in touch
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-800">
+          </p>
+
+          <h2 className="text-3xl md:text-4xl font-semibold text-slate-800">
             Contact us
           </h2>
-          <p className="mt-3 text-slate-600">
+
+          <p className="mt-3 text-slate-600 leading-relaxed">
             Fill the form and we will reply within one business day.
           </p>
         </div>
 
-        {/* Layout */}
+        {/* ================= LAYOUT ================= */}
         <div className="grid md:grid-cols-2 gap-8">
 
-          {/* Contact Form */}
+          {/* ================= CONTACT FORM ================= */}
           <div className="bg-white rounded-2xl p-6 shadow-sm">
-            <h3 className="text-xl font-semibold mb-3">
+            <h3 className="text-xl font-semibold mb-4">
               Send us a message
             </h3>
 
@@ -83,53 +85,61 @@ export default function Contact() {
               <form onSubmit={handleSubmit} className="space-y-4">
 
                 <div>
-                  <label className="text-sm mb-1 block">Name</label>
+                  <label className="text-sm font-medium mb-1 block">
+                    Name
+                  </label>
                   <input
                     required
                     name="name"
                     value={form.name}
                     onChange={handleChange}
-                    className="w-full border px-3 py-2 rounded-md"
+                    className="w-full border px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-arcadisOrange/30"
                   />
                 </div>
 
                 <div>
-                  <label className="text-sm mb-1 block">Email</label>
+                  <label className="text-sm font-medium mb-1 block">
+                    Email
+                  </label>
                   <input
                     required
                     type="email"
                     name="email"
                     value={form.email}
                     onChange={handleChange}
-                    className="w-full border px-3 py-2 rounded-md"
+                    className="w-full border px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-arcadisOrange/30"
                   />
                 </div>
 
                 <div>
-                  <label className="text-sm mb-1 block">Company</label>
+                  <label className="text-sm font-medium mb-1 block">
+                    Company
+                  </label>
                   <input
                     name="company"
                     value={form.company}
                     onChange={handleChange}
-                    className="w-full border px-3 py-2 rounded-md"
+                    className="w-full border px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-arcadisOrange/30"
                   />
                 </div>
 
                 <div>
-                  <label className="text-sm mb-1 block">Message</label>
+                  <label className="text-sm font-medium mb-1 block">
+                    Message
+                  </label>
                   <textarea
                     required
                     name="message"
                     value={form.message}
                     onChange={handleChange}
-                    className="w-full border px-3 py-2 rounded-md h-28"
+                    className="w-full border px-3 py-2 rounded-md h-28 focus:outline-none focus:ring-2 focus:ring-arcadisOrange/30"
                   />
                 </div>
 
-                <div className="flex gap-3">
+                <div className="flex gap-3 pt-2">
                   <button
                     type="submit"
-                    className="px-4 py-2 bg-arcadisOrange text-white rounded-md"
+                    className="px-5 py-2 bg-arcadisOrange text-white text-sm font-medium rounded-md"
                   >
                     Send message
                   </button>
@@ -144,7 +154,7 @@ export default function Contact() {
                         message: "",
                       })
                     }
-                    className="px-4 py-2 border rounded-md"
+                    className="px-5 py-2 border text-sm font-medium rounded-md"
                   >
                     Clear
                   </button>
@@ -154,18 +164,23 @@ export default function Contact() {
             )}
           </div>
 
-          {/* Contact Info */}
+          {/* ================= CONTACT INFO ================= */}
           <div className="space-y-6">
 
             <div className="bg-white rounded-2xl p-6 shadow-sm">
-              <h4 className="font-semibold">Our office</h4>
-              <p className="text-sm text-slate-600 mt-2">
+              <h4 className="font-semibold mb-2">
+                Our office
+              </h4>
+
+              <p className="text-sm text-slate-600 leading-relaxed">
                 48, Pleasant Valley, Rajpur Rd, IAS Officers Colony,
                 Rajpur, Dehradun, Uttarakhand 248009
               </p>
 
               <div className="mt-4">
-                <div className="text-sm text-slate-500">Email</div>
+                <div className="text-xs uppercase tracking-wide text-slate-500">
+                  Email
+                </div>
                 <a
                   href="mailto:kapil@lifepage.in"
                   className="text-slate-800 font-medium"
@@ -175,7 +190,9 @@ export default function Contact() {
               </div>
 
               <div className="mt-3">
-                <div className="text-sm text-slate-500">Phone</div>
+                <div className="text-xs uppercase tracking-wide text-slate-500">
+                  Phone
+                </div>
                 <a
                   href="tel:+919719799992"
                   className="text-slate-800 font-medium"
@@ -186,7 +203,10 @@ export default function Contact() {
             </div>
 
             <div className="bg-white rounded-2xl p-6 shadow-sm">
-              <h4 className="font-semibold">Opening hours</h4>
+              <h4 className="font-semibold mb-2">
+                Opening hours
+              </h4>
+
               <ul className="mt-3 text-sm text-slate-600 space-y-1">
                 <li>Mon–Fri: 9:00 — 18:00</li>
                 <li>Sat: 10:00 — 14:00</li>
@@ -195,8 +215,11 @@ export default function Contact() {
             </div>
 
             <div className="bg-white rounded-2xl p-6 shadow-sm">
-              <h4 className="font-semibold">Map</h4>
-              <div className="mt-3 h-48 rounded overflow-hidden">
+              <h4 className="font-semibold mb-3">
+                Map
+              </h4>
+
+              <div className="h-48 rounded overflow-hidden">
                 <iframe
                   title="Office Location"
                   src={`https://www.google.com/maps?q=${mapLocation.lat},${mapLocation.lng}&output=embed`}
