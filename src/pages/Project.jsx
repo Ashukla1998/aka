@@ -138,7 +138,7 @@ export default function Projects() {
                     bg-gray-100
                     shadow-sm
                     transition-shadow duration-500
-                    hover:shadow-lg
+                    hover:shadow-lg rounded-lg
                   "
                 >
 

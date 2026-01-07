@@ -38,7 +38,7 @@ export default function Home() {
         whileInView="visible"
         viewport={{ once: true }}
         variants={sectionAnim}
-        className="px-10 md:px-20 py-32"
+        className="px-6 sm:px-10 md:px-20 py-10"
       >
         <div className="max-w-6xl">
 
@@ -89,7 +89,7 @@ export default function Home() {
               >
                 <div className="w-10 h-[2px] bg-arcadisOrange mb-6 transition-all group-hover:w-16" />
 
-                <h3 className="text-2xl font-medium mb-4 uppercase">
+                <h3 className="text-2xl font-medium mb-4">
                   {service.title}
                 </h3>
 
@@ -150,7 +150,7 @@ export default function Home() {
               >
                 <div className="w-10 h-[2px] bg-arcadisOrange mb-6 transition-all group-hover:w-16" />
 
-                <h3 className="text-2xl uppercase font-medium mb-4">
+                <h3 className="text-2xl font-medium mb-4">
                   {item.title}
                 </h3>
 
