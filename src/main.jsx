@@ -4,6 +4,8 @@ import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 import Hero from "./components/Hero";
 import ProjectDetail from "./pages/ProjectsStories";
+import Company from "./components/Company";
+import TeamSection from "./components/TeamSection";
 import {
   FaFacebookF,
   FaInstagram,
@@ -11,234 +13,279 @@ import {
   FaTwitter,
 } from "react-icons/fa";
 
-const sectionAnim = {
-  hidden: { opacity: 0, y: 80 },
+const easeCurve = [0.16, 1, 0.3, 1];
+
+const containerAnim = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const itemReveal = {
+  hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 1, ease: "easeOut" },
+    transition: { duration: 0.8, ease: easeCurve },
   },
 };
 
 export default function Home() {
   return (
-    <main className="overflow-hidden">
-
-      {/* ================= HERO ================= */}
-      <section className="mt-2">
+    <main className="w-full min-h-screen relative overflow-x-hidden bg-white text-neutral-900 selection:bg-arcadisOrange selection:text-white">
+      
+      {/* ================= 1. HERO ================= */}
+      <section className="w-full">
         <Hero />
       </section>
 
-      {/* ================= PROJECT SCROLLER ================= */}
-      <ProjectDetail />
+      {/* ================= 2. COMPANY OVERVIEW ================= */}
+      <section className="w-full">
+        <Company />
+      </section>
 
-      {/* ================= SERVICES ================= */}
-      <motion.section
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={sectionAnim}
-        className="px-6 sm:px-10 md:px-20 py-10"
-      >
-        <div className="max-w-6xl">
+      {/* ================= 3. SELECTED PROJECTS ================= */}
+      <section className="w-full">
+        <ProjectDetail />
+      </section>
 
-          {/* ===== WHAT WE DO ===== */}
-          <div className="max-w-2xl mb-24">
-            <p className="text-xs tracking-[0.3em] uppercase mb-4 text-arcadisOrange">
-              Our Expertise
-            </p>
+      {/* ================= TEAM ================= */}
+      <TeamSection />
 
-            <h2 className="text-4xl md:text-5xl font-semibold mb-6">
-              What We Do
-            </h2>
+      {/* ================= 4. WHAT WE DO (EXPERTISE) ================= */}
+      <section className="w-full py-24 sm:py-28 border-t border-neutral-200/80 bg-neutral-50/50">
+        {/* Unified 7XL Container */}
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
+          
+          <motion.div
+            variants={containerAnim}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+            className="max-w-3xl mb-16 md:mb-20"
+          >
+            {/* <motion.div variants={itemReveal} className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.25em] text-neutral-400 mb-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-arcadisOrange" />
+              <span>[ 02 // EXPERTISE ]</span>
+            </motion.div> */}
 
-            <p className="text-base leading-relaxed font-medium max-w-3xl">
-              Our work spans architecture, urbanism, and sustainability —
-              combining strategic thinking with design excellence to create
-              places that deliver long-term value.
-            </p>
-          </div>
+            <motion.h2 variants={itemReveal} className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight text-neutral-950 mb-5">
+              What We <span className="font-semibold">Do</span>
+            </motion.h2>
 
-          {/* ===== SERVICES GRID ===== */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-16 mb-36">
+            <motion.p variants={itemReveal} className="text-base sm:text-lg text-neutral-600 font-light leading-relaxed">
+              Our work spans architecture, urbanism, and environmental sustainability —
+              combining strategic rigor with design excellence to create places that deliver long-term value.
+            </motion.p>
+          </motion.div>
+
+          <motion.div
+            variants={containerAnim}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10"
+          >
             {[
               {
+                num: "01",
                 title: "Architecture",
-                desc:
-                  "Designing meaningful buildings rooted in context, craft, and human experience.",
+                desc: "Designing meaningful buildings rooted in context, tectonic craft, and responsive human experience.",
               },
               {
+                num: "02",
                 title: "Urban Planning",
-                desc:
-                  "Shaping cities and communities through people-centric, resilient planning.",
+                desc: "Shaping tomorrow’s civic landscapes through people-centric, resilient master planning and ecological balance.",
               },
               {
+                num: "03",
                 title: "Sustainability",
-                desc:
-                  "Embedding low-carbon strategies and future-ready solutions across projects.",
+                desc: "Embedding advanced low-carbon methodologies, passive environmental control, and future-ready circular solutions.",
               },
-            ].map((service, i) => (
+            ].map((service) => (
               <motion.div
                 key={service.title}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.15, duration: 0.8 }}
-                whileHover={{ y: -8 }}
-                className="group"
+                variants={itemReveal}
+                whileHover={{ y: -6 }}
+                className="group relative flex flex-col justify-between p-8 sm:p-10 rounded-2xl bg-white border border-neutral-200/80 shadow-sm hover:shadow-xl transition-all duration-300"
               >
-                <div className="w-10 h-[2px] bg-arcadisOrange mb-6 transition-all group-hover:w-16" />
+                <div>
+                  <div className="flex items-center justify-between mb-8">
+                    <span className="font-mono text-xs text-neutral-400 font-semibold tracking-wider">
+                      {service.num}
+                    </span>
+                    <div className="w-8 h-[2px] bg-neutral-200 group-hover:w-12 group-hover:bg-arcadisOrange transition-all duration-300" />
+                  </div>
 
-                <h3 className="text-2xl font-medium mb-4">
-                  {service.title}
-                </h3>
+                  <h3 className="text-2xl font-medium text-neutral-900 mb-3 group-hover:text-arcadisOrange transition-colors">
+                    {service.title}
+                  </h3>
 
-                <p className="leading-relaxed font-normal">
-                  {service.desc}
-                </p>
+                  <p className="text-sm sm:text-base text-neutral-500 font-light leading-relaxed">
+                    {service.desc}
+                  </p>
+                </div>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
+        </div>
+      </section>
 
-          {/* ===== HOW WE THINK ===== */}
-          <div className="max-w-2xl mb-20">
-            <p className="text-xs tracking-[0.3em] uppercase mb-4 text-arcadisOrange">
-              Design Philosophy
-            </p>
+      {/* ================= 5. DESIGN PHILOSOPHY ================= */}
+      <section className="w-full py-24 sm:py-28 bg-white border-t border-neutral-200/80">
+        {/* Unified 7XL Container */}
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
+          
+          <motion.div
+            variants={containerAnim}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+            className="max-w-3xl mb-16 md:mb-20"
+          >
+            {/* <motion.div variants={itemReveal} className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.25em] text-neutral-400 mb-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-arcadisOrange" />
+              <span>[ 03 // PHILOSOPHY ]</span>
+            </motion.div> */}
 
-            <h2 className="text-4xl md:text-5xl font-semibold mb-6">
-              How We Think
-            </h2>
+            <motion.h2 variants={itemReveal} className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight text-neutral-950 mb-5">
+              How We <span className="font-semibold">Think</span>
+            </motion.h2>
 
-            <p className="font-medium leading-relaxed">
-              Our design philosophy is rooted in integration, context,
-              experience, and long-term sustainability.
-            </p>
-          </div>
+            <motion.p variants={itemReveal} className="text-base sm:text-lg text-neutral-600 font-light leading-relaxed">
+              Our design philosophy rejects arbitrary form-making. Every project gesture
+              originates from spatial integration, contextual necessity, emotive memory, and ecological balance.
+            </motion.p>
+          </motion.div>
 
-          {/* ===== PHILOSOPHY GRID ===== */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-16">
+          <motion.div
+            variants={containerAnim}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-x-14 gap-y-12"
+          >
             {[
               {
+                index: "01",
                 title: "Integrated",
-                desc:
-                  "With strength in architecture, interior, and landscape design, we provide a unified, one-stop solution. Even when engaged for architecture alone, we actively integrate interior planning into the design process.",
+                desc: "Uniting architecture, interior planning, and landscape into a cohesive spatial language. Even when engaged strictly for building shells, interior spatial flow actively informs our structural decisions.",
               },
               {
+                index: "02",
                 title: "Contextual",
-                desc:
-                  "Every design is site-specific. If a proposal can be placed elsewhere, we return to the drawing board. Context is not a reference — it is the foundation.",
+                desc: "Every design is hyper-specific to its topography, orientation, and climate. If a proposal can be transplanted to another site without friction, we discard it. Context is the foundation.",
               },
               {
+                index: "03",
                 title: "Impressionist",
-                desc:
-                  "We believe a successful design leaves a lasting mental image. Our projects balance cohesive themes with memorable elements that remain with visitors long after they leave.",
+                desc: "Great architecture leaves an indelible mental silhouette. We balance rigorous tectonic discipline with expressive moments of light and fluid geometry that linger long after visitors depart.",
               },
               {
+                index: "04",
                 title: "Sustainable",
-                desc:
-                  "Sustainability is integral to all our work — extending beyond environmental responsibility to include economic, cultural, and social dimensions.",
+                desc: "Environmental responsibility is woven into every detail. Beyond checklist certifications, our sustainability model addresses regional construction culture, lifecycle economy, and intergenerational lifespans.",
               },
-            ].map((item, i) => (
+            ].map((item) => (
               <motion.div
                 key={item.title}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.15, duration: 0.8 }}
-                className="group max-w-xl"
+                variants={itemReveal}
+                className="group relative pl-6 border-l border-neutral-200 hover:border-arcadisOrange transition-colors duration-300"
               >
-                <div className="w-10 h-[2px] bg-arcadisOrange mb-6 transition-all group-hover:w-16" />
+                <span className="font-mono text-xs text-neutral-400 tracking-widest block mb-1.5">
+                  // {item.index}
+                </span>
 
-                <h3 className="text-2xl font-medium mb-4">
+                <h3 className="text-xl sm:text-2xl font-medium text-neutral-900 mb-2.5 group-hover:text-arcadisOrange transition-colors">
                   {item.title}
                 </h3>
 
-                <p className="leading-relaxed font-normal">
+                <p className="text-sm sm:text-base text-neutral-500 font-light leading-relaxed">
                   {item.desc}
                 </p>
               </motion.div>
             ))}
-          </div>
-
+          </motion.div>
         </div>
-      </motion.section>
+      </section>
 
-      {/* ================= CTA ================= */}
-      <motion.section
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={sectionAnim}
-        className="px-10 md:px-20 py-32 bg-white text-center"
-      >
-        <div className="max-w-3xl mx-auto">
-          <p className="text-xs tracking-[0.35em] uppercase text-arcadisOrange mb-6">
-            Collaboration
-          </p>
+      {/* ================= 6. COLLABORATION CTA ================= */}
+      <section className="relative w-full py-28 md:py-36 bg-neutral-950 text-white overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-arcadisOrange/15 blur-[140px] pointer-events-none" />
 
-          <h2 className="text-4xl md:text-5xl font-semibold mb-8 leading-tight">
-            Let’s Build Something <br />
-            <span className="text-arcadisGold">Meaningful Together</span>
-          </h2>
+        {/* Unified 7XL Container */}
+        <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-center">
+          <motion.div
+            variants={containerAnim}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+            className="max-w-3xl mx-auto space-y-6"
+          >
+            {/* <motion.div variants={itemReveal} className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.3em] text-neutral-400">
+              <span className="w-1.5 h-1.5 rounded-full bg-arcadisOrange animate-pulse" />
+              <span>[ 04 // COLLABORATION ]</span>
+            </motion.div> */}
 
-          <p className="leading-relaxed font-normal">
-            Whether you’re planning a new project, rethinking an existing space,
-            or exploring sustainable design strategies, we’d be happy to collaborate.
-          </p>
+            <motion.h2 variants={itemReveal} className="text-4xl sm:text-5xl md:text-6xl font-light tracking-tight leading-[1.1]">
+              Let’s Build Something <br />
+              <span className="font-semibold text-white">Meaningful Together</span>
+            </motion.h2>
 
-          <Link to="/contact">
-            <motion.div
-              whileHover={{ y: -3 }}
-              whileTap={{ scale: 0.98 }}
-              className="inline-flex items-center gap-3 px-10 py-4 text-sm font-medium tracking-wide
-              border border-arcadisOrange bg-arcadisOrange text-white rounded-[5px] mt-8"
-            >
-              Get in Touch
-              <ArrowRightIcon className="w-5 h-5" />
-            </motion.div>
-          </Link>
-        </div>
-      </motion.section>
+            <motion.p variants={itemReveal} className="text-neutral-400 text-base sm:text-lg font-light leading-relaxed">
+              Whether you are conceptualizing an institutional master plan, rethinking an urban landmark, or planning a sustainable residence, our studio is ready to collaborate.
+            </motion.p>
 
-      {/* ================= SHARE ================= */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="px-6 sm:px-10 md:px-20 py-10"
-      >
-        <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-8 text-arcadisDark">
-
-          <p className="text-xs tracking-[0.25em] uppercase text-center md:text-left">
-            Share with your friends
-          </p>
-
-          <div className="hidden md:block flex-1 h-[1px] bg-gray-200" />
-
-          <div className="flex items-center justify-center md:justify-end gap-4">
-            {[FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter].map(
-              (Icon, i) => (
-                <motion.a
-                  key={i}
-                  href="#"
-                  aria-label="Share"
-                  whileHover={{ y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="w-9 h-9 flex items-center justify-center
-                    border border-arcadisOrange rounded-full
-                    text-arcadisOrange
-                    hover:bg-arcadisOrange hover:text-white
-                    transition-all duration-300"
+            <motion.div variants={itemReveal} className="pt-4">
+              <Link to="/contact">
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="inline-flex items-center gap-3 px-8 py-4 text-xs font-mono uppercase tracking-[0.2em] bg-white text-neutral-950 rounded-full hover:bg-arcadisOrange hover:text-white transition-all duration-300 shadow-xl shadow-black/50 group"
                 >
-                  <Icon size={14} />
-                </motion.a>
-              )
-            )}
+                  <span>Initiate Dialogue</span>
+                  <ArrowRightIcon className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </motion.button>
+              </Link>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ================= 7. FOOTER SOCIAL STRIP ================= */}
+      <div className="w-full py-10 bg-white border-t border-neutral-200">
+        {/* Unified 7XL Container */}
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <p className="font-mono text-xs uppercase tracking-[0.25em] text-neutral-400 text-center md:text-left">
+            Connect & Share
+          </p>
+
+          <div className="hidden md:block flex-1 mx-8 h-[1px] bg-neutral-200" />
+
+          <div className="flex items-center justify-center gap-3">
+            {[
+              { icon: FaFacebookF, href: "#", label: "Facebook" },
+              { icon: FaInstagram, href: "#", label: "Instagram" },
+              { icon: FaLinkedinIn, href: "#", label: "LinkedIn" },
+              { icon: FaTwitter, href: "#", label: "Twitter" },
+            ].map(({ icon: Icon, href, label }, idx) => (
+              <a
+                key={idx}
+                href={href}
+                aria-label={label}
+                className="w-9 h-9 flex items-center justify-center rounded-full border border-neutral-300 text-neutral-600 hover:border-arcadisOrange hover:bg-arcadisOrange hover:text-white transition-all duration-300"
+              >
+                <Icon size={13} />
+              </a>
+            ))}
           </div>
         </div>
-      </motion.div>
+      </div>
 
     </main>
   );

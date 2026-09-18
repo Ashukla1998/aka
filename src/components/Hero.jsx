@@ -1,31 +1,33 @@
 import React, { useEffect, useRef, useState } from "react";
 import Slider from "react-slick";
 import { Link } from "react-router-dom";
-import {
-  ArrowLeftIcon,
-  ArrowRightIcon,
-} from "@heroicons/react/24/outline";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
 
 const slides = [
   {
     image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
+    tagline: "Sustainable Architecture",
     title: "Improving quality of life",
-    text: "Through sustainable design and innovation",
+    text: "Through sustainable design and continuous spatial innovation.",
   },
   {
     image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e",
-    title: "Resilient cities",
-    text: "Built for people and future generations",
+    tagline: "Urban Planning",
+    title: "Resilient cities for tomorrow",
+    text: "Engineered structures built for people and generations ahead.",
   },
   {
     image: "https://images.unsplash.com/photo-1494526585095-c41746248156",
-    title: "Engineering impact",
-    text: "Where insight meets action",
+    tagline: "Digital Craft",
+    title: "Engineering high impact",
+    text: "Where analytical insight converges with structural elegance.",
   },
   {
     image: "https://images.unsplash.com/photo-1523731407965-2430cd12f5e4",
-    title: "Designing tomorrow",
-    text: "Today",
+    tagline: "Parametric Design",
+    title: "Designing tomorrow today",
+    text: "Redefining form, light, and architectural boundaries.",
   },
 ];
 
@@ -36,7 +38,7 @@ export default function HeroArcadis() {
   const [progress, setProgress] = useState(0);
   const [current, setCurrent] = useState(0);
 
-  const DURATION = 6000;
+  const DURATION = 6500;
   const INTERVAL = 50;
 
   /* ===== Auto Slide Progress ===== */
@@ -65,9 +67,10 @@ export default function HeroArcadis() {
     infinite: true,
     arrows: false,
     dots: false,
-    speed: 800,
+    speed: 1000,
     slidesToShow: 1,
     slidesToScroll: 1,
+    fade: true, // Seamless cinematic fade between architectural photos
     swipe: true,
     beforeChange: (_, next) => {
       setCurrent(next);
@@ -75,67 +78,167 @@ export default function HeroArcadis() {
     },
   };
 
+  // Motion variants for kinetic text reveal
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.08,
+        delayChildren: 0.15,
+      },
+    },
+  };
+
+  const wordVariants = {
+    hidden: { y: "115%", opacity: 0 },
+    visible: {
+      y: "0%",
+      opacity: 1,
+      transition: {
+        duration: 0.85,
+        ease: [0.16, 1, 0.3, 1], // ZHA luxury cubic-bezier easing
+      },
+    },
+  };
+
   return (
-    <section className="relative h-[100svh] overflow-hidden bg-black rounded-[25px]">
+    <section className="relative h-[100svh] overflow-hidden bg-slate-950 rounded-[25px] select-none">
       <Slider ref={sliderRef} {...settings}>
-        {slides.map((slide, index) => (
-          <div key={index}>
-            <div
-              className="relative h-[100svh] bg-cover bg-center flex items-center"
-              style={{
-                backgroundImage: `url(${slide.image}?auto=format&fit=crop&w=2200&q=80)`,
-              }}
-            >
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/20" />
+        {slides.map((slide, index) => {
+          const isActive = current === index;
+          const words = slide.title.split(" ");
 
-              {/* ================= CONTENT ================= */}
-              <div className="relative z-10 w-full max-w-7xl px-6 sm:px-10 md:px-16 text-white">
-                <h1 className="
-                  text-[30px] sm:text-[42px] md:text-[56px] lg:text-[68px]
-                  font-semibold leading-tight tracking-tight
-                  max-w-4xl mb-6
-                ">
-                  {slide.title}
-                </h1>
+          return (
+            <div key={index} className="outline-none">
+              <div className="relative h-[100svh] w-full overflow-hidden flex items-center">
+                {/* ================= BACKGROUND IMAGE WITH SLOW DRIFT ================= */}
+                <motion.div
+                  key={`bg-${index}-${isActive}`}
+                  initial={{ scale: 1.15, filter: "brightness(0.55)" }}
+                  animate={
+                    isActive
+                      ? { scale: 1.0, filter: "brightness(0.65)" }
+                      : { scale: 1.15, filter: "brightness(0.4)" }
+                  }
+                  transition={{ duration: 7, ease: "easeOut" }}
+                  className="absolute inset-0 bg-cover bg-center"
+                  style={{
+                    backgroundImage: `url(${slide.image}?auto=format&fit=crop&w=2400&q=85)`,
+                  }}
+                />
 
-                <p className="
-                  text-base sm:text-lg md:text-xl lg:text-2xl
-                  font-normal leading-relaxed text-white/90
-                  max-w-xl mb-10
-                ">
-                  {slide.text}
-                </p>
+                {/* Vignette Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30" />
 
-                <Link to="/projects">
-                  <button className="
-                    inline-flex items-center gap-2
-                    bg-arcadisOrange px-8 py-3
-                    text-sm font-medium text-white
-                    rounded-md transition-all
-                    hover:bg-orange-600
-                    focus:outline-none focus:ring-2 focus:ring-white
-                  ">
-                    Explore Our Work
-                  </button>
-                </Link>
+                {/* ================= ANIMATED TYPOGRAPHY CONTENT ================= */}
+                <div className="relative z-10 w-full max-w-7xl px-6 sm:px-12 md:px-20 text-white">
+                  <AnimatePresence mode="wait">
+                    {isActive && (
+                      <motion.div
+                        key={`content-${index}`}
+                        variants={containerVariants}
+                        initial="hidden"
+                        animate="visible"
+                        className="space-y-6"
+                      >
+                        {/* Eyebrow / Tagline */}
+                        <motion.div
+                          variants={{
+                            hidden: { opacity: 0, y: 15 },
+                            visible: {
+                              opacity: 1,
+                              y: 0,
+                              transition: { duration: 0.6, ease: "easeOut" },
+                            },
+                          }}
+                          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/15 bg-white/10 backdrop-blur-md text-xs sm:text-sm uppercase tracking-[0.25em] text-slate-300"
+                        >
+                          <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse" />
+                          {slide.tagline}
+                        </motion.div>
+
+                        {/* Masked Kinetic Title */}
+                        <h1 className="text-[34px] sm:text-[48px] md:text-[62px] lg:text-[76px] font-bold leading-[1.05] tracking-tight max-w-5xl flex flex-wrap gap-x-3 gap-y-1">
+                          {words.map((word, i) => (
+                            <span
+                              key={i}
+                              className="inline-block overflow-hidden pb-2"
+                            >
+                              <motion.span
+                                variants={wordVariants}
+                                className="inline-block"
+                              >
+                                {word}
+                              </motion.span>
+                            </span>
+                          ))}
+                        </h1>
+
+                        {/* Subtitle */}
+                        <motion.p
+                          variants={{
+                            hidden: { opacity: 0, y: 20 },
+                            visible: {
+                              opacity: 1,
+                              y: 0,
+                              transition: {
+                                duration: 0.8,
+                                delay: 0.35,
+                                ease: [0.16, 1, 0.3, 1],
+                              },
+                            },
+                          }}
+                          className="text-base sm:text-lg md:text-xl text-slate-300 font-light max-w-2xl leading-relaxed"
+                        >
+                          {slide.text}
+                        </motion.p>
+
+                        {/* CTA Button */}
+                        <motion.div
+                          variants={{
+                            hidden: { opacity: 0, y: 20 },
+                            visible: {
+                              opacity: 1,
+                              y: 0,
+                              transition: {
+                                duration: 0.7,
+                                delay: 0.5,
+                                ease: "easeOut",
+                              },
+                            },
+                          }}
+                          className="pt-4"
+                        >
+                          <Link to="/projects">
+                            <button className="inline-flex items-center gap-3 px-8 py-3.5 rounded-full bg-white text-slate-950 text-sm font-semibold hover:bg-orange-500 hover:text-white transition-all duration-300 shadow-xl shadow-black/40 active:scale-95 group">
+                              Explore Our Work
+                              <ArrowRightIcon className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                            </button>
+                          </Link>
+                        </motion.div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </Slider>
 
       {/* ================= MOBILE ARROWS ================= */}
-      <div className="md:hidden absolute inset-y-0 left-0 right-0 z-30 pointer-events-none">
+      <div className="md:hidden absolute inset-y-0 left-0 right-0 z-30 pointer-events-none flex items-center justify-between px-3">
         <button
           onClick={() => {
             sliderRef.current?.slickPrev();
             resetProgress();
           }}
-          className="pointer-events-auto absolute left-3 top-1/2 -translate-y-1/2
-          w-10 h-10 rounded-full bg-white/90 flex items-center justify-center"
+          className="pointer-events-auto w-10 h-10 rounded-full bg-black/40 backdrop-blur-md border border-white/20 flex items-center justify-center text-white active:scale-90 transition-transform"
+          aria-label="Previous Slide"
         >
-          <ArrowLeftIcon className="w-5 h-5 text-arcadisOrange" />
+          <ArrowLeftIcon className="w-5 h-5" />
         </button>
 
         <button
@@ -143,28 +246,28 @@ export default function HeroArcadis() {
             sliderRef.current?.slickNext();
             resetProgress();
           }}
-          className="pointer-events-auto absolute right-3 top-1/2 -translate-y-1/2
-          w-10 h-10 rounded-full bg-white/90 flex items-center justify-center"
+          className="pointer-events-auto w-10 h-10 rounded-full bg-black/40 backdrop-blur-md border border-white/20 flex items-center justify-center text-white active:scale-90 transition-transform"
+          aria-label="Next Slide"
         >
-          <ArrowRightIcon className="w-5 h-5 text-arcadisOrange" />
+          <ArrowRightIcon className="w-5 h-5" />
         </button>
       </div>
 
-      {/* ================= DESKTOP ARROWS ================= */}
-      <div className="hidden md:flex absolute bottom-20 left-1/2 -translate-x-1/2 z-30 items-center gap-6">
+      {/* ================= DESKTOP CONTROLS & COUNTER ================= */}
+      <div className="hidden md:flex absolute bottom-16 right-16 z-30 items-center gap-4 bg-black/40 backdrop-blur-md border border-white/10 px-6 py-3 rounded-full">
         <button
           onClick={() => {
             sliderRef.current?.slickPrev();
             resetProgress();
           }}
-          className="w-12 h-12 rounded-full bg-white/90 hover:bg-white transition flex items-center justify-center"
+          className="w-9 h-9 rounded-full bg-white/10 hover:bg-white text-white hover:text-black transition-all flex items-center justify-center"
+          aria-label="Previous Slide"
         >
-          <ArrowLeftIcon className="w-5 h-5 text-arcadisOrange" />
+          <ArrowLeftIcon className="w-4 h-4" />
         </button>
 
-        <span className="text-sm tracking-widest text-white min-w-[80px] text-center">
-          {String(current + 1).padStart(2, "0")} /{" "}
-          {String(slides.length).padStart(2, "0")}
+        <span className="text-xs uppercase tracking-[0.25em] text-white font-mono min-w-[70px] text-center">
+          {String(current + 1).padStart(2, "0")} / {String(slides.length).padStart(2, "0")}
         </span>
 
         <button
@@ -172,17 +275,18 @@ export default function HeroArcadis() {
             sliderRef.current?.slickNext();
             resetProgress();
           }}
-          className="w-12 h-12 rounded-full bg-white/90 hover:bg-white transition flex items-center justify-center"
+          className="w-9 h-9 rounded-full bg-white/10 hover:bg-white text-white hover:text-black transition-all flex items-center justify-center"
+          aria-label="Next Slide"
         >
-          <ArrowRightIcon className="w-5 h-5 text-arcadisOrange" />
+          <ArrowRightIcon className="w-4 h-4" />
         </button>
       </div>
 
-      {/* ================= PROGRESS BAR ================= */}
-      <div className="absolute bottom-10 left-6 right-6 md:left-10 md:right-10 z-20">
-        <div className="h-[3px] bg-white/30 rounded-full overflow-hidden">
+      {/* ================= MINIMAL ARCHITECTURAL PROGRESS BAR ================= */}
+      <div className="absolute bottom-8 left-6 right-6 md:left-16 md:right-16 z-20">
+        <div className="h-[2px] bg-white/20 rounded-full overflow-hidden">
           <div
-            className="h-full bg-arcadisOrange transition-all duration-75 ease-linear"
+            className="h-full bg-orange-500 transition-all duration-75 ease-linear shadow-[0_0_8px_rgba(249,115,22,0.8)]"
             style={{ width: `${progress}%` }}
           />
         </div>

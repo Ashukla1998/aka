@@ -189,3 +189,5 @@ export const teamMembers = [
         experience: "With us since 2024",
     },
 ];
+
+export const AllTeamMembers = [...Leaders, ...teamMembers];
