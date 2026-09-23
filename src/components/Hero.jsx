@@ -3,31 +3,35 @@ import Slider from "react-slick";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
+import pavitra from "../images/support/pavitra.png";
+import hospital from "../images/projects/Healthcare/GEIMSHospital/01.jpg";
+import jd from "../images/projects/Hospitality/jd/01.jpg";
+import regal from "../images/support/regal.JPG";
 
 const slides = [
   {
-    image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
-    tagline: "Sustainable Architecture",
-    title: "Improving quality of life",
-    text: "Through sustainable design and continuous spatial innovation.",
+    image: hospital ,
+    tagline: "Elevation | Interior | Landscape",
+    title: "GEIMS Hospital",
+    text: "A State of the art medical facility designed with patient-centric care",
   },
   {
-    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e",
+    image: pavitra,
     tagline: "Urban Planning",
-    title: "Resilient cities for tomorrow",
+    title: "Pavitra Sarovar Dehradun",
     text: "Engineered structures built for people and generations ahead.",
   },
   {
-    image: "https://images.unsplash.com/photo-1494526585095-c41746248156",
-    tagline: "Digital Craft",
-    title: "Engineering high impact",
-    text: "Where analytical insight converges with structural elegance.",
+    image: jd,
+    tagline: "Architecture | Interior | Landscape",
+    title: "J D Club",
+    text: "JD SCHOOL Is a primary school designed on a theme which enhances the learning environment.",
   },
   {
-    image: "https://images.unsplash.com/photo-1523731407965-2430cd12f5e4",
-    tagline: "Parametric Design",
-    title: "Designing tomorrow today",
-    text: "Redefining form, light, and architectural boundaries.",
+    image: regal,
+    tagline: "Architecture | Interior | Landscape",
+    title: "Regal Manor",
+    text: "REGAL MANOR Is an exclusive Banquet Hall designed to host luxurious weddings.",
   },
 ];
 
