@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import Slider from "react-slick";
-import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
 import pavitra from "../images/support/pavitra.png";
@@ -112,15 +111,11 @@ export default function HeroArcadis() {
             <div key={index} className="outline-none w-full max-w-full overflow-hidden">
               {/* Bottom aligned flex container to pair with controls */}
               <div className="relative h-[100svh] w-full overflow-hidden flex items-end pb-24 md:pb-28">
-                {/* ================= BACKGROUND IMAGE ================= */}
+                {/* ================= NATURAL BACKGROUND IMAGE (NO BRIGHTNESS FILTER) ================= */}
                 <motion.div
                   key={`bg-${index}-${isActive}`}
-                  initial={{ scale: 1.15, filter: "brightness(0.55)" }}
-                  animate={
-                    isActive
-                      ? { scale: 1.0, filter: "brightness(0.65)" }
-                      : { scale: 1.15, filter: "brightness(0.4)" }
-                  }
+                  initial={{ scale: 1.1 }}
+                  animate={isActive ? { scale: 1.0 } : { scale: 1.1 }}
                   transition={{ duration: 7, ease: "easeOut" }}
                   className="absolute inset-0 bg-cover bg-center"
                   style={{
@@ -128,9 +123,9 @@ export default function HeroArcadis() {
                   }}
                 />
 
-                {/* Vignette Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 to-transparent pointer-events-none" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
+                {/* Soft legibility scrim behind bottom text */}
+                <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent pointer-events-none" />
+                <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/75 via-black/20 to-transparent pointer-events-none" />
 
                 {/* ================= ANIMATED TYPOGRAPHY CONTENT ================= */}
                 <div className="relative z-10 w-full max-w-7xl px-6 sm:px-12 md:px-20 text-white">
@@ -141,14 +136,14 @@ export default function HeroArcadis() {
                         variants={containerVariants}
                         initial="hidden"
                         animate="visible"
-                        className="space-y-4 max-w-3xl"
+                        className="space-y-2 max-w-2xl"
                       >
-                        {/* Kinetic Title */}
-                        <h1 className="text-[34px] sm:text-[48px] md:text-[58px] lg:text-[70px] font-bold leading-[1.05] tracking-tight flex flex-wrap gap-x-3 gap-y-1">
+                        {/* Compact Kinetic Title */}
+                        <h3 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold leading-tight tracking-tight flex flex-wrap gap-x-2 gap-y-0.5 drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]">
                           {words.map((word, i) => (
                             <span
                               key={i}
-                              className="inline-block overflow-hidden pb-2"
+                              className="inline-block overflow-hidden pb-1"
                             >
                               <motion.span
                                 variants={wordVariants}
@@ -158,12 +153,12 @@ export default function HeroArcadis() {
                               </motion.span>
                             </span>
                           ))}
-                        </h1>
+                        </h3>
 
-                        {/* Subtitle / Description */}
+                        {/* Compact Subtitle / Description */}
                         <motion.p
                           variants={{
-                            hidden: { opacity: 0, y: 15 },
+                            hidden: { opacity: 0, y: 12 },
                             visible: {
                               opacity: 1,
                               y: 0,
@@ -174,34 +169,10 @@ export default function HeroArcadis() {
                               },
                             },
                           }}
-                          className="text-base sm:text-lg md:text-xl text-slate-300 font-light max-w-2xl leading-relaxed"
+                          className="text-xs sm:text-sm md:text-base text-neutral-200 font-light max-w-xl leading-relaxed drop-shadow-[0_1px_6px_rgba(0,0,0,0.8)]"
                         >
                           {slide.text}
                         </motion.p>
-
-                        {/* CTA Button */}
-                        <motion.div
-                          variants={{
-                            hidden: { opacity: 0, y: 15 },
-                            visible: {
-                              opacity: 1,
-                              y: 0,
-                              transition: {
-                                duration: 0.7,
-                                delay: 0.4,
-                                ease: "easeOut",
-                              },
-                            },
-                          }}
-                          className="pt-2"
-                        >
-                          <Link to="/projects">
-                            <button className="inline-flex items-center gap-3 px-7 py-3 rounded-full bg-white text-slate-950 text-sm font-semibold hover:bg-orange-500 hover:text-white transition-all duration-300 shadow-xl shadow-black/40 active:scale-95 group">
-                              Explore Our Work
-                              <ArrowRightIcon className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-                            </button>
-                          </Link>
-                        </motion.div>
                       </motion.div>
                     )}
                   </AnimatePresence>
