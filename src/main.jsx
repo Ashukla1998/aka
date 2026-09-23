@@ -58,33 +58,33 @@ export default function Home() {
       <TeamSection />
 
       {/* ================= 4. WHAT WE DO (EXPERTISE) ================= */}
-      <section className="w-full py-24 sm:py-28 border-t border-neutral-200/80 bg-neutral-50/50">
+      {/* <section className="w-full py-24 sm:py-28 border-t border-neutral-200/80 bg-neutral-50/50">
         {/* Unified 7XL Container */}
-        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
+        {/* <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12"> */}
           
-          <motion.div
+          {/* <motion.div
             variants={containerAnim}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
             className="max-w-3xl mb-16 md:mb-20"
-          >
+          > */}
             {/* <motion.div variants={itemReveal} className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.25em] text-neutral-400 mb-3">
               <span className="w-1.5 h-1.5 rounded-full bg-arcadisOrange" />
               <span>[ 02 // EXPERTISE ]</span>
             </motion.div> */}
 
-            <motion.h2 variants={itemReveal} className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight text-neutral-950 mb-5">
+            {/* <motion.h2 variants={itemReveal} className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight text-neutral-950 mb-5">
               What We <span className="font-semibold">Do</span>
-            </motion.h2>
+            </motion.h2> */}
 
-            <motion.p variants={itemReveal} className="text-base sm:text-lg text-neutral-600 font-light leading-relaxed">
+            {/* <motion.p variants={itemReveal} className="text-base sm:text-lg text-neutral-600 font-light leading-relaxed">
               Our work spans architecture, urbanism, and environmental sustainability —
               combining strategic rigor with design excellence to create places that deliver long-term value.
             </motion.p>
-          </motion.div>
+          </motion.div> */}
 
-          <motion.div
+          {/* <motion.div
             variants={containerAnim}
             initial="hidden"
             whileInView="visible"
@@ -133,8 +133,8 @@ export default function Home() {
               </motion.div>
             ))}
           </motion.div>
-        </div>
-      </section>
+        </div> */}
+      {/* </section> */} 
 
       {/* ================= 5. DESIGN PHILOSOPHY ================= */}
       <section className="w-full py-24 sm:py-28 bg-white border-t border-neutral-200/80">

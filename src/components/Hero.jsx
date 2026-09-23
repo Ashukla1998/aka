@@ -10,26 +10,22 @@ import regal from "../images/support/regal.JPG";
 
 const slides = [
   {
-    image: hospital ,
-    tagline: "Elevation | Interior | Landscape",
+    image: hospital,
     title: "GEIMS Hospital",
     text: "A State of the art medical facility designed with patient-centric care",
   },
   {
     image: pavitra,
-    tagline: "Urban Planning",
     title: "Pavitra Sarovar Dehradun",
     text: "Engineered structures built for people and generations ahead.",
   },
   {
     image: jd,
-    tagline: "Architecture | Interior | Landscape",
     title: "J D Club",
     text: "JD SCHOOL Is a primary school designed on a theme which enhances the learning environment.",
   },
   {
     image: regal,
-    tagline: "Architecture | Interior | Landscape",
     title: "Regal Manor",
     text: "REGAL MANOR Is an exclusive Banquet Hall designed to host luxurious weddings.",
   },
@@ -74,7 +70,7 @@ export default function HeroArcadis() {
     speed: 1000,
     slidesToShow: 1,
     slidesToScroll: 1,
-    fade: true, // Seamless cinematic fade between architectural photos
+    fade: true,
     swipe: true,
     beforeChange: (_, next) => {
       setCurrent(next);
@@ -82,7 +78,6 @@ export default function HeroArcadis() {
     },
   };
 
-  // Motion variants for kinetic text reveal
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -101,22 +96,23 @@ export default function HeroArcadis() {
       opacity: 1,
       transition: {
         duration: 0.85,
-        ease: [0.16, 1, 0.3, 1], // ZHA luxury cubic-bezier easing
+        ease: [0.16, 1, 0.3, 1],
       },
     },
   };
 
   return (
-    <section className="relative h-[100svh] overflow-hidden bg-slate-950 rounded-[25px] select-none">
-      <Slider ref={sliderRef} {...settings}>
+    <section className="relative h-[100svh] w-full max-w-full overflow-hidden bg-slate-950 select-none">
+      <Slider ref={sliderRef} {...settings} className="w-full h-full overflow-hidden">
         {slides.map((slide, index) => {
           const isActive = current === index;
           const words = slide.title.split(" ");
 
           return (
-            <div key={index} className="outline-none">
-              <div className="relative h-[100svh] w-full overflow-hidden flex items-center">
-                {/* ================= BACKGROUND IMAGE WITH SLOW DRIFT ================= */}
+            <div key={index} className="outline-none w-full max-w-full overflow-hidden">
+              {/* Bottom aligned flex container to pair with controls */}
+              <div className="relative h-[100svh] w-full overflow-hidden flex items-end pb-24 md:pb-28">
+                {/* ================= BACKGROUND IMAGE ================= */}
                 <motion.div
                   key={`bg-${index}-${isActive}`}
                   initial={{ scale: 1.15, filter: "brightness(0.55)" }}
@@ -133,8 +129,8 @@ export default function HeroArcadis() {
                 />
 
                 {/* Vignette Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 to-transparent" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30" />
+                <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
 
                 {/* ================= ANIMATED TYPOGRAPHY CONTENT ================= */}
                 <div className="relative z-10 w-full max-w-7xl px-6 sm:px-12 md:px-20 text-white">
@@ -145,26 +141,10 @@ export default function HeroArcadis() {
                         variants={containerVariants}
                         initial="hidden"
                         animate="visible"
-                        className="space-y-6"
+                        className="space-y-4 max-w-3xl"
                       >
-                        {/* Eyebrow / Tagline */}
-                        <motion.div
-                          variants={{
-                            hidden: { opacity: 0, y: 15 },
-                            visible: {
-                              opacity: 1,
-                              y: 0,
-                              transition: { duration: 0.6, ease: "easeOut" },
-                            },
-                          }}
-                          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/15 bg-white/10 backdrop-blur-md text-xs sm:text-sm uppercase tracking-[0.25em] text-slate-300"
-                        >
-                          <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse" />
-                          {slide.tagline}
-                        </motion.div>
-
-                        {/* Masked Kinetic Title */}
-                        <h1 className="text-[34px] sm:text-[48px] md:text-[62px] lg:text-[76px] font-bold leading-[1.05] tracking-tight max-w-5xl flex flex-wrap gap-x-3 gap-y-1">
+                        {/* Kinetic Title */}
+                        <h1 className="text-[34px] sm:text-[48px] md:text-[58px] lg:text-[70px] font-bold leading-[1.05] tracking-tight flex flex-wrap gap-x-3 gap-y-1">
                           {words.map((word, i) => (
                             <span
                               key={i}
@@ -180,16 +160,16 @@ export default function HeroArcadis() {
                           ))}
                         </h1>
 
-                        {/* Subtitle */}
+                        {/* Subtitle / Description */}
                         <motion.p
                           variants={{
-                            hidden: { opacity: 0, y: 20 },
+                            hidden: { opacity: 0, y: 15 },
                             visible: {
                               opacity: 1,
                               y: 0,
                               transition: {
                                 duration: 0.8,
-                                delay: 0.35,
+                                delay: 0.25,
                                 ease: [0.16, 1, 0.3, 1],
                               },
                             },
@@ -202,21 +182,21 @@ export default function HeroArcadis() {
                         {/* CTA Button */}
                         <motion.div
                           variants={{
-                            hidden: { opacity: 0, y: 20 },
+                            hidden: { opacity: 0, y: 15 },
                             visible: {
                               opacity: 1,
                               y: 0,
                               transition: {
                                 duration: 0.7,
-                                delay: 0.5,
+                                delay: 0.4,
                                 ease: "easeOut",
                               },
                             },
                           }}
-                          className="pt-4"
+                          className="pt-2"
                         >
                           <Link to="/projects">
-                            <button className="inline-flex items-center gap-3 px-8 py-3.5 rounded-full bg-white text-slate-950 text-sm font-semibold hover:bg-orange-500 hover:text-white transition-all duration-300 shadow-xl shadow-black/40 active:scale-95 group">
+                            <button className="inline-flex items-center gap-3 px-7 py-3 rounded-full bg-white text-slate-950 text-sm font-semibold hover:bg-orange-500 hover:text-white transition-all duration-300 shadow-xl shadow-black/40 active:scale-95 group">
                               Explore Our Work
                               <ArrowRightIcon className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                             </button>
@@ -258,7 +238,7 @@ export default function HeroArcadis() {
       </div>
 
       {/* ================= DESKTOP CONTROLS & COUNTER ================= */}
-      <div className="hidden md:flex absolute bottom-16 right-16 z-30 items-center gap-4 bg-black/40 backdrop-blur-md border border-white/10 px-6 py-3 rounded-full">
+      <div className="hidden md:flex absolute bottom-24 right-16 z-30 items-center gap-4 bg-black/40 backdrop-blur-md border border-white/10 px-6 py-3 rounded-full">
         <button
           onClick={() => {
             sliderRef.current?.slickPrev();
@@ -286,7 +266,7 @@ export default function HeroArcadis() {
         </button>
       </div>
 
-      {/* ================= MINIMAL ARCHITECTURAL PROGRESS BAR ================= */}
+      {/* ================= ARCHITECTURAL PROGRESS BAR ================= */}
       <div className="absolute bottom-8 left-6 right-6 md:left-16 md:right-16 z-20">
         <div className="h-[2px] bg-white/20 rounded-full overflow-hidden">
           <div
