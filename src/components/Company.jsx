@@ -30,14 +30,14 @@ export default function AboutZHA() {
     },
   };
 
-  const lineFade = {
-    hidden: { scaleX: 0, opacity: 0 },
-    visible: {
-      scaleX: 1,
-      opacity: 1,
-      transition: { duration: 1.1, ease: [0.16, 1, 0.3, 1] },
-    },
-  };
+  // const lineFade = {
+  //   hidden: { scaleX: 0, opacity: 0 },
+  //   visible: {
+  //     scaleX: 1,
+  //     opacity: 1,
+  //     transition: { duration: 1.1, ease: [0.16, 1, 0.3, 1] },
+  //   },
+  // };
 
   return (
     <section className="relative w-full bg-white text-neutral-900 py-24 sm:py-32 px-6 sm:px-12 lg:px-20 overflow-hidden border-b border-neutral-200/70">
@@ -68,7 +68,7 @@ export default function AboutZHA() {
               variants={maskReveal}
               className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight text-neutral-950 leading-[1.12]"
             >
-              Since <span className="font-semibold">2013</span> of designing, building, and spatial innovation.
+              Since <span className="font-semibold">2013</span> 
             </motion.h2>
           </div>
 
