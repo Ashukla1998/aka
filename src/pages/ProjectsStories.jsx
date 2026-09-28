@@ -123,11 +123,11 @@ export default function ProjectsStories() {
                     />
 
                     {/* Category Pill */}
-                    <div className="absolute top-4 left-4 z-10">
+                    {/* <div className="absolute top-4 left-4 z-10">
                       <span className="px-3 py-1 text-[11px] font-mono uppercase tracking-wider bg-white/90 backdrop-blur-md text-arcadisOrange rounded-full shadow-sm">
                         {project.category}
                       </span>
-                    </div>
+                    </div> */}
 
                     {/* Vignette Gradient */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -138,7 +138,7 @@ export default function ProjectsStories() {
                     <div>
                       {/* Project Title */}
                       <h3 className="text-xl font-medium tracking-tight text-black transition-colors">
-                        {project.title}
+                        {project.category}
                       </h3>
                     </div>
 
