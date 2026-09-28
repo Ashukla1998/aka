@@ -7,6 +7,13 @@ import { GoArrowRight } from "react-icons/go";
 /* ===== 6 DISTINCT CATEGORY PROJECTS ===== */
 const projectsStories = [
   {
+    title: "GEIMS HOSPITAL",
+    slug: "geims-hospital",
+    category: "Healthcare",
+    location: "Dhulkot, Dehradun",
+    image: "/images/projects/Healthcare/GEIMSHospital/01.jpg",
+  },
+  {
     title: "GEIMS Medical College",
     category: "Educational",
     location: "Dhulkot, Dehradun",
@@ -60,6 +67,7 @@ const projectsStories = [
     slug: "/projects/home-office",
     size: "4,050 sq ft",
   },
+  
 ];
 
 // const categories = [
@@ -95,12 +103,12 @@ export default function ProjectsStories() {
           </div>
 
           <p className="text-sm md:text-base text-neutral-500 max-w-md font-light leading-relaxed">
-            We design for a wide range of sectors, at scales and at all budgets.
+            From intimate residential extensions to large-scale civic landmarks—we shape spaces of every scale, across all sectors and budgets.
           </p>
         </div>
 
         {/* ================= UNIFORM 6-CARD GRID ================= */}
-        <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           <AnimatePresence>
             {filteredProjects.map((project) => (
               <motion.article

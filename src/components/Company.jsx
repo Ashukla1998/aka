@@ -93,7 +93,7 @@ export default function AboutZHA() {
               variants={maskReveal}
               className="text-lg sm:text-xl text-neutral-800 font-normal leading-relaxed tracking-tight"
             >
-              Archana Kapil Associates Private Limited (A K Associates) has been providing comprehensive design solutions to a wide variety of built structures. At every scale and in every sector, we work with our clients to create unique spaces in line with our 4 design principles.
+              Since 2013: Archana Kapil Associates has been delivering comprehensive design solutions tailored to your unique story. Driven by our four core principles, we partner with you to shape distinctive spaces that stand the test of time.
             </motion.p>
           </div>
 
