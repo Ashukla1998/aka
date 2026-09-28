@@ -3,8 +3,8 @@
 import { motion } from 'framer-motion';
 
 export default function AboutZHA() {
-  const currentYear = new Date().getFullYear();
-  const experienceYears = currentYear - 2013;
+  // const currentYear = new Date().getFullYear();
+  // const experienceYears = currentYear - 2013;
 
   // Masked vertical reveal
   const maskReveal = {
@@ -41,14 +41,6 @@ export default function AboutZHA() {
 
   return (
     <section className="relative w-full bg-white text-neutral-900 py-24 sm:py-32 px-6 sm:px-12 lg:px-20 overflow-hidden border-b border-neutral-200/70">
-      {/* Top Architectural Divider */}
-      <motion.div
-        variants={lineFade}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: '-50px' }}
-        className="h-[1px] w-full bg-neutral-200 origin-left mb-12 sm:mb-16"
-      />
 
       <motion.div
         variants={containerAnim}
@@ -76,8 +68,7 @@ export default function AboutZHA() {
               variants={maskReveal}
               className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight text-neutral-950 leading-[1.12]"
             >
-              Over <span className="font-semibold">{experienceYears} Years</span> of
-              designing, building, and spatial innovation.
+              Since <span className="font-semibold">2013</span> of designing, building, and spatial innovation.
             </motion.h2>
           </div>
 
@@ -102,7 +93,7 @@ export default function AboutZHA() {
               variants={maskReveal}
               className="text-lg sm:text-xl text-neutral-800 font-normal leading-relaxed tracking-tight"
             >
-              Archana Kapil Associates Private Limited (A K Associates) has been providing comprehensive design solutions to a wide variety of built structures. At every scale and in every sector, we work with our clients to create unique spaces which are integrated, contextual, impressionist and sustainable. 
+              Archana Kapil Associates Private Limited (A K Associates) has been providing comprehensive design solutions to a wide variety of built structures. At every scale and in every sector, we work with our clients to create unique spaces in line with our 4 design principles.
             </motion.p>
           </div>
 
