@@ -56,86 +56,6 @@ export default function Home() {
 
       {/* ================= TEAM ================= */}
       <TeamSection />
-
-      {/* ================= 4. WHAT WE DO (EXPERTISE) ================= */}
-      {/* <section className="w-full py-24 sm:py-28 border-t border-neutral-200/80 bg-neutral-50/50">
-        {/* Unified 7XL Container */}
-        {/* <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12"> */}
-          
-          {/* <motion.div
-            variants={containerAnim}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-60px" }}
-            className="max-w-3xl mb-16 md:mb-20"
-          > */}
-            {/* <motion.div variants={itemReveal} className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.25em] text-neutral-400 mb-3">
-              <span className="w-1.5 h-1.5 rounded-full bg-arcadisOrange" />
-              <span>[ 02 // EXPERTISE ]</span>
-            </motion.div> */}
-
-            {/* <motion.h2 variants={itemReveal} className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight text-neutral-950 mb-5">
-              What We <span className="font-semibold">Do</span>
-            </motion.h2> */}
-
-            {/* <motion.p variants={itemReveal} className="text-base sm:text-lg text-neutral-600 font-light leading-relaxed">
-              Our work spans architecture, urbanism, and environmental sustainability —
-              combining strategic rigor with design excellence to create places that deliver long-term value.
-            </motion.p>
-          </motion.div> */}
-
-          {/* <motion.div
-            variants={containerAnim}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-60px" }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10"
-          >
-            {[
-              {
-                num: "01",
-                title: "Architecture",
-                desc: "Designing meaningful buildings rooted in context, tectonic craft, and responsive human experience.",
-              },
-              {
-                num: "02",
-                title: "Urban Planning",
-                desc: "Shaping tomorrow’s civic landscapes through people-centric, resilient master planning and ecological balance.",
-              },
-              {
-                num: "03",
-                title: "Sustainability",
-                desc: "Embedding advanced low-carbon methodologies, passive environmental control, and future-ready circular solutions.",
-              },
-            ].map((service) => (
-              <motion.div
-                key={service.title}
-                variants={itemReveal}
-                whileHover={{ y: -6 }}
-                className="group relative flex flex-col justify-between p-8 sm:p-10 rounded-2xl bg-white border border-neutral-200/80 shadow-sm hover:shadow-xl transition-all duration-300"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-8">
-                    <span className="font-mono text-xs text-neutral-400 font-semibold tracking-wider">
-                      {service.num}
-                    </span>
-                    <div className="w-8 h-[2px] bg-neutral-200 group-hover:w-12 group-hover:bg-arcadisOrange transition-all duration-300" />
-                  </div>
-
-                  <h3 className="text-2xl font-medium text-neutral-900 mb-3 group-hover:text-arcadisOrange transition-colors">
-                    {service.title}
-                  </h3>
-
-                  <p className="text-sm sm:text-base text-neutral-500 font-light leading-relaxed">
-                    {service.desc}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div> */}
-      {/* </section> */} 
-
       {/* ================= 5. DESIGN PHILOSOPHY ================= */}
       <section className="w-full py-24 sm:py-28 bg-white border-t border-neutral-200/80">
         {/* Unified 7XL Container */}
@@ -148,11 +68,6 @@ export default function Home() {
             viewport={{ once: true, margin: "-60px" }}
             className="max-w-3xl mb-16 md:mb-20"
           >
-            {/* <motion.div variants={itemReveal} className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.25em] text-neutral-400 mb-3">
-              <span className="w-1.5 h-1.5 rounded-full bg-arcadisOrange" />
-              <span>[ 03 // PHILOSOPHY ]</span>
-            </motion.div> */}
-
             <motion.h2 variants={itemReveal} className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight text-neutral-950 mb-5">
               How We <span className="font-semibold">Think</span>
             </motion.h2>
@@ -174,22 +89,22 @@ export default function Home() {
               {
                 index: "01",
                 title: "Integrated",
-                desc: "Uniting architecture, interior planning, and landscape into a cohesive spatial language. Even when engaged strictly for building shells, interior spatial flow actively informs our structural decisions.",
+                desc: "Seamless design, zero friction. By bringing architecture, interior design, and landscape artistry under one roof, we deliver a true end-to-end solution for your property. Because we believe great spaces are holistic from day one, we naturally weave interior layouts into our architectural planning—even if architecture is our only formal assignment on your project.",
               },
               {
                 index: "02",
                 title: "Contextual",
-                desc: "Every design is hyper-specific to its topography, orientation, and climate. If a proposal can be transplanted to another site without friction, we discard it. Context is the foundation.",
+                desc: "Great design has an address. Our concepts are deeply rooted in their surroundings, shaped by the unique narrative of each landscape and location. If our work can be replicated anywhere else, we know we haven’t pushed far enough—so we head straight back to the drawing board to craft something truly irreplaceable.",
               },
               {
                 index: "03",
                 title: "Impressionist",
-                desc: "Great architecture leaves an indelible mental silhouette. We balance rigorous tectonic discipline with expressive moments of light and fluid geometry that linger long after visitors depart.",
+                desc: "We measure good design by memory. If someone walks away and can still mentally recreate a snapshot of your space, we've done our job. We tie every project together with a unified theme, weaving in distinct, standout elements that ensure your space isn't just seen—it's remembered.",
               },
               {
                 index: "04",
                 title: "Sustainable",
-                desc: "Environmental responsibility is woven into every detail. Beyond checklist certifications, our sustainability model addresses regional construction culture, lifecycle economy, and intergenerational lifespans.",
+                desc: "No matter the scale or scope of the project, a green lens shapes everything we create. For us, sustainability isn’t just an environmental checkbox—it’s a holistic commitment to enriching our economy, honoring local culture, and nurturing communities.",
               },
             ].map((item) => (
               <motion.div

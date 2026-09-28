@@ -137,7 +137,7 @@ export default function TeamSection() {
     //   </div>
     // </section>
 
-    <section className="relative w-full bg-white text-neutral-900 py-24 sm:py-32 px-6 sm:px-12 lg:px-20 overflow-hidden border-b border-neutral-200/70">
+    <section className="relative w-50% bg-white text-neutral-900 py-24 sm:py-32 px-6 sm:px-12 lg:px-20 overflow-hidden border-b border-neutral-200/70">
 
       <motion.div
         variants={containerAnim}
@@ -147,15 +147,17 @@ export default function TeamSection() {
         className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start"
       >
         {/* Left Column: Technical Metadata & Headline */}
-        <div className="lg:col-span-5 space-y-6">
-          {/* Bold Scaled Headline */}
+        {/* Left Column: Technical Metadata & Headline */}
+        <div className="lg:col-span-5">
           <div className="overflow-hidden">
-            <motion.h2
+            <motion.p
               variants={maskReveal}
-              className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight text-neutral-950 leading-[1.12]"
+              className="text-lg sm:text-xl lg:text-3xl font-light tracking-tight text-neutral-950 leading-[1.12]"
             >
-              20 Team Members with 306 years of experience
-            </motion.h2>
+              20 Team Members with
+              <br />
+              <span className="font-bold">306</span> years of experience
+            </motion.p>
           </div>
         </div>
 
