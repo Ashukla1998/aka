@@ -51,17 +51,6 @@ export default function AboutZHA() {
       >
         {/* Left Column: Technical Metadata & Headline */}
         <div className="lg:col-span-5 space-y-6">
-          {/* Eyebrow / Technical Stamp */}
-          <div className="overflow-hidden">
-            {/* <motion.div
-              variants={maskReveal}
-              className="inline-flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.3em] text-neutral-400"
-            >
-              {/* <span className="w-1.5 h-1.5 rounded-full bg-neutral-900" /> */}
-              {/* <span>[ 01 // OVERVIEW ]</span> */}
-            {/* </motion.div> */}
-          </div>
-
           {/* Bold Scaled Headline */}
           <div className="overflow-hidden">
             <motion.h2
@@ -71,19 +60,6 @@ export default function AboutZHA() {
               Since <span className="font-semibold">2013</span> 
             </motion.h2>
           </div>
-
-          {/* Metric Callout */}
-          {/* <div className="overflow-hidden pt-4">
-            <motion.div variants={maskReveal} className="flex items-baseline gap-4">
-              <span className="text-5xl sm:text-6xl font-extralight tracking-tighter text-neutral-900">
-                {experienceYears}+
-              </span>
-              <span className="text-xs uppercase tracking-[0.2em] font-mono text-neutral-500">
-                Years of Excellence / Since 2013
-              </span>
-            </motion.div>
-          </div> */}
-
         </div>
 
         {/* Right Column: Editorial Paragraphs */}
@@ -96,17 +72,6 @@ export default function AboutZHA() {
               Since 2013: Archana Kapil Associates has been delivering comprehensive design solutions tailored to your unique story. Driven by our four core principles, we partner with you to shape distinctive spaces that stand the test of time.
             </motion.p>
           </div>
-
-          {/* <div className="overflow-hidden">
-            <motion.p
-              variants={maskReveal}
-              className="text-sm sm:text-base text-neutral-500 leading-relaxed font-light"
-            >
-              At every scale and within every sector, we partner closely with our clients to
-              conceive distinctive spaces that are structurally integrated, contextual,
-              impressionist, and sustainably realized for future generations.
-            </motion.p>
-          </div> */}
 
           {/* Architectural Feature Pillars */}
           <div className="overflow-hidden pt-4 border-t border-neutral-100">
