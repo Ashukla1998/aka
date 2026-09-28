@@ -152,11 +152,7 @@ export default function ProjectsStories() {
         </motion.div>
 
         {/* ================= BOTTOM CTA ROW ================= */}
-        <div className="mt-20 pt-10 border-t border-neutral-200 flex flex-col items-center justify-center gap-6 text-center">
-          <p className="text-sm text-neutral-500 max-w-md">
-            Interested in architectural planning or collaborative master development?
-          </p>
-
+        <div className="mt-20 pt-10 border-t border-neutral-200 flex justify-center">
           <Link
             to="/projects"
             className="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-arcadisOrange text-white text-xs font-mono uppercase tracking-widest hover:bg-neutral-800 transition-colors shadow-sm active:scale-95"

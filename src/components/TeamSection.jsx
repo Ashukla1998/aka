@@ -94,7 +94,7 @@ const itemReveal = {
 };
 
 export default function TeamSection() {
-  const currentYear = new Date().getFullYear();
+  // const currentYear = new Date().getFullYear();
 
   return (
     <section className="w-full py-24 sm:py-32 bg-white border-t border-neutral-200/80 text-neutral-900">
@@ -120,6 +120,7 @@ export default function TeamSection() {
                 306 years of combined experience
               </span>
             </motion.h2>
+            <p className="text-sm md:text-base mt-2 text-neutral-500 max-w-md font-light leading-relaxed">Behind every great space is a passionate team. From architects and interior designers to landscape artists and meticulous project managers, we blend creative flair with expert precision to bring your vision to life, from the first sketch to the final touch.</p>
           </motion.div>
 
           {/* Join Us Link at Top */}
@@ -128,88 +129,11 @@ export default function TeamSection() {
               to="/about"
               className="group inline-flex items-center gap-2.5 px-6 py-3 rounded-full border border-neutral-300 text-xs font-mono uppercase tracking-[0.2em] text-neutral-800 hover:border-arcadisOrange hover:bg-arcadisOrange hover:text-white transition-all duration-300 shadow-sm"
             >
-              <span>About Us</span>
+              <span>The Teams</span>
               <ArrowUpRightIcon className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </Link>
           </div>
         </div>
-
-        {/* ================= TEAM MATRIX GRID ================= */}
-        {/* <motion.div
-          variants={containerAnim}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6"
-        > */}
-          {/* {AllTeamMembers.map((member, index) => {
-            const expYears = member.experience
-              ? currentYear - parseInt(member.experience, 10)
-              : null;
-
-            return ( */}
-              {/* <motion.article
-                key={member.name || index}
-                variants={itemReveal}
-                className="group relative aspect-[3/4] w-full rounded-2xl overflow-hidden bg-neutral-100 border border-neutral-200 cursor-pointer shadow-sm hover:shadow-xl transition-all duration-500"
-              >
-                
-                <img
-                  src={member.photo}
-                  alt={member.name}
-                  loading="lazy"
-                  className="absolute inset-0 h-full w-full object-cover grayscale contrast-110 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
-                />
-
-               
-                <div className="absolute top-3.5 left-3.5 z-10">
-                  <span className="px-2.5 py-1 text-[10px] font-mono tracking-widest uppercase bg-black/60 backdrop-blur-md text-white rounded-md border border-white/10">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                </div> */}
-
-{/*                 
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-60 group-hover:opacity-95 transition-opacity duration-500" />
-
-                
-                <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5 flex flex-col justify-end text-white transition-all duration-300">
-                 
-                  <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-arcadisOrange mb-1">
-                    {member.category}
-                  </span>
-
-                  
-                  <h3 className="text-base sm:text-lg font-medium leading-snug text-white group-hover:text-white transition-colors">
-                    {member.name}
-                  </h3>
-
-                  
-                  <p className="text-xs text-neutral-300 font-light mt-0.5">
-                    {member.role}
-                  </p>
-
-                  
-                  <div className="max-h-0 opacity-0 group-hover:max-h-24 group-hover:opacity-100 overflow-hidden transition-all duration-500 ease-out pt-0 group-hover:pt-3">
-                    <div className="pt-2.5 border-t border-white/20 flex flex-col gap-1 text-[11px] font-mono text-neutral-300">
-                      <div className="flex items-center justify-between">
-                        <span className="text-neutral-400">Degree</span>
-                        <span className="text-white truncate max-w-[130px]">
-                          {member.degree}
-                        </span>
-                      </div>
-                      <div className="flex items-center justify-between">
-                        <span className="text-neutral-400">Experience</span>
-                        <span className="text-arcadisOrange font-semibold">
-                          {expYears ? `${expYears}+ Yrs` : "N/A"}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </motion.article>
-            );
-          })}
-        </motion.div> */}
       </div>
     </section>
   );
