@@ -100,7 +100,7 @@ export default function TeamSection() {
     // <section className="w-full py-24 sm:py-32 bg-white border-t border-neutral-200/80 text-neutral-900">
     //   {/* Same 7XL Container for Perfect Page Alignment */}
     //   <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
-        
+
     //     {/* ================= HEADER WITH JOIN US LINK ================= */}
     //     <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-neutral-200/80 mb-14">
     //       <motion.div
@@ -110,7 +110,7 @@ export default function TeamSection() {
     //         viewport={{ once: true, margin: "-60px" }}
     //         className="max-w-3xl"
     //       >
-            
+
     //         <motion.h2
     //           variants={itemReveal}
     //           className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight text-neutral-950 leading-[1.15]"
@@ -166,22 +166,21 @@ export default function TeamSection() {
               variants={maskReveal}
               className="text-lg sm:text-xl text-neutral-800 font-normal leading-relaxed tracking-tight"
             >
-Behind every great space is a passionate team. From architects and interior designers to landscape artists and meticulous project managers, we blend creative flair with expert precision to bring your vision to life, from the first sketch to the final touch.
+              Behind every great space is a passionate team. From architects and interior designers to landscape artists and meticulous project managers, we blend creative flair with expert precision to bring your vision to life, from the first sketch to the final touch.
             </motion.p>
           </div>
 
           {/* Architectural Feature Pillars */}
-          <div className="overflow-hidden pt-4 border-t border-neutral-100">
-            
+          <div className="overflow-hidden pt-4 border-t border-neutral-100 flex justify-end">
             <div className="shrink-0 pb-1">
-             <Link
-              to="/about"
-              className="group inline-flex items-center gap-2.5 px-6 py-3 rounded-full border border-neutral-300 text-xs font-mono uppercase tracking-[0.2em] text-neutral-800 hover:border-arcadisOrange hover:bg-arcadisOrange hover:text-white transition-all duration-300 shadow-sm"
-            >
-              <span>The Team</span>
-              <ArrowUpRightIcon className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </Link>
-          </div>
+              <Link
+                to="/about"
+                className="group inline-flex items-center gap-2.5 px-6 py-3 rounded-full border border-neutral-300 text-xs font-mono uppercase tracking-[0.2em] text-neutral-800 hover:border-arcadisOrange hover:bg-arcadisOrange hover:text-white transition-all duration-300 shadow-sm"
+              >
+                <span>The Team</span>
+                <ArrowUpRightIcon className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </Link>
+            </div>
           </div>
         </div>
       </motion.div>
