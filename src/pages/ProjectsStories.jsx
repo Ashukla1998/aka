@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowUpRightIcon, MapPinIcon } from "@heroicons/react/24/outline";
+// import { ArrowUpRightIcon } from "@heroicons/react/24/outline";
+import { GoArrowRight } from "react-icons/go";
 
 /* ===== 6 DISTINCT CATEGORY PROJECTS ===== */
 const projectsStories = [
@@ -61,15 +62,15 @@ const projectsStories = [
   },
 ];
 
-const categories = [
-  "All",
-  "Educational",
-  "Housing",
-  "Hospitality",
-  "Commercial",
-  "Public",
-  "Residential",
-];
+// const categories = [
+//   "All",
+//   "Educational",
+//   "Housing",
+//   "Hospitality",
+//   "Commercial",
+//   "Public",
+//   "Residential",
+// ];
 
 export default function ProjectsStories() {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -89,35 +90,14 @@ export default function ProjectsStories() {
               [ 02 // PORTFOLIO ]
             </span> */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight text-neutral-950">
-              Selected <span className="font-semibold">Works</span>
+              <span className="font-semibold">Expertise</span>
             </h1>
           </div>
 
           <p className="text-sm md:text-base text-neutral-500 max-w-md font-light leading-relaxed">
-            Exploring contextual forms, civic infrastructure, and sustainable master planning across six core domains.
+            We design for a wide range of sectors, at scales and at all budgets.
           </p>
         </div>
-
-        {/* ================= CATEGORY FILTER TABS ================= */}
-        {/* <div className="flex items-center gap-2 overflow-x-auto py-8 no-scrollbar">
-          {categories.map((cat) => {
-            const isActive = activeCategory === cat;
-            return (
-              <button
-                key={cat}
-                type="button"
-                onClick={() => setActiveCategory(cat)}
-                className={`text-xs font-mono tracking-wider uppercase px-4 py-2 rounded-full whitespace-nowrap transition-all duration-200 ${
-                  isActive
-                    ? "bg-neutral-900 text-white shadow-sm"
-                    : "bg-white text-neutral-500 hover:text-neutral-900 hover:bg-neutral-100 border border-neutral-200"
-                }`}
-              >
-                {cat}
-              </button>
-            );
-          })}
-        </div> */}
 
         {/* ================= UNIFORM 6-CARD GRID ================= */}
         <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -130,7 +110,7 @@ export default function ProjectsStories() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                className="group relative flex flex-col bg-white rounded-2xl overflow-hidden border border-neutral-200/80 shadow-sm hover:shadow-xl transition-all duration-500"
+                className="group relative flex flex-col bg-white shadow-sm hover:shadow-xl transition-all duration-500"
               >
                 <Link to={project.slug} className="flex flex-col h-full">
                   {/* Card Image Container with Smooth Zoom */}
@@ -149,40 +129,21 @@ export default function ProjectsStories() {
                       </span>
                     </div>
 
-                    {/* Diagonal Action Arrow */}
-                    <div className="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-neutral-900/80 backdrop-blur-md text-white flex items-center justify-center opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300">
-                      <ArrowUpRightIcon className="w-4 h-4" />
-                    </div>
-
                     {/* Vignette Gradient */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
 
                   {/* Card Body */}
-                  <div className="flex flex-col flex-1 p-6 justify-between">
+                  <div className="flex flex-row flex-1 p-6 justify-between">
                     <div>
-                      {/* Location Metadata */}
-                      <div className="flex items-center gap-1.5 text-xs text-neutral-400 font-mono mb-2">
-                        <MapPinIcon className="w-3.5 h-3.5" />
-                        <span>{project.location}</span>
-                      </div>
-
                       {/* Project Title */}
-                      <h3 className="text-xl font-medium tracking-tight text-neutral-900 group-hover:text-neutral-600 transition-colors">
+                      <h3 className="text-xl font-medium tracking-tight text-black transition-colors">
                         {project.title}
                       </h3>
-
-                      {/* Description */}
-                      <p className="mt-2.5 text-sm text-neutral-500 font-light leading-relaxed line-clamp-2">
-                        {project.description}
-                      </p>
                     </div>
 
-                    {/* Card Footer / Specs */}
-                    <div className="mt-6 pt-4 border-t border-neutral-100 flex items-center justify-between text-xs font-mono text-neutral-400">
-                      <span>Scale / Area</span>
-                      <span className="text-neutral-700 font-medium">{project.size}</span>
-                    </div>
+                    <GoArrowRight className="w-6 h-6" />
+
                   </div>
                 </Link>
               </motion.article>
