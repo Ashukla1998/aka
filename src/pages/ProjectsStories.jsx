@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 // import { ArrowUpRightIcon } from "@heroicons/react/24/outline";
 import { GoArrowRight } from "react-icons/go";
 
 /* ===== 6 DISTINCT CATEGORY PROJECTS ===== */
-const projectsStories = [
+const projectData = [
   {
     title: "GEIMS HOSPITAL",
     slug: "geims-hospital",
@@ -67,7 +67,7 @@ const projectsStories = [
     slug: "/projects/home-office",
     size: "4,050 sq ft",
   },
-  
+
 ];
 
 // const categories = [
@@ -81,27 +81,19 @@ const projectsStories = [
 // ];
 
 export default function ProjectsStories() {
-  const [activeCategory, setActiveCategory] = useState("All");
-
-  const filteredProjects =
-    activeCategory === "All"
-      ? projectsStories
-      : projectsStories.filter((item) => item.category === activeCategory);
 
   return (
     <main className="bg-neutral-50 text-neutral-900 py-20 md:py-28">
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
         {/* ================= HEADER ================= */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-neutral-200">
+        {/* <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-neutral-200">
+         */}
+        <div className="flex flex-col md:flex-row flex-1 p-6 justify-between sm:flex-col sm:items-start gap-6">
           <div>
-            {/* <span className="font-mono text-xs uppercase tracking-[0.25em] text-neutral-400 block mb-3">
-              [ 02 // PORTFOLIO ]
-            </span> */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight text-neutral-950">
-              <span className="font-semibold">Expertise</span>
+              our <span className="font-semibold">Expertise</span>
             </h1>
           </div>
-
           <p className="text-sm md:text-base text-neutral-500 max-w-md font-light leading-relaxed">
             From intimate residential extensions to large-scale civic landmarks—we shape spaces of every scale, across all sectors and budgets.
           </p>
@@ -110,7 +102,7 @@ export default function ProjectsStories() {
         {/* ================= UNIFORM 6-CARD GRID ================= */}
         <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           <AnimatePresence>
-            {filteredProjects.map((project) => (
+            {projectData.map((project) => (
               <motion.article
                 layout
                 key={project.slug}
@@ -160,8 +152,8 @@ export default function ProjectsStories() {
         </motion.div>
 
         {/* ================= BOTTOM CTA ROW ================= */}
-        <div className="mt-20 pt-10 border-t border-neutral-200 flex flex-col sm:flex-row items-center justify-between gap-6">
-          <p className="text-sm text-neutral-500 max-w-md text-center sm:text-left">
+        <div className="mt-20 pt-10 border-t border-neutral-200 flex flex-col items-center justify-center gap-6 text-center">
+          <p className="text-sm text-neutral-500 max-w-md">
             Interested in architectural planning or collaborative master development?
           </p>
 
@@ -169,7 +161,7 @@ export default function ProjectsStories() {
             to="/projects"
             className="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-arcadisOrange text-white text-xs font-mono uppercase tracking-widest hover:bg-neutral-800 transition-colors shadow-sm active:scale-95"
           >
-            Browse Complete Archive
+            Browse All Projects
           </Link>
         </div>
       </div>

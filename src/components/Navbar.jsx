@@ -61,7 +61,7 @@ export default function Navbar() {
                 alt="AKA Associates Logo"
                 className="w-7 h-7 sm:w-9 sm:h-9 object-contain shrink-0"
               />
-              <span className="text-sm sm:text-lg md:text-xl font-semibold tracking-tight text-neutral-900 group-hover:text-orange-600 transition-colors truncate">
+              <span className="text-sm sm:text-sm md:text-xl font-semibold tracking-tight text-neutral-900 group-hover:text-orange-600 transition-colors truncate">
                 Archana Kapil Associates
               </span>
             </Link>
