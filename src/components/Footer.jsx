@@ -176,7 +176,7 @@ export default function Footer() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="bg-black text-white"
+      className="bg-white text-black"
     >
       <div className="max-w-7xl mx-auto px-8 md:px-10 py-16 md:py-20">
 
@@ -185,35 +185,35 @@ export default function Footer() {
 
           {/* LEFT — NAVIGATION */}
           <div>
-            <p className="text-sm uppercase tracking-[0.25em] text-white/60 mb-7">
+            <p className="text-sm uppercase tracking-[0.25em] mb-7">
               Explore
             </p>
 
             <nav className="flex flex-col gap-4">
               <Link
                 to="/"
-                className="text-lg text-white/90 hover:text-white transition-colors"
+                className="text-lg  hover:text-arcadisOrange transition-colors"
               >
                 Home
               </Link>
 
               <Link
                 to="/projects"
-                className="text-lg text-white/90 hover:text-white transition-colors"
+                className="text-lg hover:text-arcadisOrange transition-colors"
               >
                 Projects
               </Link>
 
               <Link
                 to="/about"
-                className="text-lg text-white/90 hover:text-white transition-colors"
+                className="text-lg  hover:text-arcadisOrange transition-colors"
               >
                 Team
               </Link>
 
               <Link
                 to="/contact"
-                className="text-lg text-white/90 hover:text-white transition-colors"
+                className="text-lg  hover:text-arcadisOrange transition-colors"
               >
                 Contact
               </Link>
@@ -222,17 +222,17 @@ export default function Footer() {
 
           {/* RIGHT — CONTACT */}
           <div className="md:text-right">
-            <p className="text-sm uppercase tracking-[0.25em] text-white/60 mb-7">
+            <p className="text-sm uppercase tracking-[0.25em] mb-7">
               Get in Touch
             </p>
 
-            <div className="space-y-4 text-white/90">
+            <div className="space-y-4 ">
               <div>
-                <p className="text-sm text-white/50 mb-1">
+                <p className="text-sm  mb-1">
                   Address
                 </p>
 
-                <p className="text-base leading-relaxed">
+                <p className="leading-relaxed">
                   48, Pleasant Valley, Rajpur Road
                   <br />
                   Dehradun, Uttarakhand 248009
@@ -240,26 +240,26 @@ export default function Footer() {
               </div>
 
               <div>
-                <p className="text-sm text-white/50 mb-1">
+                <p className="text-sm  mb-1">
                   Phone Number
                 </p>
 
                 <a
                   href="tel:+919719799992"
-                  className="text-base hover:text-white transition-colors"
+                  className="text-base hover:text-arcadisOrange transition-colors"
                 >
                   +91 97197 99992
                 </a>
               </div>
 
               <div>
-                <p className="text-sm text-white/50 mb-1">
+                <p className="text-sm  mb-1">
                   Email
                 </p>
 
                 <a
                   href="mailto:kapil@lifepage.in"
-                  className="text-base hover:text-white transition-colors"
+                  className="text-base hover:text-arcadisOrange transition-colors"
                 >
                   kapil@lifepage.in
                 </a>
@@ -315,17 +315,17 @@ export default function Footer() {
         </div>
 
         {/* GREY DIVIDER */}
-        <div className="border-t border-white/20 mt-16 pt-7">
+        <div className=" mt-16 pt-7">
 
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
 
             {/* COPYRIGHT */}
-            <p className="text-xs md:text-sm text-white/50 text-center md:text-left">
+            <p className="text-xs md:text-sm  text-center md:text-left">
               © 2013 Archana Kapil Associates Private Limited. All rights reserved.
             </p>
 
             {/* SERVICES */}
-            <p className="text-xs md:text-sm text-white/50 tracking-wide text-center md:text-right">
+            <p className="text-xs md:text-sm  tracking-wide text-center md:text-right">
               Architecture · Interior · Landscape
             </p>
 
