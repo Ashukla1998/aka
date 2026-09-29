@@ -46,7 +46,7 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 w-full max-w-full overflow-x-clip bg-white/95 backdrop-blur-md border-b border-neutral-200/80">
 
       {/* ================= ROW 1 ================= */}
-      <div className="relative w-full h-10 sm:h-20 flex items-center px-4 sm:px-8 lg:px-12">
+      <div className="relative w-full h-16 sm:h-20 flex items-center px-4 sm:px-8 lg:px-12">
 
         {/* ================= LEFT : SEARCH ================= */}
         <div className="flex items-center justify-start shrink-0">
@@ -119,7 +119,7 @@ export default function Navbar() {
           whitespace-nowrap
         "
             >
-              Archana Kapil Associates
+            Archana Kapil Associates
             </span>
           </Link>
         </div>
@@ -149,7 +149,7 @@ export default function Navbar() {
 
 
       {/* ================= ROW 2 ================= */}
-      <div className="w-full px-4 sm:px-8 lg:px-12 -mt-2 pb-2 sm:pb-3">
+      <div className="w-full px-4 sm:px-8 lg:px-12 pb-2 sm:pb-3">
         <div
           className="
       w-full
@@ -181,7 +181,7 @@ export default function Navbar() {
           truncate 
         "
             >
-              Planning| Architecture| Interior| Landscape
+            Planning| Architecture| Interior| Landscape
             </span>
           </div>
         </div>
