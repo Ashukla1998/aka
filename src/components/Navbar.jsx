@@ -54,7 +54,7 @@ export default function Navbar() {
             <img
               src={logo}
               alt="AKA Associates Logo"
-              className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 object-contain shrink-0"
+              className="w-10 h-10 sm:w-9 sm:h-9 md:w-10 md:h-10 object-contain shrink-0"
             />
 
             <span
@@ -69,10 +69,10 @@ export default function Navbar() {
           group-hover:text-orange-600
           transition-colors
           whitespace-nowrap
-          text-wrap
+          
         "
             >
-              Archana Kapil Associates
+              AK Associates
             </span>
           </Link>
 
