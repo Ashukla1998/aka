@@ -240,9 +240,9 @@ export default function Footer() {
               </div>
 
               <div>
-                <p className="text-sm  mb-1">
+                {/* <p className="text-sm  mb-1">
                   Phone Number
-                </p>
+                </p> */}
 
                 <a
                   href="tel:+919719799992"
@@ -253,9 +253,9 @@ export default function Footer() {
               </div>
 
               <div>
-                <p className="text-sm  mb-1">
+                {/* <p className="text-sm  mb-1">
                   Email
-                </p>
+                </p> */}
 
                 <a
                   href="mailto:kapil@lifepage.in"
@@ -326,7 +326,7 @@ export default function Footer() {
 
             {/* SERVICES */}
             <p className="text-xs md:text-sm  tracking-wide text-center md:text-right">
-              Architecture · Interior · Landscape
+              Planning · Architecture · Interior · Landscape
             </p>
 
           </div>
