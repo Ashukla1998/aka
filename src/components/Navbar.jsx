@@ -45,122 +45,145 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full max-w-full overflow-x-clip bg-white/95 backdrop-blur-md border-b border-neutral-200/80">
 
-      <div className="w-full px-4 sm:px-6 lg:px-10">
-        <div className="w-full min-h-16 sm:min-h-20 flex items-center justify-between gap-4">
+      {/* ================= ROW 1 ================= */}
+      <div className="relative w-full h-16 sm:h-20 flex items-center px-4 sm:px-8 lg:px-12">
 
-          {/* ================= LEFT : LOGO + COMPANY NAME ================= */}
-          <Link to="/home" className="flex items-center gap-2 sm:gap-3 min-w-0 shrink group"
+        {/* ================= LEFT : SEARCH ================= */}
+        <div className="flex items-center justify-start shrink-0">
+          <button
+            type="button"
+            onClick={() => setSearchOpen(!searchOpen)}
+            className="
+        p-2
+        text-neutral-700
+        hover:text-orange-600
+        rounded-full
+        transition-colors
+        duration-200
+      "
+            aria-label="Search"
+          >
+            <MagnifyingGlassIcon
+              className="w-5 h-5 sm:w-6 sm:h-6 stroke-[1.8]"
+            />
+          </button>
+        </div>
+
+
+        {/* ================= CENTER : LOGO + COMPANY NAME ================= */}
+        <div
+          className="
+      absolute
+      left-1/2
+      -translate-x-1/2
+      flex
+      items-center
+      min-w-0
+      max-w-[70%]
+    "
+        >
+          <Link
+            to="/home"
+            className="
+        flex
+        items-center
+        justify-center
+        gap-2
+        sm:gap-3
+        group
+        min-w-0
+      "
           >
             <img
               src={logo}
               alt="AKA Associates Logo"
-              className="w-10 h-10 sm:w-9 sm:h-9 md:w-10 md:h-10 object-contain shrink-0"
+              className="
+          w-7 h-7
+          sm:w-9 sm:h-9
+          md:w-10 md:h-10
+          object-contain
+          shrink-0
+        "
             />
 
             <span
               className="
-          text-lg
+          text-[11px]
           sm:text-sm
-          md:text-lg
-          lg:text-xl
+          md:text-xl
           font-semibold
           tracking-tight
           text-neutral-900
           group-hover:text-orange-600
           transition-colors
           whitespace-nowrap
-          
         "
             >
-              AK Associates
+              Archana Kapil Associates
             </span>
           </Link>
-
-
-          {/* ================= RIGHT : SEARCH + HAMBURGER ================= */}
-          <div className="flex items-center gap-1 sm:gap-2 shrink-0">
-
-            {/* SEARCH */}
-            <button
-              type="button"
-              onClick={() => setSearchOpen(!searchOpen)}
-              className="
-                p-2
-                text-neutral-700
-                hover:text-orange-600
-                rounded-full
-                transition-colors
-                duration-200
-              "
-              aria-label="Search"
-            >
-              <MagnifyingGlassIcon
-                className="
-            w-5 h-5
-            sm:w-6 sm:h-6
-            stroke-[1.8]
-          "
-              />
-            </button>
-
-
-            {/* HAMBURGER */}
-            <button
-              type="button"
-              onClick={() => setMenuOpen(true)}
-              aria-label="Open menu"
-              className="
-          p-2
-          text-neutral-800
-          hover:text-orange-600
-          rounded-full
-          transition-colors
-        "
-            >
-              <Bars3Icon
-                className="
-            w-6 h-6
-            sm:w-7 sm:h-7
-            stroke-[1.8]
-          "
-              />
-            </button>
-
-          </div>
         </div>
 
 
-        {/* =========================================================
-      ROW 2
-      PLANNING | ARCHITECTURE | INTERIOR | LANDSCAPE
-  ========================================================= */}
+        {/* ================= RIGHT : HAMBURGER ================= */}
+        <div className="ml-auto flex items-center justify-end shrink-0">
+          <button
+            type="button"
+            onClick={() => setMenuOpen(true)}
+            aria-label="Open menu"
+            className="
+        p-2
+        text-neutral-800
+        hover:text-orange-600
+        rounded-full
+        transition-colors
+      "
+          >
+            <Bars3Icon
+              className="w-6 h-6 sm:w-7 sm:h-7 stroke-[1.8]"
+            />
+          </button>
+        </div>
+
+      </div>
+
+
+      {/* ================= ROW 2 ================= */}
+      <div className="w-full px-4 sm:px-8 lg:px-12 pb-3 sm:pb-4">
         <div
           className="
       w-full
-      pb-3 sm:pb-4
-      pt-1
+      flex
+      justify-center
     "
         >
-          <span
+          <div
             className="
-              block
-              w-full
-              font-mono
-              uppercase
-              tracking-[0.08em]
-              sm:tracking-[0.12em]
-              md:tracking-wider
-              text-neutral-500
-              text-[9px]
-              sm:text-[11px]
-              md:text-sm
-              leading-relaxed
-              whitespace-normal
-              text-wrap
-            "
+        w-full
+        max-w-max
+        flex
+        justify-start
+      "
           >
-            Planning | Architecture | Interior | Landscape
-          </span>
+            <span
+              className="
+          font-mono
+          uppercase
+          tracking-[0.08em]
+          sm:tracking-[0.12em]
+          md:tracking-wider
+          text-neutral-500
+          text-[9px]
+          sm:text-[5px]
+          md:text-sm
+          leading-relaxed
+          
+          truncate 
+        "
+            >
+              Planning| Architecture| Interior| Landscape
+            </span>
+          </div>
         </div>
       </div>
       {/* =========================================================
@@ -209,8 +232,8 @@ export default function Navbar() {
       ========================================================== */}
       <div
         className={`fixed inset-0 z-50 transition-opacity duration-300 ${menuOpen
-            ? "opacity-100 pointer-events-auto"
-            : "opacity-0 pointer-events-none"
+          ? "opacity-100 pointer-events-auto"
+          : "opacity-0 pointer-events-none"
           }`}
       >
         {/* ================= BACKDROP ================= */}
