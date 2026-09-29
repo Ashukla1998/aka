@@ -46,6 +46,7 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 w-full max-w-full overflow-x-clip bg-white/95 backdrop-blur-md border-b border-neutral-200/80">
 
       {/* ================= ROW 1 ================= */}
+{/* ================= ROW 1 ================= */}
 <div
   className="
     relative
@@ -59,7 +60,7 @@ export default function Navbar() {
     lg:px-12
   "
 >
-  {/* ================= LEFT : SEARCH ================= */}
+  {/* LEFT : SEARCH */}
   <div className="flex items-center justify-start shrink-0">
     <button
       type="button"
@@ -80,7 +81,7 @@ export default function Navbar() {
     </button>
   </div>
 
-  {/* ================= CENTER : LOGO + COMPANY NAME ================= */}
+  {/* CENTER : LOGO + COMPANY NAME */}
   <div
     className="
       absolute
@@ -91,7 +92,7 @@ export default function Navbar() {
       flex
       items-center
       min-w-0
-      max-w-[80%]
+      max-w-[70%]
     "
   >
     <Link
@@ -136,7 +137,7 @@ export default function Navbar() {
     </Link>
   </div>
 
-  {/* ================= RIGHT : HAMBURGER ================= */}
+  {/* RIGHT : HAMBURGER */}
   <div className="ml-auto flex items-center justify-end shrink-0">
     <button
       type="button"
@@ -170,7 +171,7 @@ export default function Navbar() {
   "
 >
   <div className="w-full flex justify-center">
-    <div className="w-full max-w-max flex justify-start">
+    <div className="w-full max-w-max flex justify-start mb-[11px]">
       <span
         className="
           font-mono
