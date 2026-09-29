@@ -130,7 +130,7 @@ export default function Home() {
       </section>
 
       {/* ================= 6. COLLABORATION CTA ================= */}
-      <section className="relative w-full py-28 md:py-36 bg-neutral-950 text-white overflow-hidden">
+      <section className="relative w-full py-28 md:py-36 bg-neutral-950 text-white overflow-hidden mb-10">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-arcadisOrange/15 blur-[140px] pointer-events-none" />
 
         {/* Unified 7XL Container */}
@@ -173,8 +173,8 @@ export default function Home() {
       </section>
 
       {/* ================= 7. FOOTER SOCIAL STRIP ================= */}
-      <div className="w-full py-10 bg-white border-t border-neutral-200">
-        {/* Unified 7XL Container */}
+      {/* <div className="w-full py-10 bg-white border-t border-neutral-200">
+       
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 flex flex-col md:flex-row md:items-center justify-between gap-6">
           <p className="font-mono text-xs uppercase tracking-[0.25em] text-neutral-400 text-center md:text-left">
             Connect & Share
@@ -200,7 +200,7 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </div>
+      </div> */}
 
     </main>
   );

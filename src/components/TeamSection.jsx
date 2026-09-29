@@ -154,9 +154,15 @@ export default function TeamSection() {
               variants={maskReveal}
               className="text-lg sm:text-xl lg:text-3xl font-light tracking-tight text-neutral-950 leading-[1.12]"
             >
-              20 Team Members with
-              <br />
-              <span className="font-bold">306</span> years of experience
+              <span className="font-bold">20</span> Team Members with
+              {/* <span className="font-bold">306 years of experience </span> */}
+            </motion.p>
+
+            <motion.p
+              variants={maskReveal}
+              className=" mt-2 text-lg sm:text-xl lg:text-3xl tracking-tight text-neutral-950 leading-[1.12] font-bold"
+            >
+             306 years of experience
             </motion.p>
           </div>
         </div>

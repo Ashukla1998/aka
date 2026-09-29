@@ -67,7 +67,7 @@ export default function Navbar() {
             </Link>
 
             {/* Hidden overflow fix: controlled truncate on mobile, full readable text on desktop */}
-            <span className=" text-[10px] md:text-[11px] sm:text-sm font-mono tracking-wider uppercase text-neutral-500 mt-1 truncate max-w-full">
+            <span className=" text-[10px] md:text-[11px] sm:text-sm font-mono tracking-wider uppercase text-neutral-500 mt-1 text-wrap max-w-full">
               Architecture | Interior | Landscape
             </span>
           </div>
