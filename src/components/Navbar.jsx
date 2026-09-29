@@ -46,7 +46,7 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 w-full max-w-full overflow-x-clip bg-white/95 backdrop-blur-md border-b border-neutral-200/80">
 
       {/* ================= ROW 1 ================= */}
-      <div className="relative w-full h-16 sm:h-20 flex items-center px-4 sm:px-8 lg:px-12">
+      <div className="relative w-full h-10 sm:h-16 flex items-center px-4 sm:px-8 lg:px-12">
 
         {/* ================= LEFT : SEARCH ================= */}
         <div className="flex items-center justify-start shrink-0">
@@ -88,8 +88,8 @@ export default function Navbar() {
         flex
         items-center
         justify-center
-        gap-2
-        sm:gap-3
+        gap-1
+        sm:gap-2
         group
         min-w-0
       "
@@ -108,7 +108,7 @@ export default function Navbar() {
 
             <span
               className="
-          text-[11px]
+          text-[13px]
           sm:text-sm
           md:text-xl
           font-semibold
