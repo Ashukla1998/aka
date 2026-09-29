@@ -243,7 +243,7 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 w-full max-w-full overflow-x-clip bg-white/95 backdrop-blur-md border-b border-neutral-200/80">
-      
+
       {/* ================= MAIN NAVBAR ================= */}
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 w-full">
 
@@ -263,10 +263,11 @@ export default function Navbar() {
           </div>
 
           {/* CENTER - LOGO + COMPANY NAME */}
-          <div className="absolute left-1/2 -translate-x-1/2 flex items-center justify-center min-w-0 max-w-[70%] sm:max-w-none">
+          {/* CENTER - LOGO + COMPANY NAME */}
+          <div className="absolute left-1/2 -translate-x-1/2 flex items-center justify-center min-w-max">
             <Link
               to="/home"
-              className="flex items-center justify-center gap-2 sm:gap-3 group min-w-0"
+              className="flex items-center justify-center gap-2 sm:gap-3 group whitespace-nowrap"
             >
               <img
                 src={logo}
@@ -274,7 +275,7 @@ export default function Navbar() {
                 className="w-7 h-7 sm:w-9 sm:h-9 object-contain shrink-0"
               />
 
-              <span className="text-sm sm:text-base md:text-xl font-semibold tracking-tight text-neutral-900 group-hover:text-orange-600 transition-colors text-center leading-tight">
+              <span className="text-[11px] sm:text-sm md:text-xl font-semibold tracking-tight text-neutral-900 group-hover:text-orange-600 transition-colors whitespace-nowrap">
                 Archana Kapil Associates
               </span>
             </Link>
@@ -346,11 +347,10 @@ export default function Navbar() {
 
       {/* ================= FULL HAMBURGER DRAWER ================= */}
       <div
-        className={`fixed inset-0 z-50 transition-opacity duration-300 ${
-          menuOpen
+        className={`fixed inset-0 z-50 transition-opacity duration-300 ${menuOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
-        }`}
+          }`}
       >
         {/* BACKDROP */}
         <div
@@ -360,9 +360,8 @@ export default function Navbar() {
 
         {/* DRAWER */}
         <div
-          className={`absolute top-0 right-0 h-full w-[85vw] max-w-sm sm:max-w-md bg-white shadow-2xl p-6 sm:p-10 flex flex-col justify-between transform transition-transform duration-300 ease-out ${
-            menuOpen ? "translate-x-0" : "translate-x-full"
-          }`}
+          className={`absolute top-0 right-0 h-full w-[85vw] max-w-sm sm:max-w-md bg-white shadow-2xl p-6 sm:p-10 flex flex-col justify-between transform transition-transform duration-300 ease-out ${menuOpen ? "translate-x-0" : "translate-x-full"
+            }`}
         >
           {/* TOP BAR */}
           <div>
@@ -388,10 +387,9 @@ export default function Navbar() {
                   to={link.to}
                   onClick={() => setMenuOpen(false)}
                   className={({ isActive }) =>
-                    `group flex items-baseline justify-between text-2xl sm:text-3xl font-light tracking-tight transition-colors ${
-                      isActive
-                        ? "text-orange-600 font-normal"
-                        : "text-neutral-900 hover:text-orange-600"
+                    `group flex items-baseline justify-between text-2xl sm:text-3xl font-light tracking-tight transition-colors ${isActive
+                      ? "text-orange-600 font-normal"
+                      : "text-neutral-900 hover:text-orange-600"
                     }`
                   }
                 >
