@@ -258,7 +258,7 @@ export default function Footer() {
                 </p>
 
                 <a
-                  href="mailto:info@example.com"
+                  href="mailto:kapil@lifepage.in"
                   className="text-base hover:text-white transition-colors"
                 >
                   kapil@lifepage.in
