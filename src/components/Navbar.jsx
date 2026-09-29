@@ -46,14 +46,25 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 w-full max-w-full overflow-x-clip bg-white/95 backdrop-blur-md border-b border-neutral-200/80">
 
       {/* ================= ROW 1 ================= */}
-      <div className="relative w-full h-16 sm:h-20 flex items-center px-4 sm:px-8 lg:px-12">
-
-        {/* ================= LEFT : SEARCH ================= */}
-        <div className="flex items-center justify-start shrink-0">
-          <button
-            type="button"
-            onClick={() => setSearchOpen(!searchOpen)}
-            className="
+<div
+  className="
+    relative
+    w-full
+    h-16
+    sm:h-20
+    flex
+    items-center
+    px-4
+    sm:px-8
+    lg:px-12
+  "
+>
+  {/* ================= LEFT : SEARCH ================= */}
+  <div className="flex items-center justify-start shrink-0">
+    <button
+      type="button"
+      onClick={() => setSearchOpen(!searchOpen)}
+      className="
         p-2
         text-neutral-700
         hover:text-orange-600
@@ -61,30 +72,31 @@ export default function Navbar() {
         transition-colors
         duration-200
       "
-            aria-label="Search"
-          >
-            <MagnifyingGlassIcon
-              className="w-5 h-5 sm:w-6 sm:h-6 stroke-[1.8]"
-            />
-          </button>
-        </div>
+      aria-label="Search"
+    >
+      <MagnifyingGlassIcon
+        className="w-5 h-5 sm:w-6 sm:h-6 stroke-[1.8]"
+      />
+    </button>
+  </div>
 
-
-        {/* ================= CENTER : LOGO + COMPANY NAME ================= */}
-        <div
-          className="
+  {/* ================= CENTER : LOGO + COMPANY NAME ================= */}
+  <div
+    className="
       absolute
       left-1/2
+      top-1/2
       -translate-x-1/2
+      -translate-y-1/2
       flex
       items-center
       min-w-0
-      max-w-[70%]
+      max-w-[80%]
     "
-        >
-          <Link
-            to="/home"
-            className="
+  >
+    <Link
+      to="/home"
+      className="
         flex
         items-center
         justify-center
@@ -93,21 +105,21 @@ export default function Navbar() {
         group
         min-w-0
       "
-          >
-            <img
-              src={logo}
-              alt="AKA Associates Logo"
-              className="
+    >
+      <img
+        src={logo}
+        alt="AKA Associates Logo"
+        className="
           w-7 h-7
           sm:w-9 sm:h-9
           md:w-10 md:h-10
           object-contain
           shrink-0
         "
-            />
+      />
 
-            <span
-              className="
+      <span
+        className="
           text-[13px]
           sm:text-sm
           md:text-xl
@@ -118,55 +130,49 @@ export default function Navbar() {
           transition-colors
           whitespace-nowrap
         "
-            >
-            Archana Kapil Associates
-            </span>
-          </Link>
-        </div>
+      >
+        Archana Kapil Associates
+      </span>
+    </Link>
+  </div>
 
-
-        {/* ================= RIGHT : HAMBURGER ================= */}
-        <div className="ml-auto flex items-center justify-end shrink-0">
-          <button
-            type="button"
-            onClick={() => setMenuOpen(true)}
-            aria-label="Open menu"
-            className="
+  {/* ================= RIGHT : HAMBURGER ================= */}
+  <div className="ml-auto flex items-center justify-end shrink-0">
+    <button
+      type="button"
+      onClick={() => setMenuOpen(true)}
+      aria-label="Open menu"
+      className="
         p-2
         text-neutral-800
         hover:text-orange-600
         rounded-full
         transition-colors
       "
-          >
-            <Bars3Icon
-              className="w-6 h-6 sm:w-7 sm:h-7 stroke-[1.8]"
-            />
-          </button>
-        </div>
+    >
+      <Bars3Icon
+        className="w-6 h-6 sm:w-7 sm:h-7 stroke-[1.8]"
+      />
+    </button>
+  </div>
+</div>
 
-      </div>
 
-
-      {/* ================= ROW 2 ================= */}
-      <div className="w-full px-4 sm:px-8 lg:px-12 pb-2 sm:pb-3">
-        <div
-          className="
-      w-full
-      flex
-      justify-center
-    "
-        >
-          <div
-            className="
-        w-full
-        max-w-max
-        flex
-        justify-start
-      "
-          >
-            <span
-              className="
+{/* ================= ROW 2 ================= */}
+<div
+  className="
+    w-full
+    px-4
+    sm:px-8
+    lg:px-12
+    -mt-2
+    pb-2
+  "
+>
+  <div className="w-full flex justify-center">
+    <div className="w-full max-w-max flex justify-start">
+      <span
+        className="
           font-mono
           uppercase
           tracking-[0.08em]
@@ -174,18 +180,17 @@ export default function Navbar() {
           md:tracking-wider
           text-neutral-500
           text-[9px]
-          sm:text-[5px]
+          sm:text-[10px]
           md:text-sm
-          leading-relaxed
-          mb-[7px]
-          truncate 
+          leading-none
+          whitespace-nowrap
         "
-            >
-            Planning| Architecture| Interior| Landscape
-            </span>
-          </div>
-        </div>
-      </div>
+      >
+        Planning | Architecture | Interior | Landscape
+      </span>
+    </div>
+  </div>
+</div>
       {/* =========================================================
           SEARCH POP-DOWN
       ========================================================== */}
