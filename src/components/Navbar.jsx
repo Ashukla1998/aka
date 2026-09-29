@@ -177,7 +177,7 @@ export default function Navbar() {
           sm:text-[5px]
           md:text-sm
           leading-relaxed
-          
+          mb-[7px]
           truncate 
         "
             >
