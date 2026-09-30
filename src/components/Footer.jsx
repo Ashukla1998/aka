@@ -228,9 +228,9 @@ export default function Footer() {
 
             <div className="space-y-4 ">
               <div>
-                <p className="text-sm  mb-1">
+                {/* <p className="text-sm  mb-1">
                   Address
-                </p>
+                </p> */}
 
                 <p className="leading-relaxed">
                   48, Pleasant Valley, Rajpur Road

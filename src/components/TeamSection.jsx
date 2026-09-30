@@ -179,7 +179,7 @@ export default function TeamSection() {
           </div>
 
           {/* Architectural Feature Pillars */}
-          <div className="overflow-hidden pt-4 border-t border-neutral-100 flex justify-end mt-20">
+          <div className="overflow-hidden pt-10 border-t border-neutral-100 flex justify-end mt-20">
             <div className="shrink-0 pb-1">
               <Link
                 to="/about"
