@@ -245,20 +245,7 @@ export default function HeroArcadis() {
                             transition={{
                               duration: 0.5,
                             }}
-                            className="
-                              text-sm
-                              sm:text-lg
-                              md:text-xl
-                              lg:text-2xl
-                              font-light
-                              tracking-[0.16em]
-                              sm:tracking-[0.2em]
-                              text-white
-                              uppercase
-                              leading-tight
-                              break-words
-                              drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]
-                            "
+                            className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-[2.5rem] font-extralight uppercase leading-tight sm:leading-[1.2] tracking-[0.04em] sm:tracking-[0.06em] m-0 p-0"
                           >
                             {slide.title}
                           </motion.h2>
@@ -376,16 +363,7 @@ export default function HeroArcadis() {
                             duration: 0.5,
                             delay: 0.1,
                           }}
-                          className="
-                            text-[20px]
-                            sm:text-xs
-                            md:text-xl
-                            text-neutral-300
-                            font-light
-                            tracking-wide
-                            leading-relaxed
-                            drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]
-                          "
+                          className="text-white text-sm sm:text-base md:text-[1.125rem] font-extralight leading-relaxed sm:leading-[1.5] tracking-[0.04em] sm:tracking-[0.06em] max-w-full sm:max-w-[500px] md:max-w-[650px] m-0 p-0"
                         >
                           {slide.text}
                         </motion.p>
