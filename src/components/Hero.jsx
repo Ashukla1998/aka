@@ -197,10 +197,11 @@ export default function HeroArcadis() {
                     bottom-[90px]
                     sm:bottom-[100px]
                     md:bottom-[110px]
-                    lg:bottom-[120px]
+                    lg:bottom-[140px]
                     w-full
                     max-w-[1440px]
                     mx-auto
+                    px-10
                     
                   "
                 >
@@ -353,6 +354,7 @@ export default function HeroArcadis() {
                       sm:max-w-md
                       md:max-w-lg
                       lg:max-w-xl
+                      
                     "
                   >
                     <AnimatePresence mode="wait">
@@ -375,9 +377,9 @@ export default function HeroArcadis() {
                             delay: 0.1,
                           }}
                           className="
-                            text-[11px]
+                            text-[20px]
                             sm:text-xs
-                            md:text-sm
+                            md:text-xl
                             text-neutral-300
                             font-light
                             tracking-wide
