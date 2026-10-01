@@ -516,7 +516,6 @@ export default function Navbar() {
                   md:text-xl
                   font-semibold
                   tracking-tight
-                  group-hover:text-orange-600
                   transition-colors
                   whitespace-nowrap
                 "
