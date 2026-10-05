@@ -15,6 +15,7 @@ import Careers from "./pages/Career";
 
 import { HashRouter, Routes, Route } from "react-router-dom";
 import HeroMarquee from "./components/Hero";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -33,6 +34,7 @@ function App() {
       {!loading && (
         <HashRouter>
           <Navbar />
+          <ScrollToTop />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />

@@ -168,7 +168,7 @@ export default function TeamSection() {
         </div>
 
         {/* Right Column: Editorial Paragraphs */}
-        <div className="lg:col-span-7 space-y-8 lg:pt-3">
+        <div className="lg:col-span-7 space-y-8">
           <div className="overflow-hidden">
             <motion.p
               variants={maskReveal}

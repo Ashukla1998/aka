@@ -91,7 +91,7 @@ export default function ProjectsStories() {
         <div className="flex flex-col md:flex-row flex-1 p-6 justify-between sm:flex-col sm:items-start gap-6">
           <div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight text-neutral-950">
-              our <span className="font-semibold">Expertise</span>
+              Our <span className="font-semibold">Expertise</span>
             </h1>
           </div>
           <p className="text-sm md:text-base text-neutral-500 max-w-md font-light leading-relaxed">

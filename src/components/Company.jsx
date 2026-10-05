@@ -69,7 +69,7 @@ export default function AboutZHA() {
               variants={maskReveal}
               className="text-lg sm:text-xl text-neutral-800 font-normal leading-relaxed tracking-tight"
             >
-              Since 2013: Archana Kapil Associates has been delivering comprehensive design solutions tailored to your unique story. Driven by our four core principles, we partner with you to shape distinctive spaces that stand the test of time.
+              Archana Kapil Associates has been delivering comprehensive design solutions tailored to your unique story. Driven by our four core principles, we partner with you to shape distinctive spaces that stand the test of time.
             </motion.p>
           </div>
 

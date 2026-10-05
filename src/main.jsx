@@ -6,12 +6,7 @@ import Hero from "./components/Hero";
 import ProjectDetail from "./pages/ProjectsStories";
 import Company from "./components/Company";
 import TeamSection from "./components/TeamSection";
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaLinkedinIn,
-  FaTwitter,
-} from "react-icons/fa";
+
 
 const easeCurve = [0.16, 1, 0.3, 1];
 
@@ -38,7 +33,7 @@ const itemReveal = {
 export default function Home() {
   return (
     <main className="w-full min-h-screen relative overflow-x-hidden bg-white text-neutral-900 selection:bg-arcadisOrange selection:text-white">
-      
+
       {/* ================= 1. HERO ================= */}
       <section className="w-full">
         <Hero />
@@ -60,7 +55,7 @@ export default function Home() {
       <section className="w-full py-24 sm:py-28 bg-white border-t border-neutral-200/80">
         {/* Unified 7XL Container */}
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
-          
+
           <motion.div
             variants={containerAnim}
             initial="hidden"
@@ -147,9 +142,15 @@ export default function Home() {
               <span>[ 04 // COLLABORATION ]</span>
             </motion.div> */}
 
-            <motion.h2 variants={itemReveal} className="text-4xl sm:text-5xl md:text-6xl font-light tracking-tight leading-[1.1]">
-              Let’s Build Something <br />
-              <span className="font-semibold text-white">Meaningful Together</span>
+            <motion.h2
+              variants={itemReveal}
+              className="text-4xl sm:text-5xl md:text-6xl font-light tracking-tight leading-[1.1]"
+            >
+              Let’s Build Something
+              <br />
+              <span className="inline-block mt-2 font-semibold text-white">
+                Meaningful Together
+              </span>
             </motion.h2>
 
             <motion.p variants={itemReveal} className="text-neutral-400 text-base sm:text-lg font-light leading-relaxed">
