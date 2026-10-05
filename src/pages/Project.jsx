@@ -100,8 +100,9 @@ export default function Projects() {
     return (
       <Link
         to={`/projects/${project.slug}`}
-        className={`project-card group relative block overflow-hidden bg-gray-100 ${isFirst ? "project-large-first" : isLast ? "project-large-last" : "project-small"
-          }`}
+        className={`project-card group relative block overflow-hidden bg-gray-100 ${
+          isFirst ? "project-large-first" : isLast ? "project-large-last" : "project-small"
+        }`}
       >
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -131,10 +132,11 @@ export default function Projects() {
             {/* ================= TITLE ================= */}
             <div className="flex items-end justify-between gap-3">
               <h3
-                className={`text-white font-medium leading-tight ${isFirst || isLast
+                className={`text-white font-medium leading-tight ${
+                  isFirst || isLast
                     ? "text-lg sm:text-xl md:text-2xl"
                     : "text-sm sm:text-base md:text-lg"
-                  }`}
+                }`}
               >
                 {project.title}
               </h3>
@@ -247,13 +249,13 @@ export default function Projects() {
             {(activeCategory !== "All" ||
               activeService !== "All" ||
               activeCompletion !== "All") && (
-                <button
-                  onClick={resetFilters}
-                  className="px-4 py-3 text-[10px] sm:text-xs uppercase tracking-[0.15em] text-gray-500 hover:text-gray-900 transition-colors"
-                >
-                  Reset
-                </button>
-              )}
+              <button
+                onClick={resetFilters}
+                className="px-4 py-3 text-[10px] sm:text-xs uppercase tracking-[0.15em] text-gray-500 hover:text-gray-900 transition-colors"
+              >
+                Reset
+              </button>
+            )}
           </div>
 
           {/* =====================================================
@@ -302,41 +304,45 @@ export default function Projects() {
       </section>
 
       {/* =========================================================
-          4. PAGINATION
+          4. PAGINATION (RESPONSIVE & CENTER ALIGNED)
       ========================================================= */}
       {totalPages > 1 && (
-        <section className="w-full border-t border-b border-gray-500 py-6 sm:py-8 flex items-center justify-center">
-          <div className="flex items-center justify-center gap-1 sm:gap-2 text-xs sm:text-sm font-medium">
+        <section className="w-full border-t border-b border-gray-300 py-4 sm:py-6 md:py-8 px-3 sm:px-6">
+          <div className="max-w-screen-xl mx-auto flex flex-wrap items-center justify-center gap-1 sm:gap-2 text-xs sm:text-sm font-medium">
             {/* ================= PREV ================= */}
             <button
               onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
               disabled={currentPage === 1}
-              className="px-3 sm:px-4 py-2 text-gray-600 disabled:opacity-40 hover:text-gray-900 transition-colors"
+              className="px-2.5 sm:px-4 py-1.5 sm:py-2 text-gray-600 disabled:opacity-40 hover:text-gray-900 transition-colors shrink-0"
             >
               Prev
             </button>
 
-            {Array.from({ length: totalPages }).map((_, i) => {
-              const page = i + 1;
-              return (
-                <button
-                  key={page}
-                  onClick={() => setCurrentPage(page)}
-                  className={`w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center transition-colors ${currentPage === page
-                      ? "text-arcadisOrange border-b-2 border-arcadisOrange font-semibold"
-                      : "text-gray-600 hover:text-gray-900"
+            {/* ================= NUMBERS ================= */}
+            <div className="flex flex-wrap items-center justify-center gap-1">
+              {Array.from({ length: totalPages }).map((_, i) => {
+                const page = i + 1;
+                return (
+                  <button
+                    key={page}
+                    onClick={() => setCurrentPage(page)}
+                    className={`w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded transition-colors shrink-0 ${
+                      currentPage === page
+                        ? "text-arcadisOrange border-b-2 border-arcadisOrange font-bold"
+                        : "text-gray-600 hover:text-gray-900"
                     }`}
-                >
-                  {page}
-                </button>
-              );
-            })}
+                  >
+                    {page}
+                  </button>
+                );
+              })}
+            </div>
 
             {/* ================= NEXT ================= */}
             <button
               onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))}
               disabled={currentPage === totalPages}
-              className="px-3 sm:px-4 py-2 text-gray-600 disabled:opacity-40 hover:text-gray-900 transition-colors"
+              className="px-2.5 sm:px-4 py-1.5 sm:py-2 text-gray-600 disabled:opacity-40 hover:text-gray-900 transition-colors shrink-0"
             >
               Next
             </button>
