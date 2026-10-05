@@ -427,13 +427,13 @@ export default function ProjectImageSlider({
               text-xs
               tracking-widest
               text-gray-500
-              text-center
+              text-right
               font-mono
             "
           >
             {String(current + 1).padStart(2, "0")}
             {" / "}
-            {String(projects.length).padStart(2, "0")}
+            {String(projects.length).padStart(2, "0")} Projects
           </p>
 
         </div>
