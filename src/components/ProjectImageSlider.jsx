@@ -428,7 +428,7 @@ export default function ProjectImageSlider({
               tracking-widest
               text-gray-500
               text-right
-              font-mono
+              font-bold
             "
           >
             {String(current + 1).padStart(2, "0")}

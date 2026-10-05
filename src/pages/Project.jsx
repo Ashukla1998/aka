@@ -139,7 +139,7 @@ export default function Projects() {
   return (
     <main className="bg-white">
       {/* 1. OUR WORK SECTION (NO BORDER-B) */}
-      <section className="w-full flex flex-col justify-center px-4 sm:px-8 md:px-12 lg:px-20 pt-8 pb-8 sm:pt-12 sm:pb-12 md:pt-16 md:pb-16">
+      <section className="w-full flex flex-col justify-center px-4 sm:px-8 md:px-12 lg:px-20 pt-5 pb-8 sm:pt-9 sm:pb-12 md:pt-9 md:pb-16">
         {/* ================= TITLE ================= */}
         <div className="flex flex-col items-center text-center mb-6 sm:mb-8 md:mb-10">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-gray-900">
@@ -157,9 +157,9 @@ export default function Projects() {
           2. FILTER BAR (NO BORDER, NO SHADOW LINE)
       ========================================================= */}
       <section className="sticky top-[72px] z-30 bg-white border-b border-gray-200 mb-[32px]">
-        <div className="px-4 sm:px-8 md:px-12 lg:px-20 py-6 sm:py-7 md:py-8 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 sm:gap-5 lg:gap-6">
+        <div className="px-4 sm:px-8 md:px-12 lg:px-20 py-6 sm:py-7 md:py-8 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 sm:gap-5 lg:gap-6 mb-0 sm:mb-[79px]">
           {/* ================= FILTERS ================= */}
-          <div className="w-full flex flex-wrap items-center gap-[5px] sm:gap-[5px]">
+          <div className="w-full flex flex-wrap items-center gap-[5px] sm:gap-[5px] ">
             {/* Category */}
             <div className="relative">
               <select
@@ -264,7 +264,7 @@ export default function Projects() {
           4. SHOW MORE BUTTON (NO BORDER-T / BORDER-B LINES)
       ========================================================= */}
       {visibleCount < filtered.length && (
-        <section className="w-full py-8 sm:py-10 px-3 sm:px-6 flex justify-center">
+        <section className="w-full py-8 sm:py-10 px-3 sm:px-6 flex justify-center border-b border-gray-200">
           <button
             onClick={() => setVisibleCount((prev) => prev + ITEMS_PER_PAGE)}
             className="px-6 sm:px-8 py-2.5 sm:py-3 border border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white transition-all duration-300 text-xs sm:text-sm uppercase tracking-[0.2em] font-mono font-medium"
