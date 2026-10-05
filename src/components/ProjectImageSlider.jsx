@@ -421,7 +421,7 @@ export default function ProjectImageSlider({
 
           {/* ================= COUNTER ================= */}
 
-          {/* <p
+          <p
             className="
               mt-3
               text-xs
@@ -434,7 +434,7 @@ export default function ProjectImageSlider({
             {String(current + 1).padStart(2, "0")}
             {" / "}
             {String(projects.length).padStart(2, "0")}
-          </p> */}
+          </p>
 
         </div>
       )}

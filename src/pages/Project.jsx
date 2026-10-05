@@ -154,10 +154,11 @@ export default function Projects() {
 
   return (
     <main className="bg-white">
-      <section className="w-full min-h-[60vh] flex flex-col justify-center border-b border-gray-100 px-5 sm:px-8 md:px-12 lg:px-20 py-12 sm:py-14 md:py-16">
-        {/* ================= LARGE TITLE ================= */}
-        <div className="flex flex-col items-center text-center mb-10">
-          <h1 className="text-5xl md:text-6xl font-semibold leading-tight">
+      {/* 1. TOP HEADER & SLIDER: TIGHT SPACING */}
+      <section className="w-full border-b border-gray-100 px-4 sm:px-8 md:px-12 lg:px-20 pt-3 pb-2 sm:pt-4 sm:pb-3 md:pt-5 md:pb-3">
+        {/* ================= TITLE ================= */}
+        <div className="flex flex-col items-center text-center mb-2 sm:mb-3">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-gray-900">
             Our Work
           </h1>
         </div>
@@ -166,36 +167,23 @@ export default function Projects() {
         <div className="w-full">
           <ProjectImageSlider projects={filtered} title="Featured Projects" />
         </div>
-
-        {/* ================= PROJECT COUNT ================= */}
-        <div className="flex items-center justify-between mt-5 sm:mt-6">
-          <p className="text-xs sm:text-sm text-gray-500 font-mono uppercase tracking-[0.15em]">
-            Showing <span className="text-gray-900 font-medium">{filtered.length}</span> Projects
-          </p>
-
-          <p className="hidden sm:block text-xs text-gray-400 font-mono uppercase tracking-[0.15em]">
-            Scroll to Explore
-          </p>
-        </div>
       </section>
 
       {/* =========================================================
-          2. FILTER BAR
+          2. FILTER BAR: SLIM COMPACT BAR
       ========================================================= */}
-      <section className="sticky top-[72px] z-30 bg-white border-b border-gray-100">
-        <div className="px-5 sm:px-8 md:px-12 lg:px-20 py-5 sm:py-6 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5 lg:gap-6">
-          {/* =====================================================
-              FILTERS
-          ===================================================== */}
-          <div className="flex flex-wrap items-center gap-[5px] sm:gap-[5px]">
-            {/* ================= CATEGORY ================= */}
+      <section className="sticky top-[72px] z-30 bg-white border-b border-gray-100 shadow-sm">
+        <div className="px-4 sm:px-8 md:px-12 lg:px-20 py-2 sm:py-2.5 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-2 sm:gap-3">
+          {/* ================= FILTERS ================= */}
+          <div className="flex flex-wrap items-center gap-[5px]">
+            {/* Category */}
             <div className="relative">
               <select
                 value={activeCategory}
                 onChange={(e) => setActiveCategory(e.target.value)}
-                className="appearance-none min-w-[150px] sm:min-w-[170px] bg-white border border-gray-300 px-4 py-3 pr-10 text-xs sm:text-sm text-gray-700 outline-none cursor-pointer hover:border-gray-500 focus:border-gray-900 transition-colors"
+                className="appearance-none min-w-[130px] sm:min-w-[150px] bg-white border border-gray-300 px-3 py-1.5 sm:py-2 pr-7 text-xs sm:text-sm text-gray-700 outline-none cursor-pointer hover:border-gray-500 focus:border-gray-900 transition-colors"
               >
-                <option value="All">Category</option>
+                <option value="All">Category (All)</option>
                 {categories.map((category) => (
                   <option key={category} value={category}>
                     {category}
@@ -203,19 +191,19 @@ export default function Projects() {
                 ))}
               </select>
 
-              <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 text-xs">
+              <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 text-xs">
                 ↓
               </span>
             </div>
 
-            {/* ================= SERVICE ================= */}
+            {/* Service */}
             <div className="relative">
               <select
                 value={activeService}
                 onChange={(e) => setActiveService(e.target.value)}
-                className="appearance-none min-w-[150px] sm:min-w-[170px] bg-white border border-gray-300 px-4 py-3 pr-10 text-xs sm:text-sm text-gray-700 outline-none cursor-pointer hover:border-gray-500 focus:border-gray-900 transition-colors"
+                className="appearance-none min-w-[130px] sm:min-w-[150px] bg-white border border-gray-300 px-3 py-1.5 sm:py-2 pr-7 text-xs sm:text-sm text-gray-700 outline-none cursor-pointer hover:border-gray-500 focus:border-gray-900 transition-colors"
               >
-                <option value="All">Service</option>
+                <option value="All">Service (All)</option>
                 {services.map((service) => (
                   <option key={service} value={service}>
                     {service}
@@ -223,17 +211,17 @@ export default function Projects() {
                 ))}
               </select>
 
-              <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 text-xs">
+              <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 text-xs">
                 ↓
               </span>
             </div>
 
-            {/* ================= % COMPLETE ================= */}
+            {/* % Complete */}
             <div className="relative">
               <select
                 value={activeCompletion}
                 onChange={(e) => setActiveCompletion(e.target.value)}
-                className="appearance-none min-w-[150px] sm:min-w-[170px] bg-white border border-gray-300 px-4 py-3 pr-10 text-xs sm:text-sm text-gray-700 outline-none cursor-pointer hover:border-gray-500 focus:border-gray-900 transition-colors"
+                className="appearance-none min-w-[130px] sm:min-w-[150px] bg-white border border-gray-300 px-3 py-1.5 sm:py-2 pr-7 text-xs sm:text-sm text-gray-700 outline-none cursor-pointer hover:border-gray-500 focus:border-gray-900 transition-colors"
               >
                 <option value="All">% Complete</option>
                 <option value="0-25">0–25%</option>
@@ -241,46 +229,40 @@ export default function Projects() {
                 <option value="51-75">51–75%</option>
                 <option value="76-100">76–100%</option>
               </select>
-              <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 text-xs">
+              <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 text-xs">
                 ↓
               </span>
             </div>
 
+            {/* Reset */}
             {(activeCategory !== "All" ||
               activeService !== "All" ||
               activeCompletion !== "All") && (
               <button
                 onClick={resetFilters}
-                className="px-4 py-3 text-[10px] sm:text-xs uppercase tracking-[0.15em] text-gray-500 hover:text-gray-900 transition-colors"
+                className="px-2.5 py-1.5 text-[11px] sm:text-xs uppercase tracking-[0.15em] font-mono text-arcadisOrange hover:text-gray-900 transition-colors"
               >
                 Reset
               </button>
             )}
           </div>
 
-          {/* =====================================================
-              PROJECT COUNT
-          ===================================================== */}
-          <p className="text-xs sm:text-sm text-gray-500 shrink-0">
+          {/* Project Count */}
+          <p className="text-xs sm:text-sm text-gray-600 shrink-0 font-medium ml-auto lg:ml-0">
             Showing{" "}
             {filtered.length > 0 ? (
-              <>
-                <span className="text-gray-900 font-medium">
-                  {startIndex + 1}–{Math.min(startIndex + ITEMS_PER_PAGE, filtered.length)}
-                </span>{" "}
-                of <span className="text-gray-900 font-medium">{filtered.length}</span>
-              </>
+              <span className="text-gray-900 font-semibold">{filtered.length} Projects</span>
             ) : (
-              <span className="text-gray-900 font-medium">0</span>
+              <span className="text-gray-900 font-semibold">0 Projects</span>
             )}
           </p>
         </div>
       </section>
 
       {/* =========================================================
-          3. PROJECT GRID
+          3. PROJECT GRID: REMOVED EXCESSIVE VERTICAL GAP
       ========================================================= */}
-      <section ref={gridRef} className="px-5 sm:px-8 md:px-12 lg:px-20 py-12 sm:py-16 md:py-20">
+      <section ref={gridRef} className="px-4 sm:px-8 md:px-12 lg:px-20 pt-4 pb-8 sm:pt-5 sm:pb-10">
         {paginatedProjects.length > 0 ? (
           <div className="project-grid w-full">
             {paginatedProjects.map((project, index) => (
@@ -289,12 +271,12 @@ export default function Projects() {
           </div>
         ) : (
           /* ================= EMPTY STATE ================= */
-          <div className="min-h-[300px] flex items-center justify-center text-center">
+          <div className="min-h-[180px] flex items-center justify-center text-center">
             <div>
-              <p className="text-gray-500 text-sm mb-3">No projects found.</p>
+              <p className="text-gray-500 text-sm mb-2">No projects found.</p>
               <button
                 onClick={resetFilters}
-                className="text-sm text-arcadisOrange hover:underline"
+                className="text-sm text-arcadisOrange hover:underline font-medium"
               >
                 Clear filters
               </button>
@@ -304,21 +286,21 @@ export default function Projects() {
       </section>
 
       {/* =========================================================
-          4. PAGINATION (RESPONSIVE & CENTER ALIGNED)
+          4. PAGINATION: TIGHT & RESPONSIVE
       ========================================================= */}
       {totalPages > 1 && (
-        <section className="w-full border-t border-b border-gray-300 py-4 sm:py-6 md:py-8 px-3 sm:px-6">
+        <section className="w-full border-t border-b border-gray-300 py-3 sm:py-4 px-3 sm:px-6">
           <div className="max-w-screen-xl mx-auto flex flex-wrap items-center justify-center gap-1 sm:gap-2 text-xs sm:text-sm font-medium">
-            {/* ================= PREV ================= */}
+            {/* Prev */}
             <button
               onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
               disabled={currentPage === 1}
-              className="px-2.5 sm:px-4 py-1.5 sm:py-2 text-gray-600 disabled:opacity-40 hover:text-gray-900 transition-colors shrink-0"
+              className="px-2.5 sm:px-3 py-1.5 text-gray-600 disabled:opacity-40 hover:text-gray-900 transition-colors shrink-0"
             >
               Prev
             </button>
 
-            {/* ================= NUMBERS ================= */}
+            {/* Numbers */}
             <div className="flex flex-wrap items-center justify-center gap-1">
               {Array.from({ length: totalPages }).map((_, i) => {
                 const page = i + 1;
@@ -326,7 +308,7 @@ export default function Projects() {
                   <button
                     key={page}
                     onClick={() => setCurrentPage(page)}
-                    className={`w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded transition-colors shrink-0 ${
+                    className={`w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center rounded transition-colors shrink-0 ${
                       currentPage === page
                         ? "text-arcadisOrange border-b-2 border-arcadisOrange font-bold"
                         : "text-gray-600 hover:text-gray-900"
@@ -338,11 +320,11 @@ export default function Projects() {
               })}
             </div>
 
-            {/* ================= NEXT ================= */}
+            {/* Next */}
             <button
               onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))}
               disabled={currentPage === totalPages}
-              className="px-2.5 sm:px-4 py-1.5 sm:py-2 text-gray-600 disabled:opacity-40 hover:text-gray-900 transition-colors shrink-0"
+              className="px-2.5 sm:px-3 py-1.5 text-gray-600 disabled:opacity-40 hover:text-gray-900 transition-colors shrink-0"
             >
               Next
             </button>
@@ -351,13 +333,13 @@ export default function Projects() {
       )}
 
       {/* =========================================================
-          5. RESPONSIVE PROJECT GRID
+          5. RESPONSIVE PROJECT GRID (5PX GAP)
       ========================================================= */}
       <style>{`
         .project-grid {
           display: grid;
           grid-template-columns: 2fr 1fr 1fr;
-          grid-template-rows: repeat(2, minmax(220px, 28vw));
+          grid-template-rows: repeat(2, minmax(220px, 26vw));
           gap: 5px;
         }
 
@@ -401,7 +383,7 @@ export default function Projects() {
         @media (max-width: 1023px) and (min-width: 640px) {
           .project-grid {
             grid-template-columns: 2fr 1fr 1fr;
-            grid-template-rows: repeat(2, 260px);
+            grid-template-rows: repeat(2, 220px);
             gap: 5px;
           }
 
@@ -433,7 +415,7 @@ export default function Projects() {
           .project-large-last {
             grid-column: 1 / span 3;
             grid-row: 3;
-            min-height: 350px;
+            min-height: 320px;
           }
         }
 
