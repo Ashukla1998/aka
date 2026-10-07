@@ -266,8 +266,8 @@ export default function Projects() {
       <div className="max-w-[1500px] mx-auto px-4 sm:px-8 md:px-12 lg:px-16">
 
         {/* 1. TITLE & SLIDER */}
-        <section className="pt-8 sm:pt-12 md:pt-16">
-          <div className="flex flex-col items-center text-center mb-6 sm:mb-8 md:mb-10">
+        <section className="pt-5 sm:pt-5 md:pt-5">
+          <div className="flex flex-col items-center text-center mb-5 sm:mb-5 md:mb-5">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-gray-900">
               Our Work
             </h1>
@@ -355,11 +355,7 @@ export default function Projects() {
           </div>
         </section>
 
-        {/* 
-          3. PROJECT GRID 
-          - `pt-6 sm:pt-8` mirrors the spacing above the filter line
-        */}
-        <section ref={gridRef} className="pt-6 sm:pt-8 pb-12 sm:pb-16">
+        <section ref={gridRef} className="pt-5 sm:pt-5 pb-12 sm:pb-5">
           {projectBatches.length > 0 ? (
             <div className="flex flex-col gap-2">
               {projectBatches.map((batch, batchIdx) => (
@@ -395,7 +391,7 @@ export default function Projects() {
 
         {/* 4. SHOW MORE BUTTON */}
         {visibleCount < filtered.length && (
-          <section className="w-full pb-16 flex justify-center">
+          <section className="w-full pb-16 flex justify-center backdrop-blur-sm border-b border-gray-200">
             <button
               onClick={() => setVisibleCount((prev) => prev + ITEMS_PER_PAGE)}
               className="px-8 py-3 border border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white transition-all duration-300 text-xs sm:text-sm uppercase tracking-[0.2em] font-mono font-medium"
