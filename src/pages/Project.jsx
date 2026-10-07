@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { FullProjects } from "../Data/ProjectData";
 import ProjectImageSlider from "../components/ProjectImageSlider";
 
@@ -17,13 +17,44 @@ const categories = [
 const ITEMS_PER_PAGE = 5;
 
 export default function Projects() {
-  const [activeCategory, setActiveCategory] = useState("All");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const categoryFromUrl = searchParams.get("category");
+  const [activeCategory, setActiveCategory] = useState(
+    categoryFromUrl && categories.includes(categoryFromUrl) ? categoryFromUrl : "All"
+  );
   const [activeService, setActiveService] = useState("All");
   const [activeCompletion, setActiveCompletion] = useState("All");
 
   const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
 
+
   const gridRef = useRef(null);
+
+  useEffect(() => {
+    if (categoryFromUrl && categories.includes(categoryFromUrl)) {
+      setActiveCategory(categoryFromUrl);
+    } else if (!categoryFromUrl) {
+      setActiveCategory("All");
+    }
+  }, [categoryFromUrl]);
+
+  const handleCategoryChange = (val) => {
+    setActiveCategory(val);
+    if (val === "All") {
+      searchParams.delete("category");
+    } else {
+      searchParams.set("category", val);
+    }
+    setSearchParams(searchParams);
+  };
+
+  const resetFilters = () => {
+    setActiveCategory("All");
+    setActiveService("All");
+    setActiveCompletion("All");
+    setVisibleCount(ITEMS_PER_PAGE);
+    setSearchParams({}); // Clears ?category= from URL
+  };
 
   const services = [
     ...new Set(FullProjects.map((project) => project.work).filter(Boolean)),
@@ -66,34 +97,35 @@ export default function Projects() {
      RESET FILTERS
   ========================================================= */
 
-  const resetFilters = () => {
-    setActiveCategory("All");
-    setActiveService("All");
-    setActiveCompletion("All");
-    setVisibleCount(ITEMS_PER_PAGE);
-  };
+  // const resetFilters = () => {
+  //   setActiveCategory("All");
+  //   setActiveService("All");
+  //   setActiveCompletion("All");
+  //   setVisibleCount(ITEMS_PER_PAGE);
+  // };
 
   /* =========================================================
      PROJECT CARD
   ========================================================= */
 
-  const ProjectCard = ({ project, index }) => {
-    const isFirst = index === 0;
-    const isLast = index === 5;
+  const ProjectCard = ({ project, groupIndex, globalIndex }) => {
+    const isTall = groupIndex === 0;
 
     return (
       <Link
         to={`/projects/${project.slug}`}
-        className={`project-card group relative block overflow-hidden bg-gray-100 ${
-          isFirst ? "project-large-first" : isLast ? "project-large-last" : "project-small"
+        className={`group relative block overflow-hidden bg-gray-100 ${
+          isTall
+            ? "col-span-1 md:col-start-1 md:row-span-2 min-h-[300px] md:min-h-full"
+            : "col-span-1 min-h-[220px]"
         }`}
       >
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ delay: (index % 5) * 0.08, duration: 0.6, ease: "easeOut" }}
-          className="relative w-full h-full"
+          transition={{ delay: (groupIndex % 5) * 0.08, duration: 0.6, ease: "easeOut" }}
+          className="relative w-full h-full min-h-[inherit]"
         >
           {/* ================= IMAGE ================= */}
           <img
@@ -107,17 +139,15 @@ export default function Projects() {
 
           {/* ================= PROJECT CONTENT ================= */}
           <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5 md:p-6">
-            {/* ================= LOCATION / YEAR ================= */}
             <p className="text-[8px] sm:text-[9px] md:text-[10px] text-white/70 uppercase tracking-[0.15em] font-mono mb-1.5">
               {project.location}
               {project.year && ` · ${project.year}`}
             </p>
 
-            {/* ================= TITLE ================= */}
             <div className="flex items-end justify-between gap-3">
               <h3
                 className={`text-white font-medium leading-tight ${
-                  isFirst || isLast
+                  isTall
                     ? "text-lg sm:text-xl md:text-2xl"
                     : "text-sm sm:text-base md:text-lg"
                 }`}
@@ -125,7 +155,6 @@ export default function Projects() {
                 {project.title}
               </h3>
 
-              {/* ================= ARROW ================= */}
               <div className="shrink-0 w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-white/60 flex items-center justify-center text-white text-sm translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300">
                 →
               </div>
@@ -135,6 +164,12 @@ export default function Projects() {
       </Link>
     );
   };
+
+  // Group paginated projects into sets of 5
+  const projectBatches = [];
+  for (let i = 0; i < paginatedProjects.length; i += ITEMS_PER_PAGE) {
+    projectBatches.push(paginatedProjects.slice(i, i + ITEMS_PER_PAGE));
+  }
 
   return (
     <main className="bg-white">
@@ -156,15 +191,15 @@ export default function Projects() {
       {/* =========================================================
           2. FILTER BAR (NO BORDER, NO SHADOW LINE)
       ========================================================= */}
-      <section className="sticky top-[72px] z-30 bg-white border-b border-gray-200 mb-[32px]">
-        <div className="px-4 sm:px-8 md:px-12 lg:px-20 py-6 sm:py-7 md:py-8 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 sm:gap-5 lg:gap-6 mb-0 sm:mb-[79px]">
+      <section className="sticky top-[72px] z-30 bg-white">
+        <div className="px-4 sm:px-8 md:px-12 lg:px-20 py-5 sm:py-6 md:py-7 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 sm:gap-5 lg:gap-6 mb-0 sm:mb-[79px]">
           {/* ================= FILTERS ================= */}
           <div className="w-full flex flex-wrap items-center gap-[5px] sm:gap-[5px] ">
             {/* Category */}
             <div className="relative">
               <select
                 value={activeCategory}
-                onChange={(e) => setActiveCategory(e.target.value)}
+                onChange={(e) => handleCategoryChange(e.target.value)}
                 className="appearance-none min-w-[130px] sm:min-w-[150px] bg-white border border-gray-300 px-3 py-2 sm:px-4 sm:py-2.5 pr-8 text-xs sm:text-sm text-gray-700 outline-none cursor-pointer hover:border-gray-500 focus:border-gray-900 transition-colors"
               >
                 <option value="All">Category (All)</option>
@@ -222,26 +257,38 @@ export default function Projects() {
             {(activeCategory !== "All" ||
               activeService !== "All" ||
               activeCompletion !== "All") && (
-              <button
-                onClick={resetFilters}
-                className="ml-auto px-3 py-2 sm:px-4 sm:py-2.5 text-[11px] sm:text-xs uppercase tracking-[0.15em] font-mono text-arcadisOrange hover:text-gray-900 transition-colors"
-              >
-                Show All
-              </button>
-            )}
+                <button
+                  onClick={resetFilters}
+                  className="ml-auto px-3 py-2 sm:px-4 sm:py-2.5 text-[11px] sm:text-xs uppercase tracking-[0.15em] font-mono text-arcadisOrange hover:text-gray-900 transition-colors"
+                >
+                  Show All
+                </button>
+              )}
           </div>
 
         </div>
       </section>
 
       {/* =========================================================
-          3. PROJECT GRID
+          3. PROJECT GRID (STACKED 5-ITEM BATCHES)
       ========================================================= */}
-      <section ref={gridRef} className="px-3 sm:px-6 md:px-12 lg:px-20 py-8 sm:py-10 md:py-12">
-        {paginatedProjects.length > 0 ? (
-          <div className="project-grid w-full">
-            {paginatedProjects.map((project, index) => (
-              <ProjectCard key={project.slug} project={project} index={index} />
+      <section ref={gridRef} className="px-3 sm:px-6 md:px-12 lg:px-20 py-8 sm:py-10 md:py-12 pb-8 sm:pb-10 md:pb-12 border-t border-gray-200 ">
+        {projectBatches.length > 0 ? (
+          <div className="flex flex-col gap-[5px]">
+            {projectBatches.map((batch, batchIdx) => (
+              <div
+                key={batchIdx}
+                className="w-full flex flex-col sm:grid sm:grid-cols-2 md:grid-cols-3 md:grid-rows-2 gap-[5px] md:auto-rows-[minmax(220px,26vw)]"
+              >
+                {batch.map((project, idx) => (
+                  <ProjectCard
+                    key={project.slug}
+                    project={project}
+                    groupIndex={idx}
+                    globalIndex={batchIdx * ITEMS_PER_PAGE + idx}
+                  />
+                ))}
+              </div>
             ))}
           </div>
         ) : (

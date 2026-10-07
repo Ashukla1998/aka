@@ -112,7 +112,7 @@ export default function ProjectsStories() {
                 transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                 className="group relative flex flex-col bg-white shadow-sm hover:shadow-xl transition-all duration-500"
               >
-                <Link to={project.slug} className="flex flex-col h-full">
+                <Link to={`/projects?category=${encodeURIComponent(project.category)}`} className="flex flex-col h-full">
                   {/* Card Image Container with Smooth Zoom */}
                   <div className="relative aspect-[4/3] w-full overflow-hidden bg-neutral-100">
                     <img
