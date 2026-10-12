@@ -40,14 +40,14 @@ export const Leaders = [
 
 export const teamMembers = [
     {
-        name: "Ar Preeti Saini",
+        name: "Ar. Preeti Saini",
         role: "Design Team",
         photo: preeti,
         degree: "Bachelor of Architecture",
         experience: "15 years",
     },
     {
-        name: "Ar Ajay Thapa",
+        name: "Ar. Ajay Thapa",
         role: "Design Team",
         photo: ajay,
         degree: "Bachelor of Architecture",
@@ -55,14 +55,14 @@ export const teamMembers = [
     },
     
     {
-        name: "Ar Shahrukh Khan",
+        name: "Ar. Shahrukh Khan",
         role: "Design Team",
         photo: shahrukh,
         degree: "Bachelor of Architecture",
         experience: "11 years",
     },
     {
-        name: "Ar Lopsang Ringchen",
+        name: "Ar. Lopsang Ringchen",
         role: "Design Team",
         photo: lopsang,
         degree: "Bachelor of Architecture",
