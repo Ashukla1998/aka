@@ -369,10 +369,10 @@ export default function Navbar() {
   const links = [
     { label: "Home", to: "/home" },
     { label: "About", to: "/about" },
-    { label: "Services", to: "/services" },
+    // { label: "Services", to: "/services" },
     { label: "Projects", to: "/projects" },
     { label: "Contact", to: "/contact" },
-    { label: "Careers", to: "/career" },
+    // { label: "Careers", to: "/career" },
   ];
 
   const handleWhatsAppClick = () => {
@@ -748,7 +748,7 @@ export default function Navbar() {
                   text-neutral-400
                 "
               >
-                [ NAVIGATION ]
+                
               </span>
 
               <button
