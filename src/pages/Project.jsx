@@ -200,6 +200,8 @@ export default function Projects() {
 
   const paginatedProjects = filtered.slice(0, visibleCount);
 
+  const hasMore = visibleCount < filtered.length;
+
   const ProjectCard = ({ project, groupIndex }) => {
     const isTall = groupIndex === 0;
 
@@ -207,8 +209,8 @@ export default function Projects() {
       <Link
         to={`/projects/${project.slug}`}
         className={`group relative block overflow-hidden bg-gray-100 ${isTall
-            ? "col-span-1 md:col-start-1 md:row-span-2 min-h-[300px] sm:min-h-[340px] md:min-h-full"
-            : "col-span-1 min-h-[220px] sm:min-h-[240px]"
+          ? "col-span-1 md:col-start-1 md:row-span-2 min-h-[300px] sm:min-h-[340px] md:min-h-full"
+          : "col-span-1 min-h-[220px] sm:min-h-[240px]"
           }`}
       >
         <motion.div
@@ -235,8 +237,8 @@ export default function Projects() {
             <div className="flex items-end justify-between gap-3">
               <h3
                 className={`text-white font-medium leading-tight ${isTall
-                    ? "text-lg sm:text-xl md:text-2xl"
-                    : "text-base sm:text-lg"
+                  ? "text-lg sm:text-xl md:text-2xl"
+                  : "text-base sm:text-lg"
                   }`}
               >
                 {project.title}
@@ -390,16 +392,18 @@ export default function Projects() {
         </section>
 
         {/* 4. SHOW MORE BUTTON */}
-        {visibleCount < filtered.length && (
-          <section className="w-full pb-16 flex justify-center backdrop-blur-sm border-b border-gray-200">
-            <button
-              onClick={() => setVisibleCount((prev) => prev + ITEMS_PER_PAGE)}
-              className="px-8 py-3 border border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white transition-all duration-300 text-xs sm:text-sm uppercase tracking-[0.2em] font-mono font-medium"
-            >
-              Show More
-            </button>
-          </section>
-        )}
+        <section className="w-full pb-16 flex justify-center backdrop-blur-sm border-b border-gray-200">
+          <button
+            disabled={!hasMore}
+            onClick={() => setVisibleCount((prev) => prev + ITEMS_PER_PAGE)}
+            className={`px-8 py-3 border text-xs sm:text-sm uppercase tracking-[0.2em] font-mono font-medium transition-all duration-300 ${hasMore
+                ? "border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white cursor-pointer"
+                : "border-gray-300 text-gray-400 bg-gray-100 cursor-not-allowed opacity-60"
+              }`}
+          >
+            {hasMore ? "Show More" : "No More Items"}
+          </button>
+        </section>
 
       </div>
     </main>
