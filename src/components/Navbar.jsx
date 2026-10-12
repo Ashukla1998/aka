@@ -575,7 +575,7 @@ export default function Navbar() {
                   tracking-[0.08em]
                   sm:tracking-[0.12em]
                   md:tracking-wider
-                  text-[#F5F5DC]
+                  text-white
                   text-[9px]
                   sm:text-[10px]
                   md:text-sm
