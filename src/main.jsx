@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState, useEffect} from "react";
 import { motion } from "framer-motion";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
@@ -31,12 +31,30 @@ const itemReveal = {
 };
 
 export default function Home() {
+  const [featuredProjects, setFeaturedProjects] = useState([]);
+  useEffect(() => {
+    async function fetchFeaturedProjects() {
+      try {
+        const response = await fetch("https://www.lifepage.in/n/api/AkaHomepage");
+        const json = await response.json();
+
+        if (json.success && Array.isArray(json.data)) {
+          setFeaturedProjects(json.data);
+        }
+      } catch (err) {
+        console.error("Failed to load featured projects:", err);
+      }
+    }
+
+    fetchFeaturedProjects();
+  }, []);
+
   return (
     <main className="w-full min-h-screen relative overflow-x-hidden bg-white text-neutral-900 selection:bg-arcadisOrange selection:text-white">
 
       {/* ================= 1. HERO ================= */}
       <section className="w-full">
-        <Hero />
+        <Hero projects={featuredProjects} />
       </section>
 
       {/* ================= 2. COMPANY OVERVIEW ================= */}
@@ -46,7 +64,7 @@ export default function Home() {
 
       {/* ================= 3. SELECTED PROJECTS ================= */}
       <section className="w-full">
-        <ProjectDetail />
+        <ProjectDetail projects={featuredProjects}/>
       </section>
 
       {/* ================= TEAM ================= */}
