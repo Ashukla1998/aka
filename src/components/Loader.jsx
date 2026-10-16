@@ -77,7 +77,8 @@ export default function Loader() {
             className="flex items-center justify-center"
           >
             <img
-              src="/new/ak.png"
+              // src="/new/ak.png"
+              src="/ak.png"
               alt="AK Logo"
               className="w-44 sm:w-52 md:w-64 h-auto object-contain block"
             />
