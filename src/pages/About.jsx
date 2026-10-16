@@ -11,8 +11,8 @@
 //   }, {});
 
 //   return (
-//     <main className="min-h-screen bg-slate-50 py-16">
-//       <div className="max-w-6xl mx-auto px-6">
+//     <main className="min-h-screen bg-white text-neutral-900 py-16">
+//       <div className="max-w-7xl mx-auto px-6">
 
 //         {/* ================= HEADER ================= */}
 //         <div className="text-center mb-20">
@@ -20,11 +20,11 @@
 //             About Us
 //           </p>
 
-//           <h2 className="text-4xl md:text-5xl font-semibold mb-6 text-slate-800">
+//           <h2 className="text-4xl md:text-5xl font-semibold mb-6 text-neutral-900">
 //             We design meaningful experiences
 //           </h2>
 
-//           <p className="max-w-2xl mx-auto text-slate-600 leading-relaxed">
+//           <p className="max-w-2xl mx-auto text-neutral-600 leading-relaxed">
 //             We combine research, creativity and engineering to deliver products
 //             and services that move people.
 //           </p>
@@ -41,7 +41,7 @@
 //             <img
 //               src={teamImage}
 //               alt="Our team"
-//               className="w-full h-[420px] object-cover rounded-[25px]"
+//               className="w-full h-[420px] object-cover rounded-[20px]"
 //             />
 //           </motion.div>
 
@@ -51,11 +51,11 @@
 //             viewport={{ once: true }}
 //             transition={{ duration: 0.6, delay: 0.1 }}
 //           >
-//             <h3 className="text-3xl font-semibold mb-6">
+//             <h3 className="text-3xl font-semibold mb-6 text-neutral-900">
 //               Our Mission
 //             </h3>
 
-//             <p className="text-slate-600 mb-8 leading-relaxed">
+//             <p className="text-neutral-600 mb-8 leading-relaxed">
 //               We help organisations unlock growth by designing thoughtful,
 //               sustainable and human-centered solutions that create measurable
 //               value.
@@ -77,113 +77,113 @@
 //                 },
 //               ].map((item, i) => (
 //                 <li key={i}>
-//                   <div className="font-medium">
-//                     {item.title}
-//                   </div>
-//                   <div className="text-sm text-slate-600">
-//                     {item.desc}
-//                   </div>
+//                   <div className="font-medium text-neutral-900">{item.title}</div>
+//                   <div className="text-sm text-neutral-600">{item.desc}</div>
 //                 </li>
 //               ))}
 //             </ul>
 //           </motion.div>
 //         </section>
 
-//         {/* ================= LEADERS ================= */}
+//         {/* ================= LEADERS / DIRECTORS ================= */}
 //         <section className="mb-32">
-//           <div className="max-w-3xl mx-auto text-center mb-16">
-//             <p className="text-xs tracking-[0.3em] uppercase text-slate-500 mb-4">
-//               Leadership
-//             </p>
+//           <h3 className="text-3xl md:text-4xl font-normal tracking-tight mb-8 text-neutral-900">
+//             Directors
+//           </h3>
 
-//             <h3 className="text-4xl font-semibold mb-4">
-//               Our Leaders
-//             </h3>
-
-//             <p className="text-slate-600">
-//               Experience and vision guiding the practice.
-//             </p>
-//           </div>
-
-//           <div className="grid md:grid-cols-2 gap-20 max-w-5xl mx-auto">
+//           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 border-t border-b border-neutral-200 divide-x divide-neutral-200">
 //             {Leaders.map((member, index) => (
-//               <motion.div
+//               <div
 //                 key={index}
-//                 whileHover={{ y: -4 }}
-//                 transition={{ duration: 0.3 }}
-//                 className="text-center"
+//                 className="group p-4 flex flex-col justify-between cursor-pointer"
 //               >
-//                 <div className="w-full h-[460px] flex items-center justify-center mb-6 rounded-[25px]">
+//                 {/* Image: regular color, turns black & white on hover */}
+//                 <div className="w-full aspect-[3/4] bg-neutral-100 overflow-hidden mb-4">
 //                   <img
 //                     src={member.photo}
 //                     alt={member.name}
-//                     className="max-h-full w-auto rounded-[25px]"
+//                     className="w-full h-full object-cover transition duration-500 ease-out group-hover:grayscale"
 //                   />
 //                 </div>
 
-//                 <h4 className="text-2xl font-medium mb-1">
-//                   {member.name}
-//                 </h4>
-
-//                 <p className="text-slate-700 mb-2">
-//                   {member.role}
-//                 </p>
-
-//                 <p className="text-xs text-slate-500">
-//                   {member.degree} · {member.experience}
-//                 </p>
-//               </motion.div>
+//                 {/* Single line: Name on left, Arrow on right */}
+//                 <div className="flex items-end justify-between gap-2 pt-2">
+//                   <div className="min-w-0">
+//                     <h4 className="text-sm md:text-base font-medium text-neutral-900 leading-snug line-clamp-2">
+//                       {member.name}
+//                     </h4>
+//                   </div>
+//                   <svg
+//                     className="w-4 h-4 text-neutral-900 shrink-0 mb-0.5 transition-transform duration-300 group-hover:translate-x-1"
+//                     fill="none"
+//                     stroke="currentColor"
+//                     strokeWidth="1.8"
+//                     viewBox="0 0 24 24"
+//                   >
+//                     <path
+//                       strokeLinecap="round"
+//                       strokeLinejoin="round"
+//                       d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"
+//                     />
+//                   </svg>
+//                 </div>
+//               </div>
 //             ))}
 //           </div>
 //         </section>
 
 //         {/* ================= TEAM ================= */}
 //         <section className="mb-28">
-//           <div className="max-w-3xl mx-auto text-center mb-20">
-
-//             <h3 className="text-3xl font-semibold mb-4">
+//           <div className="max-w-3xl mb-12">
+//             <h3 className="text-3xl font-normal tracking-tight mb-2 text-neutral-900">
 //               The Team
 //             </h3>
-
-//             <p className="text-slate-600">
+//             <p className="text-neutral-600">
 //               A collaborative, cross-disciplinary group working as one.
 //             </p>
 //           </div>
 
 //           {Object.entries(groupedTeams).map(([teamName, members], i) => (
-//             <div key={i} className="mb-24">
-//               <h4 className="text-2xl font-medium mb-12 text-center text-arcadisOrange">
+//             <div key={i} className="mb-16">
+//               <h4 className="text-lg uppercase tracking-wider text-neutral-500 mb-6 font-medium">
 //                 {teamName}
 //               </h4>
 
-//               <div className="grid sm:grid-cols-2 gap-x-16 gap-y-20 max-w-4xl mx-auto">
+//               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 border-t border-b border-neutral-200 divide-x divide-neutral-200">
 //                 {members.map((member, index) => (
-//                   <motion.div
+//                   <div
 //                     key={index}
-//                     whileHover={{ y: -3 }}
-//                     transition={{ duration: 0.25 }}
-//                     className="text-center"
+//                     className="group p-4 flex flex-col justify-between cursor-pointer"
 //                   >
-//                     <div className="h-64 flex items-center justify-center mb-4">
+//                     <div className="w-full aspect-[3/4] bg-neutral-100 overflow-hidden mb-4">
 //                       <img
 //                         src={member.photo}
 //                         alt={member.name}
-//                         className="max-h-full w-auto grayscale hover:grayscale-0 transition duration-500 rounded-[25px]"
+//                         className="w-full h-full object-cover transition duration-500 ease-out group-hover:grayscale"
 //                       />
 //                     </div>
 
-//                     <h5 className="text-lg font-medium">
-//                       {member.name}
-//                     </h5>
-
-//                     <p className="text-sm text-slate-600">
-//                       {member.degree}
-//                     </p>
-
-//                     <p className="text-xs uppercase tracking-wide text-slate-500">
-//                       Experience · {member.experience}
-//                     </p>
-//                   </motion.div>
+//                     <div className="flex items-end justify-between gap-2 pt-2">
+//                       <div className="min-w-0">
+//                         <h5 className="text-sm md:text-base font-medium text-neutral-900 leading-snug line-clamp-2">
+//                           {member.name}
+//                         </h5>
+//                       </div>
+//                       <svg
+//                         className="w-4 h-4 text-neutral-900 shrink-0 mb-0.5 transition-transform duration-300 group-hover:translate-x-1"
+//                         fill="none"
+//                         stroke="currentColor"
+//                         strokeWidth="1.8"
+//                         viewBox="0 0 24 24"
+//                       >
+//                         <path
+//                           strokeLinecap="round"
+//                           strokeLinejoin="round"
+//                           d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"
+//                         />
+//                       </svg>
+//                     </div>
+//                   </div>
 //                 ))}
 //               </div>
 //             </div>
@@ -191,13 +191,12 @@
 //         </section>
 
 //         {/* ================= VALUES ================= */}
-//         <section>
+//         <section className="border-b border-gray-200 backdrop-blur-sm pb-16">
 //           <div className="text-center mb-12">
-//             <h3 className="text-3xl font-semibold mb-4">
+//             <h3 className="text-3xl font-semibold mb-4 text-neutral-900">
 //               Our Values
 //             </h3>
-
-//             <p className="text-slate-600">
+//             <p className="text-neutral-600">
 //               Principles that guide our work.
 //             </p>
 //           </div>
@@ -220,13 +219,12 @@
 //               <motion.div
 //                 key={i}
 //                 whileHover={{ y: -4 }}
-//                 className="bg-white p-8 rounded-[20px]"
+//                 className="bg-neutral-50 border border-neutral-200 p-8 rounded-[20px]"
 //               >
-//                 <h4 className="font-medium mb-3">
+//                 <h4 className="font-medium mb-3 text-neutral-900">
 //                   {val.title}
 //                 </h4>
-
-//                 <p className="text-sm text-slate-600">
+//                 <p className="text-sm text-neutral-600">
 //                   {val.desc}
 //                 </p>
 //               </motion.div>
@@ -239,15 +237,51 @@
 //   );
 // }
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import teamImage from "../images/team.jpg";
-import { Leaders, teamMembers } from "../Data/Team";
+import { Leaders as fallbackLeaders, teamMembers as fallbackTeamMembers } from "../Data/Team";
 
 export default function About() {
-  const groupedTeams = teamMembers.reduce((acc, member) => {
-    if (!acc[member.role]) acc[member.role] = [];
-    acc[member.role].push(member);
+  const [leaders, setLeaders] = useState(fallbackLeaders || []);
+  const [members, setMembers] = useState(fallbackTeamMembers || []);
+
+  useEffect(() => {
+    async function fetchMembers() {
+      try {
+        const response = await fetch("https://www.lifepage.in/n/api/GetAkaMember");
+        const json = await response.json();
+
+        if (json.success === 1 && Array.isArray(json.data)) {
+          // Filter out inactive members if flagged
+          const activeList = json.data.filter((item) => item.is_active !== false);
+
+          // 1. Leadership / Directors
+          const leadershipList = activeList.filter(
+            (item) => item.category === "Leadership Team" || item.role?.toLowerCase().includes("founder")
+          );
+
+          // 2. Other Team Members
+          const restTeamList = activeList.filter(
+            (item) => item.category !== "Leadership Team" && !item.role?.toLowerCase().includes("founder")
+          );
+
+          if (leadershipList.length > 0) setLeaders(leadershipList);
+          if (restTeamList.length > 0) setMembers(restTeamList);
+        }
+      } catch (err) {
+        console.error("Failed to load AKA members:", err);
+      }
+    }
+
+    fetchMembers();
+  }, []);
+
+  // Group non-leadership team members by role (or category)
+  const groupedTeams = members.reduce((acc, member) => {
+    const groupKey = member.role || member.category || "Team";
+    if (!acc[groupKey]) acc[groupKey] = [];
+    acc[groupKey].push(member);
     return acc;
   }, {});
 
@@ -333,40 +367,48 @@ export default function About() {
           </h3>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 border-t border-b border-neutral-200 divide-x divide-neutral-200">
-            {Leaders.map((member, index) => (
+            {leaders.map((member, index) => (
               <div
-                key={index}
+                key={member.memberid || index}
                 className="group p-4 flex flex-col justify-between cursor-pointer"
               >
-                {/* Image: regular color, turns black & white on hover */}
+                {/* Image */}
                 <div className="w-full aspect-[3/4] bg-neutral-100 overflow-hidden mb-4">
                   <img
                     src={member.photo}
                     alt={member.name}
+                    loading="lazy"
                     className="w-full h-full object-cover transition duration-500 ease-out group-hover:grayscale"
                   />
                 </div>
 
-                {/* Single line: Name on left, Arrow on right */}
-                <div className="flex items-end justify-between gap-2 pt-2">
-                  <div className="min-w-0">
-                    <h4 className="text-sm md:text-base font-medium text-neutral-900 leading-snug line-clamp-2">
-                      {member.name}
-                    </h4>
+                {/* Name, Degree, and Arrow */}
+                <div>
+                  <div className="flex items-end justify-between gap-2 pt-2">
+                    <div className="min-w-0">
+                      <h4 className="text-sm md:text-base font-medium text-neutral-900 leading-snug line-clamp-2">
+                        {member.name}
+                      </h4>
+                    </div>
+                    <svg
+                      className="w-4 h-4 text-neutral-900 shrink-0 mb-0.5 transition-transform duration-300 group-hover:translate-x-1"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"
+                      />
+                    </svg>
                   </div>
-                  <svg
-                    className="w-4 h-4 text-neutral-900 shrink-0 mb-0.5 transition-transform duration-300 group-hover:translate-x-1"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.8"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"
-                    />
-                  </svg>
+                  {member.degree && (
+                    <p className="text-xs text-neutral-500 mt-1 font-mono tracking-tight">
+                      {member.degree}
+                    </p>
+                  )}
                 </div>
               </div>
             ))}
@@ -374,62 +416,72 @@ export default function About() {
         </section>
 
         {/* ================= TEAM ================= */}
-        <section className="mb-28">
-          <div className="max-w-3xl mb-12">
-            <h3 className="text-3xl font-normal tracking-tight mb-2 text-neutral-900">
-              The Team
-            </h3>
-            <p className="text-neutral-600">
-              A collaborative, cross-disciplinary group working as one.
-            </p>
-          </div>
-
-          {Object.entries(groupedTeams).map(([teamName, members], i) => (
-            <div key={i} className="mb-16">
-              <h4 className="text-lg uppercase tracking-wider text-neutral-500 mb-6 font-medium">
-                {teamName}
-              </h4>
-
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 border-t border-b border-neutral-200 divide-x divide-neutral-200">
-                {members.map((member, index) => (
-                  <div
-                    key={index}
-                    className="group p-4 flex flex-col justify-between cursor-pointer"
-                  >
-                    <div className="w-full aspect-[3/4] bg-neutral-100 overflow-hidden mb-4">
-                      <img
-                        src={member.photo}
-                        alt={member.name}
-                        className="w-full h-full object-cover transition duration-500 ease-out group-hover:grayscale"
-                      />
-                    </div>
-
-                    <div className="flex items-end justify-between gap-2 pt-2">
-                      <div className="min-w-0">
-                        <h5 className="text-sm md:text-base font-medium text-neutral-900 leading-snug line-clamp-2">
-                          {member.name}
-                        </h5>
-                      </div>
-                      <svg
-                        className="w-4 h-4 text-neutral-900 shrink-0 mb-0.5 transition-transform duration-300 group-hover:translate-x-1"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="1.8"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                ))}
-              </div>
+        {Object.keys(groupedTeams).length > 0 && (
+          <section className="mb-28">
+            <div className="max-w-3xl mb-12">
+              <h3 className="text-3xl font-normal tracking-tight mb-2 text-neutral-900">
+                The Team
+              </h3>
+              <p className="text-neutral-600">
+                A collaborative, cross-disciplinary group working as one.
+              </p>
             </div>
-          ))}
-        </section>
+
+            {Object.entries(groupedTeams).map(([teamName, groupMembers], i) => (
+              <div key={i} className="mb-16">
+                <h4 className="text-lg uppercase tracking-wider text-neutral-500 mb-6 font-medium">
+                  {teamName}
+                </h4>
+
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 border-t border-b border-neutral-200 divide-x divide-neutral-200">
+                  {groupMembers.map((member, index) => (
+                    <div
+                      key={member.memberid || index}
+                      className="group p-4 flex flex-col justify-between cursor-pointer"
+                    >
+                      <div className="w-full aspect-[3/4] bg-neutral-100 overflow-hidden mb-4">
+                        <img
+                          src={member.photo}
+                          alt={member.name}
+                          loading="lazy"
+                          className="w-full h-full object-cover transition duration-500 ease-out group-hover:grayscale"
+                        />
+                      </div>
+
+                      <div>
+                        <div className="flex items-end justify-between gap-2 pt-2">
+                          <div className="min-w-0">
+                            <h5 className="text-sm md:text-base font-medium text-neutral-900 leading-snug line-clamp-2">
+                              {member.name}
+                            </h5>
+                          </div>
+                          <svg
+                            className="w-4 h-4 text-neutral-900 shrink-0 mb-0.5 transition-transform duration-300 group-hover:translate-x-1"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="1.8"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"
+                            />
+                          </svg>
+                        </div>
+                        {member.degree && (
+                          <p className="text-xs text-neutral-500 mt-1 font-mono tracking-tight">
+                            {member.degree}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </section>
+        )}
 
         {/* ================= VALUES ================= */}
         <section className="border-b border-gray-200 backdrop-blur-sm pb-16">
