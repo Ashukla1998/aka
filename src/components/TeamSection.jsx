@@ -93,7 +93,7 @@ const maskReveal = {
   },
 };
 
-export default function TeamSection() {
+export default function TeamSection({ TotalMembers, TotalExperience }) {
   // const currentYear = new Date().getFullYear();
 
   return (
@@ -154,15 +154,15 @@ export default function TeamSection() {
               variants={maskReveal}
               className="text-lg sm:text-xl lg:text-3xl font-light tracking-tight text-neutral-950 leading-[1.12]"
             >
-              <span className="font-bold">20</span> Team Members with
-              {/* <span className="font-bold">306 years of experience </span> */}
+              <span className="font-bold">{TotalMembers || 20}</span> Team Members with
+              {/* <span className="font-bold">{TotalExperience} years of experience </span> */}
             </motion.p>
 
             <motion.p
               variants={maskReveal}
               className=" mt-2 text-lg sm:text-xl lg:text-3xl tracking-tight text-neutral-950 leading-[1.12] font-bold"
             >
-             306 years of experience
+             {TotalExperience || 306} years of experience
             </motion.p>
           </div>
         </div>

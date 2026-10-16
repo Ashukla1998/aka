@@ -240,50 +240,58 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import teamImage from "../images/team.jpg";
-import { Leaders as fallbackLeaders, teamMembers as fallbackTeamMembers } from "../Data/Team";
 
 export default function About() {
-  const [leaders, setLeaders] = useState(fallbackLeaders || []);
-  const [members, setMembers] = useState(fallbackTeamMembers || []);
+  const [leaders, setLeaders] = useState([]);
+  const [groupedTeams, setGroupedTeams] = useState({});
+  const [loading, setLoading] = useState(true);
+  
+  const TotalExperience = (num) =>{
+    const CurrentYear = new Date().getFullYear();
+    const Intnum = parseInt(num, 10);
+    return CurrentYear - Intnum;
+  };
+  
 
   useEffect(() => {
     async function fetchMembers() {
       try {
-        const response = await fetch("https://www.lifepage.in/n/api/GetAkaMember");
+        const response = await fetch("https://www.lifepage.in/n/api/GetFilterMember");
         const json = await response.json();
 
-        if (json.success === 1 && Array.isArray(json.data)) {
-          // Filter out inactive members if flagged
-          const activeList = json.data.filter((item) => item.is_active !== false);
+        if (json?.success === 1 && json?.data && typeof json.data === "object") {
+          const apiData = json.data;
 
-          // 1. Leadership / Directors
-          const leadershipList = activeList.filter(
-            (item) => item.category === "Leadership Team" || item.role?.toLowerCase().includes("founder")
+          // 1. Leadership Team for Directors section
+          const leadershipList = (apiData["Leadership Team"] || []).filter(
+            (item) => item.is_active !== false
           );
+          setLeaders(leadershipList);
 
-          // 2. Other Team Members
-          const restTeamList = activeList.filter(
-            (item) => item.category !== "Leadership Team" && !item.role?.toLowerCase().includes("founder")
-          );
+          // 2. All other categories for The Team section
+          const restCategories = {};
+          Object.keys(apiData).forEach((categoryKey) => {
+            if (categoryKey !== "Leadership Team") {
+              const activeMembers = (apiData[categoryKey] || []).filter(
+                (item) => item.is_active !== false
+              );
+              if (activeMembers.length > 0) {
+                restCategories[categoryKey] = activeMembers;
+              }
+            }
+          });
 
-          if (leadershipList.length > 0) setLeaders(leadershipList);
-          if (restTeamList.length > 0) setMembers(restTeamList);
+          setGroupedTeams(restCategories);
         }
       } catch (err) {
         console.error("Failed to load AKA members:", err);
+      } finally {
+        setLoading(false);
       }
     }
 
     fetchMembers();
   }, []);
-
-  // Group non-leadership team members by role (or category)
-  const groupedTeams = members.reduce((acc, member) => {
-    const groupKey = member.role || member.category || "Team";
-    if (!acc[groupKey]) acc[groupKey] = [];
-    acc[groupKey].push(member);
-    return acc;
-  }, {});
 
   return (
     <main className="min-h-screen bg-white text-neutral-900 py-16">
@@ -361,62 +369,68 @@ export default function About() {
         </section>
 
         {/* ================= LEADERS / DIRECTORS ================= */}
-        <section className="mb-32">
-          <h3 className="text-3xl md:text-4xl font-normal tracking-tight mb-8 text-neutral-900">
-            Directors
-          </h3>
+        {!loading && leaders.length > 0 && (
+          <section className="mb-32">
+            <h3 className="text-3xl md:text-4xl font-normal tracking-tight mb-8 text-neutral-900">
+              Directors
+            </h3>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 border-t border-b border-neutral-200 divide-x divide-neutral-200">
-            {leaders.map((member, index) => (
-              <div
-                key={member.memberid || index}
-                className="group p-4 flex flex-col justify-between cursor-pointer"
-              >
-                {/* Image */}
-                <div className="w-full aspect-[3/4] bg-neutral-100 overflow-hidden mb-4">
-                  <img
-                    src={member.photo}
-                    alt={member.name}
-                    loading="lazy"
-                    className="w-full h-full object-cover transition duration-500 ease-out group-hover:grayscale"
-                  />
-                </div>
-
-                {/* Name, Degree, and Arrow */}
-                <div>
-                  <div className="flex items-end justify-between gap-2 pt-2">
-                    <div className="min-w-0">
-                      <h4 className="text-sm md:text-base font-medium text-neutral-900 leading-snug line-clamp-2">
-                        {member.name}
-                      </h4>
-                    </div>
-                    <svg
-                      className="w-4 h-4 text-neutral-900 shrink-0 mb-0.5 transition-transform duration-300 group-hover:translate-x-1"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.8"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"
-                      />
-                    </svg>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 border-t border-b border-neutral-200 divide-x divide-neutral-200">
+              {leaders.map((member, index) => (
+                <div
+                  key={member.memberid || index}
+                  className="group p-4 flex flex-col justify-between cursor-pointer"
+                >
+                  <div className="w-full aspect-[3/4] bg-neutral-100 overflow-hidden mb-4">
+                    <img
+                      src={member.photo}
+                      alt={member.name}
+                      loading="lazy"
+                      className="w-full h-full object-cover transition duration-500 ease-out group-hover:grayscale"
+                    />
                   </div>
-                  {member.degree && (
-                    <p className="text-xs text-neutral-500 mt-1 font-mono tracking-tight">
-                      {member.degree}
-                    </p>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
 
-        {/* ================= TEAM ================= */}
-        {Object.keys(groupedTeams).length > 0 && (
+                  <div>
+                    <div className="flex items-end justify-between gap-2 pt-2">
+                      <div className="min-w-0">
+                        <h4 className="text-sm md:text-base font-medium text-neutral-900 leading-snug line-clamp-2">
+                          {member.name}
+                        </h4>
+                      </div>
+                      <svg
+                        className="w-4 h-4 text-neutral-900 shrink-0 mb-0.5 transition-transform duration-300 group-hover:translate-x-1"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.8"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"
+                        />
+                      </svg>
+                    </div>
+                    {member.degree && (
+                      <p className="text-xs text-neutral-500 mt-1 font-mono tracking-tight">
+                        {member.degree}
+                      </p>
+                    )}
+
+                    {member.experience && (
+                      <p className="text-xs text-neutral-500 mt-1 font-mono tracking-tight">
+                        {TotalExperience(member.experience)} years of Experience
+                      </p>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* ================= THE TEAM ================= */}
+        {!loading && Object.keys(groupedTeams).length > 0 && (
           <section className="mb-28">
             <div className="max-w-3xl mb-12">
               <h3 className="text-3xl font-normal tracking-tight mb-2 text-neutral-900">
@@ -472,6 +486,12 @@ export default function About() {
                         {member.degree && (
                           <p className="text-xs text-neutral-500 mt-1 font-mono tracking-tight">
                             {member.degree}
+                          </p>
+                        )}
+
+                        {member.experience && (
+                          <p className="text-xs text-neutral-500 mt-1 font-mono tracking-tight">
+                            {TotalExperience(member.experience)} years of Experience
                           </p>
                         )}
                       </div>

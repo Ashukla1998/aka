@@ -32,11 +32,18 @@ const itemReveal = {
 
 export default function Home() {
   const [featuredProjects, setFeaturedProjects] = useState([]);
+  const [NumberOfMember, setNumberOfMember] = useState(0);
+  const [TotalExperience, setTotalExperience] = useState(0);
   useEffect(() => {
     async function fetchFeaturedProjects() {
       try {
         const response = await fetch("https://www.lifepage.in/n/api/AkaHomepage");
         const json = await response.json();
+
+        if(json.success){
+          setNumberOfMember(json.total_members);
+          setTotalExperience(json.total_experience);
+        }
 
         if (json.success && Array.isArray(json.data)) {
           setFeaturedProjects(json.data);
@@ -48,6 +55,8 @@ export default function Home() {
 
     fetchFeaturedProjects();
   }, []);
+
+  // console.log("Featured data:", NumberOfMember);
 
   return (
     <main className="w-full min-h-screen relative overflow-x-hidden bg-white text-neutral-900 selection:bg-arcadisOrange selection:text-white">
@@ -68,7 +77,7 @@ export default function Home() {
       </section>
 
       {/* ================= TEAM ================= */}
-      <TeamSection />
+      <TeamSection TotalMembers={NumberOfMember} TotalExperience={TotalExperience} />
       {/* ================= 5. DESIGN PHILOSOPHY ================= */}
       <section className="w-full py-24 sm:py-28 bg-white border-t border-neutral-200/80">
         {/* Unified 7XL Container */}
