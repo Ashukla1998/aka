@@ -13,7 +13,7 @@ import ProjectDetail from "./pages/ProjectDetail";
 import Admin from "./pages/Admin";
 import Careers from "./pages/Career";
 
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HeroMarquee from "./components/Hero";
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -32,11 +32,12 @@ function App() {
       </AnimatePresence>
 
       {!loading && (
-        <HashRouter>
+        <BrowserRouter>
           <Navbar />
           <ScrollToTop />
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/new" element={<Home />} />
             <Route path="/home" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
@@ -48,7 +49,7 @@ function App() {
             <Route path="/hero" element={<HeroMarquee/>}/>
           </Routes>
           <Footer />
-        </HashRouter>
+        </BrowserRouter>
       )}
     </>
   );
