@@ -462,7 +462,7 @@ export default function Projects() {
 
         {/* 4. SHOW MORE BUTTON */}
         {!isLoading && !fetchError && (
-          <section className="w-full pb-16 flex justify-center backdrop-blur-sm border-b border-gray-200">
+          <section className="w-full pb-8 flex justify-center backdrop-blur-sm border-b border-gray-200">
             <button
               disabled={!hasMore}
               onClick={() => setVisibleCount((prev) => prev + ITEMS_PER_PAGE)}
