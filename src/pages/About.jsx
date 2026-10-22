@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import teamImage from "../images/team.jpg";
 
+import Seo from "../components/Seo";
+
 export default function About() {
   const [leaders, setLeaders] = useState([]);
   const [groupedTeams, setGroupedTeams] = useState({});
@@ -56,6 +58,10 @@ export default function About() {
 
   return (
     <main className="min-h-screen bg-white text-neutral-900 py-16">
+      <Seo
+        title="About Us"
+        description="Meet the team at Archana Kapil Associates, an architecture and interior design practice in Dehradun creating meaningful, context-driven spaces."
+      />
       <div className="max-w-7xl mx-auto px-6">
 
         {/* ================= HEADER ================= */}
@@ -64,9 +70,9 @@ export default function About() {
             About Us
           </p>
 
-          <h2 className="text-4xl md:text-5xl font-semibold mb-6 text-neutral-900">
+          <h1 className="text-4xl md:text-5xl font-semibold mb-6 text-neutral-900">
             We design meaningful experiences
-          </h2>
+          </h1>
 
           <p className="max-w-2xl mx-auto text-neutral-600 leading-relaxed">
             We combine research, creativity and engineering to deliver products

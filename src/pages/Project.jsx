@@ -498,6 +498,7 @@ import { motion } from "framer-motion";
 import { Link, useSearchParams } from "react-router-dom";
 import Slider from "react-slick";
 import Spinner from "../components/Spinner";
+import Seo from "../components/Seo";
 
 const ITEMS_PER_PAGE = 5;
 
@@ -811,6 +812,10 @@ export default function Projects() {
 
   return (
     <main className="w-full bg-white text-gray-900 font-primary">
+      <Seo
+        title={activeCategory !== "All" ? `${activeCategory} Projects` : "Projects"}
+        description="Explore the portfolio of Archana Kapil Associates: hospitals, schools, housing, hospitality, commercial and public projects across Dehradun and India."
+      />
       <div className="max-w-[1500px] mx-auto px-4 sm:px-8 md:px-12 lg:px-16">
         
         {/* 1. TITLE & SLIDER */}

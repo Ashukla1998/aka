@@ -1,4 +1,5 @@
 import React from "react";
+import Seo from "../components/Seo";
 import { motion } from "framer-motion";
 import architectureImage from "../images/archi.jpg";
 import landscapeImage from "../images/landscape.jpg";
@@ -70,6 +71,10 @@ export default function Services() {
 
   return (
     <main className="min-h-screen bg-white py-12">
+      <Seo
+        title="Services"
+        description="Architecture, interior design, landscape design and planning services by Archana Kapil Associates, Dehradun."
+      />
       <div className="max-w-6xl mx-auto px-6">
 
         {/* ================= PAGE HEADER ================= */}

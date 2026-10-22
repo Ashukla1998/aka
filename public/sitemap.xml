@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://www.aka.net.in</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.aka.net.in/projects</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.aka.net.in/about</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aka.net.in/contact</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.aka.net.in/career</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.aka.net.in/projects/the-mansion</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://storage.googleapis.com/aka-net/Projects/the-mansion/cover.jpg</image:loc>
+      <image:title>The Mansion</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.aka.net.in/projects/ima-csd</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://storage.googleapis.com/aka-net/Projects/ima-csd/cover.jpg</image:loc>
+      <image:title>IMA CSD</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.aka.net.in/projects/food-park</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://storage.googleapis.com/aka-net/Projects/food-park/cover.jpg</image:loc>
+      <image:title>Food Park</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.aka.net.in/projects/herbal-world</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://storage.googleapis.com/aka-net/Projects/herbal-world/cover.jpg</image:loc>
+      <image:title>Herbal World</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.aka.net.in/projects/sg-oakwood</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://storage.googleapis.com/aka-net/Projects/sg-oakwood/cover.jpg</image:loc>
+      <image:title>SERENE GREENS OAKWOOD</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.aka.net.in/projects/BIS</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://storage.googleapis.com/aka-net/Projects/BIS/cover.jpg</image:loc>
+      <image:title>BIRLA INTERNATIONAL SCHOOL</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.aka.net.in/projects/GEIMSMedicalCollege</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://storage.googleapis.com/aka-net/Projects/GEIMSMedicalCollege/cover.jpg</image:loc>
+      <image:title>GEIMS MEDICAL COLLEGE</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.aka.net.in/projects/SHRI-MAHANT-INDIRESH-HOSPITAL</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://storage.googleapis.com/aka-net/Projects/SHRI-MAHANT-INDIRESH-HOSPITAL/cover.jpg</image:loc>
+      <image:title>SHRI MAHANT INDIRESH HOSPITAL</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.aka.net.in/projects/PA-SANGMA</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://storage.googleapis.com/aka-net/Projects/PA-SANGMA/cover.jpg</image:loc>
+      <image:title>PA SANGMA HOSPITAL</image:title>
+    </image:image>
+  </url>
+</urlset>

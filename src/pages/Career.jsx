@@ -1,5 +1,6 @@
 // src/pages/Careers.jsx
 import React from "react";
+import Seo from "../components/Seo";
 import { motion } from "framer-motion";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
 
@@ -15,6 +16,10 @@ const sectionAnim = {
 export default function Careers() {
   return (
     <main className="bg-white">
+      <Seo
+        title="Careers"
+        description="Join Archana Kapil Associates in Dehradun. Explore careers and internships in architecture, interior design and landscape design."
+      />
 
       {/* ================= HERO ================= */}
       <section className="px-10 md:px-20 pt-32 pb-24">

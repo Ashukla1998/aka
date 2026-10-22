@@ -130,6 +130,8 @@ export default function HeroArcadis( { projects = [] } ) {
                   animate={isActive ? { scale: 1 } : { scale: 1.05 }}
                   transition={{ duration: 7, ease: "easeOut" }}
                   className="absolute inset-0 bg-cover bg-center"
+                  role="img"
+                  aria-label={slide.title}
                   style={{
                     backgroundImage: `url(${slide.image}?auto=format&fit=crop&w=2400&q=85)`,
                   }}

@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 import Hero from "./components/Hero";
+import Seo from "./components/Seo";
 import ProjectDetail from "./pages/ProjectsStories";
 import Company from "./components/Company";
 import TeamSection from "./components/TeamSection";
@@ -60,6 +61,11 @@ export default function Home() {
 
   return (
     <main className="w-full min-h-screen relative overflow-x-hidden bg-white text-neutral-900 selection:bg-arcadisOrange selection:text-white">
+
+      <Seo />
+      <h1 className="sr-only">
+        Archana Kapil Associates – Architects, Interior Designers and Landscape Designers in Dehradun
+      </h1>
 
       {/* ================= 1. HERO ================= */}
       <section className="w-full">

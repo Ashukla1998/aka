@@ -237,6 +237,7 @@
 // }
 
 import React, { useState } from "react";
+import Seo from "../components/Seo";
 
 export default function Contact() {
   const [form, setForm] = useState({
@@ -297,6 +298,10 @@ export default function Contact() {
 
   return (
     <main className="min-h-screen bg-white py-12 font-primary">
+      <Seo
+        title="Contact Us"
+        description="Contact Archana Kapil Associates at 48, Pleasant Valley, Rajpur Road, Dehradun 248009. Call +91 9719799992 or email kapil@aka.net.in to discuss your project."
+      />
       <div className="max-w-4xl mx-auto px-6">
 
         {/* ================= HEADER ================= */}
@@ -305,9 +310,9 @@ export default function Contact() {
             Get in touch
           </p>
 
-          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-slate-800">
+          <h1 className="text-3xl md:text-4xl font-semibold tracking-tight text-slate-800">
             Contact us
-          </h2>
+          </h1>
 
           <p className="mt-3 text-slate-600 leading-relaxed font-light">
             Fill the form and we will reply within one business day.

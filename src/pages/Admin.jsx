@@ -5,6 +5,8 @@ import {
   ArrowDownTrayIcon,
 } from "@heroicons/react/24/outline";
 
+import Seo from "../components/Seo";
+
 export default function AdminContacts() {
   const [messages, setMessages] = useState([]);
   const [search, setSearch] = useState("");
@@ -70,6 +72,7 @@ export default function AdminContacts() {
 
   return (
     <main className="min-h-screen bg-[#f7f7f7] px-8 md:px-24 py-20">
+      <Seo title="Admin" noindex />
 
       {/* ================= HEADER ================= */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-12">

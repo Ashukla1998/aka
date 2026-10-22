@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Spinner from "../components/Spinner";
 import ProjectImageSlider from "../components/ProjectImageSlider";
 import { ProjectCard } from "./Project";
+import Seo, { SITE_URL, SITE_NAME } from "../components/Seo";
 
 const FEATURED_IMAGE_COUNT = 5;
 const SIMILAR_PROJECT_COUNT = 5;
@@ -93,6 +94,7 @@ export default function ProjectDetail() {
   if (error || !project) {
     return (
       <main className="min-h-[70vh] flex flex-col items-center justify-center px-6 text-center bg-white">
+        <Seo title="Project Not Found" noindex />
         <span className=" text-xs uppercase tracking-[0.3em] text-arcadisOrange mb-3">
           Error 404
         </span>
@@ -138,8 +140,46 @@ export default function ProjectDetail() {
     { label: "Scope", value: project.service, fullWidth: true },
   ].filter((item) => Boolean(item.value));
 
+  const projectUrl = `${SITE_URL}/projects/${project.gallerypath || slug}`;
+  const seoDescription =
+    project.description ||
+    `${project.title}${project.category ? `, a ${project.category.toLowerCase()} project` : ""}${
+      project.location ? ` in ${project.location}` : ""
+    } by ${SITE_NAME}.`;
+
+  const projectSchema = [
+    {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      name: project.title,
+      description: seoDescription,
+      url: projectUrl,
+      image: [heroImage, ...galleryImages.map((img) => img.image_location)].filter(Boolean).slice(0, 10),
+      genre: project.category,
+      locationCreated: project.location ? { "@type": "Place", name: project.location } : undefined,
+      dateCreated: project.start_year || undefined,
+      creator: { "@id": `${SITE_URL}/#organization` },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+        { "@type": "ListItem", position: 2, name: "Projects", item: `${SITE_URL}/projects` },
+        { "@type": "ListItem", position: 3, name: project.title, item: projectUrl },
+      ],
+    },
+  ];
+
   return (
     <main className="bg-white text-gray-900  selection:bg-arcadisOrange selection:text-white">
+      <Seo
+        title={[project.title, project.location].filter(Boolean).join(", ")}
+        description={seoDescription}
+        image={heroImage}
+        type="article"
+        schema={projectSchema}
+      />
       {/* ================= 1. BREADCRUMB & HEADER BAR ================= */}
       <section className="max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16 pt-8 pb-4">
         <div className="flex items-center justify-between border-b border-gray-200 pb-4">
@@ -295,7 +335,8 @@ export default function ProjectDetail() {
 
       {/* ================= 6. SIMILAR PROJECTS ================= */}
       {similarProjects.length > 0 && (
-        <section className="max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16 py-16 border-t border-gray-200">
+        <section className="w-full bg-gray-100 border-t border-gray-200">
+          <div className="max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16 py-16">
           <div className="flex items-end justify-between mb-8">
             <h2 className="text-2xl sm:text-3xl font-normal tracking-tight text-gray-900">
               Similar Projects
@@ -312,6 +353,7 @@ export default function ProjectDetail() {
             {similarProjects.map((p, idx) => (
               <ProjectCard key={p.gallerypath || p.title + idx} project={p} groupIndex={idx} />
             ))}
+          </div>
           </div>
         </section>
       )}
