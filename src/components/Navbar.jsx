@@ -356,6 +356,10 @@ import {
   MagnifyingGlassIcon,
   XMarkIcon,
   Bars3Icon,
+  HomeIcon,
+  InformationCircleIcon,
+  BuildingOffice2Icon,
+  PhoneIcon,
 } from "@heroicons/react/24/outline";
 
 import logo from "../images/akalogo.jpg";
@@ -367,12 +371,12 @@ export default function Navbar() {
   const [searchQuery, setSearchQuery] = useState("");
 
   const links = [
-    { label: "Home", to: "/home" },
-    { label: "About", to: "/about" },
-    // { label: "Services", to: "/services" },
-    { label: "Projects", to: "/projects" },
-    { label: "Contact", to: "/contact" },
-    // { label: "Careers", to: "/career" },
+    { label: "Home", to: "/home", icon: HomeIcon },
+    { label: "About", to: "/about", icon: InformationCircleIcon },
+    // { label: "Services", to: "/services", icon: WrenchScrewdriverIcon },
+    { label: "Projects", to: "/projects", icon: BuildingOffice2Icon },
+    { label: "Contact", to: "/contact", icon: PhoneIcon },
+    // { label: "Careers", to: "/career", icon: BriefcaseIcon },
   ];
 
   const handleWhatsAppClick = () => {
@@ -697,9 +701,9 @@ export default function Navbar() {
             top-0
             right-0
             h-screen
-            w-[85vw]
-            max-w-sm
-            sm:max-w-md
+            w-[70vw]
+            max-w-[280px]
+            sm:max-w-xs
 
             bg-white
             text-neutral-900
@@ -785,7 +789,7 @@ export default function Navbar() {
                 mt-8
               "
             >
-              {links.map((link, idx) => (
+              {links.map((link) => (
                 <NavLink
                   key={link.to}
                   to={link.to}
@@ -794,8 +798,9 @@ export default function Navbar() {
                     `
                     group
                     flex
-                    items-baseline
-                    justify-between
+                    items-center
+                    justify-end
+                    gap-3
 
                     text-2xl
                     sm:text-3xl
@@ -813,19 +818,8 @@ export default function Navbar() {
                     `
                   }
                 >
+                  <link.icon className="w-6 h-6 sm:w-7 sm:h-7 stroke-[1.5] shrink-0" />
                   <span>{link.label}</span>
-
-                  <span
-                    className="
-                      text-xs
-                      font-mono
-                      text-neutral-400
-                      group-hover:text-orange-600
-                      transition-colors
-                    "
-                  >
-                    // 0{idx + 1}
-                  </span>
                 </NavLink>
               ))}
             </nav>

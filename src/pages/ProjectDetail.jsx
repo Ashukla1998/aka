@@ -1,240 +1,12 @@
-// import React from "react";
-// import { useParams,useLocation } from "react-router-dom";
-// import { motion } from "framer-motion";
-// // import { FullProjects } from "../Data/ProjectData";
-// import ProjectImageSlider from "../components/ProjectImageSlider";
-
-// const fadeUp = {
-//   hidden: { opacity: 0, y: 40 },
-//   visible: {
-//     opacity: 1,
-//     y: 0,
-//     transition: { duration: 0.9, ease: "easeOut" },
-//   },
-// };
-
-// const sectionAnim = {
-//   hidden: { opacity: 0, y: 80 },
-//   visible: {
-//     opacity: 1,
-//     y: 0,
-//     transition: { duration: 1, ease: "easeOut" },
-//   },
-// };
-
-// export default function ProjectDetail() {
-//   // const { slug } = useParams();
-//   const location = useLocation();
-//   const projectId = location.state?.projectId;
-//   // const project = FullProjects.find((p) => p.slug === slug);
-//   if(!projectId){
-//     return (
-//       <main className="px-8 md:px-24 py-32">
-//         <h2 className=" font-medium text-2xl">
-//           Project not found
-//         </h2>
-//       </main>
-//     );
-//   }else{
-
-//   }
-
-//   if (!project) {
-//     return (
-//       <main className="px-8 md:px-24 py-32">
-//         <h2 className=" font-medium text-2xl">
-//           Project not found
-//         </h2>
-//       </main>
-//     );
-//   }
-
-//   const images = Array.from(
-//     { length: project.imageCount || 1 },
-//     (_, i) =>
-//       `${project.galleryPath}${String(i + 1).padStart(2, "0")}.jpg`
-//   );
-
-//   return (
-//     <main className="bg-white text-arcadisDark ">
-
-//       {/* ================= HERO IMAGE ================= */}
-//       <section className="px-6 md:px-16 pt-20">
-//         <motion.div
-//           initial="hidden"
-//           animate="visible"
-//           variants={fadeUp}
-//           className="border border-gray-200 p-4"
-//         >
-//           <img
-//             src={images[0]}
-//             alt={`${project.title} hero view`}
-//             className="w-full h-auto object-contain"
-//           />
-//         </motion.div>
-//       </section>
-
-//       {/* ================= INTRO + META ================= */}
-//       <section className="px-8 md:px-24 py-24">
-//         <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-start">
-
-//           {/* TEXT */}
-//           <motion.div initial="hidden" animate="visible" variants={fadeUp}>
-//             <p className="text-xs uppercase tracking-[0.35em] font-medium text-gray-500 mb-4">
-//               {project.category}
-//             </p>
-
-//             <h1 className="text-5xl md:text-6xl font-semibold leading-[1.1] tracking-tight mb-8">
-//               {project.title}
-//             </h1>
-
-//             <p className="text-base font-normal text-gray-600 leading-relaxed mb-10 max-w-xl">
-//               {project.description ||
-//                 "A context-driven architectural project balancing functionality, spatial clarity, and long-term performance."}
-//             </p>
-
-//             {project.work && (
-//               <div className="mt-6">
-//                 <p className="text-xs uppercase tracking-widest font-medium text-gray-500 mb-2">
-//                   Scope of Work
-//                 </p>
-//                 <p className="text-base font-normal text-gray-800">
-//                   {project.work}
-//                 </p>
-//               </div>
-//             )}
-//           </motion.div>
-
-//           {/* META */}
-//           <motion.div
-//             initial="hidden"
-//             animate="visible"
-//             variants={fadeUp}
-//             className="grid grid-cols-2 gap-x-10 gap-y-8 text-sm"
-//           >
-//             {[
-//               ["Location", project.location],
-//               ["Site Area", project.size],
-//               ["Built-up Area", project.buildup],
-//               ["Status", project.status],
-//             ]
-//               .filter(([, value]) => value)
-//               .map(([label, value]) => (
-//                 <div key={label}>
-//                   <p className="text-xs uppercase tracking-widest font-medium text-gray-500 mb-1">
-//                     {label}
-//                   </p>
-//                   <p className="text-base font-normal text-gray-900">
-//                     {value}
-//                   </p>
-//                 </div>
-//               ))}
-//           </motion.div>
-
-//         </div>
-//       </section>
-
-//       {/* ================= IMAGE SLIDER ================= */}
-//       <section className="py-24 border-t border-gray-100">
-//         <div className="px-8 md:px-24 mb-10">
-//           <h2 className="text-3xl font-semibold mb-4">
-//             Project Gallery
-//           </h2>
-//           <p className="text-base font-normal text-gray-600 max-w-2xl">
-//             A visual walkthrough highlighting key architectural moments,
-//             spatial relationships, and material detailing.
-//           </p>
-//         </div>
-
-//         <ProjectImageSlider images={images} title={project.title} />
-//       </section>
-
-//       {/* ================= DESIGN NARRATIVE ================= */}
-//       <motion.section
-//         initial="hidden"
-//         whileInView="visible"
-//         viewport={{ once: true }}
-//         variants={sectionAnim}
-//         className="px-8 md:px-24 py-36 bg-white"
-//       >
-//         <div className="max-w-5xl mx-auto">
-
-//           {/* HEADER */}
-//           <div className="max-w-2xl mb-20">
-//             <p className="text-xs uppercase tracking-[0.4em] font-medium text-arcadisOrange mb-6">
-//               Project Narrative
-//             </p>
-
-//             <h2 className="text-4xl md:text-5xl font-semibold leading-tight mb-6">
-//               Design Thinking & Outcomes
-//             </h2>
-
-//             <p className="text-base font-normal text-gray-600 leading-relaxed">
-//               An integrated design approach shaped by context, clarity, and
-//               long-term performance — translating intent into built form.
-//             </p>
-//           </div>
-
-//           {/* CONTENT GRID */}
-//           <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
-
-//             {[
-//               {
-//                 no: "01",
-//                 title: "Design Intent",
-//                 text:
-//                   "The design intent was to respond sensitively to the site context, balancing functional requirements with adaptability for future needs while maintaining architectural clarity.",
-//               },
-//               {
-//                 no: "02",
-//                 title: "Key Considerations",
-//                 text:
-//                   "Spatial hierarchy, natural daylight, circulation efficiency, material longevity, and environmental performance informed every design decision.",
-//               },
-//               {
-//                 no: "03",
-//                 title: "Outcome",
-//                 text:
-//                   "The final outcome is a cohesive architectural solution that balances aesthetics, performance, and long-term usability.",
-//               },
-//             ].map((item) => (
-//               <motion.div
-//                 key={item.no}
-//                 initial={{ opacity: 0, y: 30 }}
-//                 whileInView={{ opacity: 1, y: 0 }}
-//                 viewport={{ once: true }}
-//                 transition={{ duration: 0.7 }}
-//                 className="relative"
-//               >
-//                 <span className="absolute -top-8 left-0 text-[72px] font-normal text-gray-200">
-//                   {item.no}
-//                 </span>
-
-//                 <h3 className="text-2xl font-medium mb-4 relative z-10">
-//                   {item.title}
-//                 </h3>
-
-//                 <div className="w-12 h-[2px] bg-arcadisOrange mb-6" />
-
-//                 <p className="text-base font-normal text-gray-600 leading-relaxed">
-//                   {item.text}
-//                 </p>
-//               </motion.div>
-//             ))}
-
-//           </div>
-//         </div>
-//       </motion.section>
-//     </main>
-//   );
-// }
-
-
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import ProjectImageSlider from "../components/ProjectImageSlider";
 import Spinner from "../components/Spinner";
+import ProjectImageSlider from "../components/ProjectImageSlider";
+import { ProjectCard } from "./Project";
+
+const FEATURED_IMAGE_COUNT = 5;
+const SIMILAR_PROJECT_COUNT = 5;
 
 export default function ProjectDetail() {
   const { slug } = useParams();
@@ -243,8 +15,10 @@ export default function ProjectDetail() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [activeLightboxImg, setActiveLightboxImg] = useState(null);
+  const [similarProjects, setSimilarProjects] = useState([]);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     const controller = new AbortController();
 
     const fetchProjectDetails = async () => {
@@ -281,6 +55,30 @@ export default function ProjectDetail() {
     return () => controller.abort();
   }, [slug]);
 
+  /* Similar projects: same category first, topped up with others if needed */
+  useEffect(() => {
+    if (!project) return;
+    const fetchSimilarProjects = async () => {
+      try {
+        const res = await fetch(`https://www.lifepage.in/n/api/GetProjectData?category=${project.category}&gallerypath=${project.gallerypath}`);
+        const json = await res.json();
+        if (!json.success || !Array.isArray(json.data)) return;
+        setSimilarProjects(json.data);
+      } catch (err) {
+        console.error("Similar projects error:", err);
+      }
+    };
+
+    fetchSimilarProjects();
+  }, [project]);
+
+  useEffect(() => {
+    if (!activeLightboxImg) return;
+    const onKey = (e) => e.key === "Escape" && setActiveLightboxImg(null);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [activeLightboxImg]);
+
   if (loading) {
     return (
       <main className="w-full min-h-[70vh] flex flex-col justify-center items-center bg-white">
@@ -316,12 +114,13 @@ export default function ProjectDetail() {
 
   const galleryImages = Array.isArray(project.images)
     ? [...project.images]
+        .filter((img) => img.image_location)
         .sort((a, b) => (a.order_no || 0) - (b.order_no || 0))
-        .map((img) => img.image_location)
-        .filter(Boolean)
     : [];
 
-  const heroImage = project.cover || galleryImages[0];
+  const heroImage = project.cover || galleryImages[0]?.image_location;
+  const featuredImages = galleryImages.slice(0, FEATURED_IMAGE_COUNT);
+  const scrollerImages = galleryImages.slice(FEATURED_IMAGE_COUNT);
 
   const metaSpecs = [
     { label: "Location", value: project.location },
@@ -366,13 +165,13 @@ export default function ProjectDetail() {
         </div>
       </section>
 
-      {/* ================= 2. EDITORIAL HERO ================= */}
-      <section className="max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16 pt-6 pb-12">
+      {/* ================= 2. TITLE & OPENING IMAGE================= */}
+      <section className="max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16 pt-2 pb-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-8 max-w-4xl"
+          className="max-w-4xl mb-8"
         >
           {project.category && (
             <p className=" text-xs uppercase tracking-[0.3em] text-arcadisOrange mb-3">
@@ -384,13 +183,12 @@ export default function ProjectDetail() {
           </h1>
         </motion.div>
 
-        {/* Hero Image Container */}
         {heroImage && (
           <motion.div
             initial={{ opacity: 0, scale: 0.99 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-            className="relative w-full aspect-[16/9] max-h-[80vh] overflow-hidden bg-gray-100 group cursor-pointer"
+            className="relative w-full aspect-[16/9] max-h-[85vh] overflow-hidden bg-gray-100 group cursor-zoom-in"
             onClick={() => setActiveLightboxImg(heroImage)}
           >
             <img
@@ -398,10 +196,6 @@ export default function ProjectDetail() {
               alt={`${project.title} overview`}
               className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-[1.02]"
             />
-            <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500" />
-            <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-md px-3 py-1.5 rounded text-[11px]  tracking-wider text-gray-700 opacity-0 group-hover:opacity-100 transition-opacity">
-              Click to view high-res ↗
-            </div>
           </motion.div>
         )}
       </section>
@@ -453,87 +247,76 @@ export default function ProjectDetail() {
         </div>
       </section>
 
-      {/* ================= 4. GALLERY WALKTHROUGH ================= */}
-      {galleryImages.length > 0 && (
-        <section className="py-20 bg-gray-50/60 border-t border-gray-200">
-          <div className="max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16 mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-            <div>
-              <span className=" text-[11px] uppercase tracking-[0.3em] text-arcadisOrange block mb-2">
-                Visual Documentation
-              </span>
-              <h2 className="text-3xl font-normal tracking-tight text-gray-900">
-                Spatial Walkthrough
-              </h2>
-            </div>
-            <p className="text-xs  text-gray-500 uppercase tracking-wider">
-              {galleryImages.length} Curated Plates
-            </p>
+      {/* ================= 4. IMAGE + DESCRIPTION (first 5) ================= */}
+      {featuredImages.length > 0 && (
+        <section className="max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16 pt-16 pb-16 border-t border-gray-200 flex flex-col gap-16 sm:gap-20">
+          {featuredImages.map((img, idx) => (
+            <motion.figure
+              key={img.image_location}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
+              <div
+                className="w-full overflow-hidden bg-gray-100 cursor-zoom-in"
+                onClick={() => setActiveLightboxImg(img.image_location)}
+              >
+                <img
+                  src={img.image_location}
+                  alt={img.description || `${project.title} view ${idx + 1}`}
+                  loading="lazy"
+                  className="w-full h-auto max-h-[85vh] object-cover"
+                />
+              </div>
+              {img.description && (
+                <figcaption className="mt-5 max-w-3xl text-base sm:text-lg font-light text-gray-700 leading-relaxed">
+                  {img.description}
+                </figcaption>
+              )}
+            </motion.figure>
+          ))}
+        </section>
+      )}
+
+      {/* ================= 5. MORE IMAGES SCROLLER (6+) ================= */}
+      {scrollerImages.length > 0 && (
+        <section className="max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16 pb-20">
+          <span className=" text-[11px] uppercase tracking-[0.3em] text-gray-400 block mb-5">
+            More Images ({scrollerImages.length})
+          </span>
+          <ProjectImageSlider
+            images={scrollerImages.map((img) => img.image_location)}
+            title={project.title}
+            onImageClick={(imgUrl) => setActiveLightboxImg(imgUrl)}
+          />
+        </section>
+      )}
+
+      {/* ================= 6. SIMILAR PROJECTS ================= */}
+      {similarProjects.length > 0 && (
+        <section className="max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16 py-16 border-t border-gray-200">
+          <div className="flex items-end justify-between mb-8">
+            <h2 className="text-2xl sm:text-3xl font-normal tracking-tight text-gray-900">
+              Similar Projects
+            </h2>
+            <Link
+              to="/projects"
+              className="text-xs uppercase tracking-[0.15em] font-mono text-arcadisOrange hover:text-black transition-colors"
+            >
+              View All →
+            </Link>
           </div>
 
-          <div className="max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16">
-            <ProjectImageSlider
-              images={galleryImages}
-              title={project.title}
-              onImageClick={(imgUrl) => setActiveLightboxImg(imgUrl)}
-            />
+          <div className="w-full flex flex-col sm:grid sm:grid-cols-2 md:grid-cols-3 gap-2 md:auto-rows-[minmax(220px,24vw)]">
+            {similarProjects.map((p, idx) => (
+              <ProjectCard key={p.gallerypath || p.title + idx} project={p} groupIndex={idx} />
+            ))}
           </div>
         </section>
       )}
 
-      {/* ================= 5. DESIGN THINKING & NARRATIVE ================= */}
-      <section className="max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16 py-28 border-t border-gray-200">
-        <div className="max-w-2xl mb-16">
-          <span className=" text-[11px] uppercase tracking-[0.3em] text-arcadisOrange block mb-3">
-            Design Philosophy
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-normal tracking-tight leading-tight mb-4">
-            Intent, Methodology & Execution
-          </h2>
-          <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-            Every volumetric decision is filtered through programmatic necessity, environmental response, and refined craft.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
-          {[
-            {
-              code: "01",
-              title: "Contextual Integration",
-              body: "Responding directly to geographical, climate, and urban contours. The volume respects its environment through sensible orientation and massing modulation.",
-            },
-            {
-              code: "02",
-              title: "Material Honesty",
-              body: "Prioritizing materials that age gracefully over time. Surfaces remain tactile and unpretentious, elevating structural transparency throughout each space.",
-            },
-            {
-              code: "03",
-              title: "Spatial Performance",
-              body: "Balancing fluid daylight penetration with acoustic comfort and flexible utility, ensuring longevity for changing spatial requirements.",
-            },
-          ].map((block) => (
-            <div
-              key={block.code}
-              className="p-8 border border-gray-200/80 bg-white hover:border-gray-900 transition-colors duration-500 flex flex-col justify-between"
-            >
-              <div>
-                <span className=" text-xs text-arcadisOrange block mb-6">
-                  [{block.code}]
-                </span>
-                <h3 className="text-lg font-medium text-gray-900 mb-3 tracking-tight">
-                  {block.title}
-                </h3>
-                <p className="text-sm font-light text-gray-600 leading-relaxed">
-                  {block.body}
-                </p>
-              </div>
-              <div className="w-6 h-[1.5px] bg-gray-200 mt-8" />
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ================= 6. LIGHTBOX MODAL ================= */}
+      {/* ================= 7. LIGHTBOX MODAL ================= */}
       <AnimatePresence>
         {activeLightboxImg && (
           <motion.div

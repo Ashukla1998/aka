@@ -1,11 +1,20 @@
 import React, { useEffect, useRef, useState } from "react";
 import Slider from "react-slick";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 
 import pavitra from "../images/support/pavitra.png";
 import hospital from "../images/projects/Healthcare/GEIMSHospital/01.jpg";
 import jd from "../images/projects/Hospitality/jd/01.jpg";
 import regal from "../images/support/regal.JPG";
+
+// Homepage API has no gallerypath, so derive the slug from the cover URL folder:
+// .../Projects/<slug>/cover.jpg
+const getProjectSlug = (p) => {
+  if (p.gallerypath) return p.gallerypath;
+  const match = p.cover?.match(/\/Projects\/([^/]+)\//);
+  return match ? match[1] : null;
+};
 
 const Defaultslides = [
   {
@@ -46,6 +55,8 @@ export default function HeroArcadis( { projects = [] } ) {
         image: p.cover || hospital,
         title: p.title || "Featured Project",
         text: p.description || "",
+        slug: getProjectSlug(p),
+        projectId: p.projectid,
       }))
     : Defaultslides;
 
@@ -111,7 +122,7 @@ export default function HeroArcadis( { projects = [] } ) {
               className="outline-none w-full max-w-full overflow-hidden"
             >
               {/* SLIDE */}
-              <div className="relative h-[100dvh] w-full overflow-hidden">
+              <SlideWrapper slide={slide}>
                 {/* BACKGROUND IMAGE */}
                 <motion.div
                   key={`bg-${index}-${isActive}`}
@@ -207,12 +218,29 @@ export default function HeroArcadis( { projects = [] } ) {
 
                   </div>
                 </div>
-              </div>
+              </SlideWrapper>
             </div>
           );
         })}
       </Slider>
     </section>
+  );
+}
+
+function SlideWrapper({ slide, children }) {
+  const className = "relative block h-[100dvh] w-full overflow-hidden";
+
+  if (!slide.slug) return <div className={className}>{children}</div>;
+
+  return (
+    <Link
+      to={`/projects/${slide.slug}`}
+      state={{ projectId: slide.projectId }}
+      className={`${className} cursor-pointer outline-none`}
+      draggable={false}
+    >
+      {children}
+    </Link>
   );
 }
 
