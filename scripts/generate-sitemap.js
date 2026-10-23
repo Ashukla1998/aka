@@ -1,6 +1,6 @@
 /*
  * Generates public/sitemap.xml from the static routes plus every project
- * returned by the projects API. Runs automatically before `npm run build`.
+ * and team member returned by the APIs. Runs automatically before `npm run build`.
  * Keep SITE_URL in sync with src/components/Seo.jsx.
  */
 const fs = require("fs");
@@ -8,6 +8,7 @@ const path = require("path");
 
 const SITE_URL = "https://www.aka.net.in";
 const PROJECTS_API = "https://www.lifepage.in/n/api/GetProjectData";
+const MEMBERS_API = "https://www.lifepage.in/n/api/GetFilterMember";
 const OUT_FILE = path.join(__dirname, "..", "public", "sitemap.xml");
 
 const STATIC_ROUTES = [
@@ -43,9 +44,35 @@ async function getProjectRoutes() {
   }
 }
 
+// Keep in sync with memberSlug() in src/pages/TeamMember.jsx
+const memberSlug = (m) =>
+  String(m.name || m.memberid || "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+
+async function getMemberRoutes() {
+  try {
+    const res = await fetch(MEMBERS_API);
+    const json = await res.json();
+    if (json.success !== 1 || !json.data || typeof json.data !== "object") throw new Error("Unexpected API response");
+
+    return Object.values(json.data)
+      .flat()
+      .filter((m) => m.is_active !== false && memberSlug(m))
+      .map((m) => ({
+        loc: `/team/${memberSlug(m)}`,
+        priority: "0.5",
+        changefreq: "monthly",
+        image: m.photo,
+        title: m.name,
+      }));
+  } catch (err) {
+    console.warn(`[sitemap] Could not load team members: ${err.message}`);
+    return [];
+  }
+}
+
 async function main() {
   const today = new Date().toISOString().slice(0, 10);
-  const routes = [...STATIC_ROUTES, ...(await getProjectRoutes())];
+  const routes = [...STATIC_ROUTES, ...(await getProjectRoutes()), ...(await getMemberRoutes())];
 
   const urls = routes
     .map((r) => {

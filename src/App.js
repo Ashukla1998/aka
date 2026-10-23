@@ -12,6 +12,7 @@ import Projects from "./pages/Project";
 import ProjectDetail from "./pages/ProjectDetail";
 import Admin from "./pages/Admin";
 import Careers from "./pages/Career";
+import TeamMember from "./pages/TeamMember";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HeroMarquee from "./components/Hero";
@@ -40,6 +41,7 @@ function App() {
             <Route path="/new" element={<Home />} />
             <Route path="/home" element={<Home />} />
             <Route path="/about" element={<About />} />
+            <Route path="/team/:slug" element={<TeamMember />} />
             <Route path="/services" element={<Services />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/projects" element={<Projects />} />

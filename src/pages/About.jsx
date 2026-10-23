@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import teamImage from "../images/team.jpg";
 
 import Seo from "../components/Seo";
+import { memberSlug } from "./TeamMember";
 
 export default function About() {
   const [leaders, setLeaders] = useState([]);
@@ -144,8 +146,10 @@ export default function About() {
 
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 border-t border-b border-neutral-200 divide-x divide-neutral-200">
               {leaders.map((member, index) => (
-                <div
+                <Link
                   key={member.memberid || index}
+                  to={`/team/${memberSlug(member)}`}
+                  state={{ member }}
                   className="group p-4 flex flex-col justify-between cursor-pointer"
                 >
                   <div className="w-full aspect-[3/4] bg-neutral-100 overflow-hidden mb-4">
@@ -190,7 +194,7 @@ export default function About() {
                       </p>
                     )}
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           </section>
@@ -216,8 +220,10 @@ export default function About() {
 
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 border-t border-b border-neutral-200 divide-x divide-neutral-200">
                   {groupMembers.map((member, index) => (
-                    <div
+                    <Link
                       key={member.memberid || index}
+                      to={`/team/${memberSlug(member)}`}
+                      state={{ member }}
                       className="group p-4 flex flex-col justify-between cursor-pointer"
                     >
                       <div className="w-full aspect-[3/4] bg-neutral-100 overflow-hidden mb-4">
@@ -262,7 +268,7 @@ export default function About() {
                           </p>
                         )}
                       </div>
-                    </div>
+                    </Link>
                   ))}
                 </div>
               </div>
